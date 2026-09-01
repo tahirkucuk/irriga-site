@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sulama Sistemi Teklifi Alın | Irriga Mühendislik</title>
+  <meta name="description" content="Damlama sulama sistemi için ücretsiz keşif ziyareti ve yazılı teklif. %30+ su tasarrufu — TKDK/KOSGEB desteğiyle.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --g900: #0F2E1D; --g700: #237A4A; --g500: #3DAA6E;
+      --g50: #F0FAF4; --sand: #FAF9F5; --wa: #25D366;
+      --text: #16241C; --muted: #4A6357; --border: #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: var(--sand); line-height: 1.7; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    /* Minimal header */
+    header { background: var(--g900); padding: 14px 0; }
+    .header-inner { display: flex; align-items: center; justify-content: center; }
+    .logo { color: #fff; font-weight: 800; font-size: 18px; text-decoration: none; }
+    .logo span { color: #4ADE80; }
+
+    /* Hero */
+    .hero { background: var(--g900); padding: 64px 0; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 80% 50%, rgba(35,122,74,0.22) 0%, transparent 65%); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 56px; align-items: center; position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2); color: #4ADE80; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(26px, 4vw, 44px); font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .hero h1 em { color: #4ADE80; font-style: normal; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .benefits li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-size: 15px; }
+    .benefits li::before { content: '✓'; color: #4ADE80; font-weight: 700; font-size: 16px; }
+
+    /* Form card */
+    .form-card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    .form-card h3 { font-size: 19px; font-weight: 700; color: var(--g900); margin-bottom: 4px; }
+    .form-card .sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 12px; font-weight: 600; color: var(--g900); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.01em; }
+    input, select, textarea { width: 100%; padding: 11px 13px; border: 1.5px solid #E5E7EB; border-radius: 8px; font-size: 14px; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
+    input:focus, select:focus, textarea:focus { border-color: var(--g700); box-shadow: 0 0 0 3px rgba(35,122,74,0.1); }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A6357' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+    textarea { resize: vertical; min-height: 72px; }
+    .btn-submit { width: 100%; padding: 15px; background: var(--g700); color: #fff; font-size: 16px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-family: inherit; transition: background 0.2s, transform 0.15s; margin-top: 4px; }
+    .btn-submit:hover { background: #1a5e38; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .guarantee { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #9CA3AF; margin-top: 12px; }
+    .guarantee svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .success-msg { display: none; text-align: center; padding: 24px 0; }
+    .success-msg .icon { font-size: 48px; margin-bottom: 12px; }
+    .success-msg h4 { font-size: 20px; font-weight: 700; color: var(--g700); margin-bottom: 8px; }
+    .success-msg p { font-size: 14px; color: var(--muted); }
+
+    /* Social proof */
+    .proof { padding: 48px 0; }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .proof-card { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; padding: 22px; }
+    .proof-num { font-size: 30px; font-weight: 800; color: var(--g700); margin-bottom: 6px; }
+    .proof-card p { font-size: 14px; color: var(--muted); }
+
+    footer { background: var(--g900); border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 0; text-align: center; }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .form-card { max-width: 480px; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header><div class="wrap"><div class="header-inner"><a href="index.html" class="logo">Irriga <span>Mühendislik</span></a></div></div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Ücretsiz · Yazılı Teklif</div>
+        <h1>Sulama Sisteminiz İçin<br><em>Ücretsiz Keşif</em> ve Teklif</h1>
+        <p>Damlama sulama veya akıllı otomasyon — ne doğru sistem olduğuna önce birlikte karar veriyoruz. Satın alma zorunluluğu yok.</p>
+        <ul class="benefits">
+          <li>Ücretsiz yerinde arazi değerlendirmesi</li>
+          <li>Yazılı fiyat teklifi — 1–3 iş günü</li>
+          <li>%30+ su tasarrufu potansiyeli</li>
+          <li>TKDK/KOSGEB destek başvurusu desteği</li>
+          <li>Kurulum sonrası teknik destek garantisi</li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <h3>Teklif Talep Formu</h3>
+        <p class="sub">2 iş saati içinde sizi arayacağız.</p>
+        <form id="landingForm" novalidate>
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-group">
+            <label>Ad Soyad</label>
+            <input type="text" name="ad" placeholder="Ahmet Yılmaz" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" name="tel" placeholder="05XX XXX XX XX" required>
+          </div>
+          <div class="form-group">
+            <label>İl / İlçe</label>
+            <input type="text" name="il" placeholder="Örn: Konya / Karatay" required>
+          </div>
+          <div class="form-group">
+            <label>İlgilendiğiniz Sistem</label>
+            <select name="sistem">
+              <option value="">Seçin</option>
+              <option>Damlama sulama</option>
+              <option>Yağmurlama / basınçlı sulama</option>
+              <option>Sera sulama</option>
+              <option>Akıllı sulama (IoT / otomasyon)</option>
+              <option>Emin değilim — tavsiye istiyorum</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Arazi Büyüklüğü</label>
+            <input type="text" name="arazi" placeholder="Örn: 10 dönüm, 2 ha">
+          </div>
+          <button type="submit" class="btn-submit" id="landingBtn">Ücretsiz Teklif Al →</button>
+          <div class="guarantee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Bilgileriniz yalnızca teklif sürecinde kullanılır · KVKK kapsamında
+          </div>
+        </form>
+        <div class="success-msg" id="landingSuccess">
+          <div class="icon">🌿</div>
+          <h4>Talebiniz alındı!</h4>
+          <p>2 iş saati içinde sizi arayacağız.<br>WhatsApp: <strong>0532 705 94 00</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-num">%30+</div>
+        <p>Ortalama su tasarrufu — mevcut yağmurlama sistemine kıyasla</p>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">5 gün</div>
+        <p>Standart bir tarla sulama sisteminin ortalama kurulum süresi</p>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">%50 hibe</div>
+        <p>TKDK kırsal kalkınma programıyla mümkün olan maksimum hibe oranı</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>© 2026 Irriga Mühendislik · <a href="kvkk.html">KVKK</a> · <a href="gizlilik-politikasi.html">Gizlilik</a> · <a href="index.html">Ana Sayfa</a></p></div></footer>
+
+<script>
+document.getElementById('landingForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('landingBtn');
+  btn.disabled = true; btn.textContent = 'Gönderiliyor…';
+  const data = new FormData(this);
+  data.set('eylem', 'reklam-landing');
+  try {
+    const res = await fetch('iletisim.php', { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.ok) {
+      this.style.display = 'none';
+      document.getElementById('landingSuccess').style.display = 'block';
+    } else {
+      btn.disabled = false; btn.textContent = 'Ücretsiz Teklif Al →';
+      alert(json.error || 'Bir hata oluştu. Lütfen tekrar deneyin.');
+    }
+  } catch {
+    btn.disabled = false; btn.textContent = 'Ücretsiz Teklif Al →';
+    alert('Bağlantı hatası. Lütfen WhatsApp\'tan yazın: 0532 705 94 00');
+  }
+});
+</script>
+</body>
+</html>

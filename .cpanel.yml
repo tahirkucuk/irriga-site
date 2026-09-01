@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u2838272/public_html/
+    - /bin/cp -f $DEPLOYPATH/.htaccess $DEPLOYPATH/.htaccess.bak 2>/dev/null || true

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sulama Sistemi Kurulumu Öncesi Kontrol Listesi | Irriga Mühendislik</title>
+  <meta name="description" content="Kuruluma başlamadan önce bilmeniz gereken 6 kritik adım. Ücretsiz PDF'i indirin — arazi analizi, su kaynağı, devlet destekleri, teklif karşılaştırma rehberi.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://irrigatr.com/sulama-sistemi-kurulum-kontrol-listesi.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --g900: #0F2E1D;
+      --g700: #237A4A;
+      --g500: #3DAA6E;
+      --g200: #BBF7D0;
+      --g50:  #F0FAF4;
+      --sand: #FAF9F5;
+      --wa:   #25D366;
+      --text: #16241C;
+      --muted: #4A6357;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: var(--sand); line-height: 1.7; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .wrap-narrow { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header { background: var(--g900); padding: 16px 0; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
+    .logo span { color: #4ADE80; }
+    .header-wa { display: flex; align-items: center; gap: 8px; background: var(--wa); color: #fff; font-weight: 600; font-size: 13px; padding: 8px 16px; border-radius: 8px; text-decoration: none; }
+
+    /* Hero */
+    .hero { background: var(--g900); padding: 72px 0 64px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 120% at 80% 50%, rgba(35,122,74,0.25) 0%, transparent 70%); pointer-events: none; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.25); color: #4ADE80; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .hero h1 em { color: #4ADE80; font-style: normal; }
+    .hero-lead { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 520px; margin-bottom: 32px; line-height: 1.75; }
+    .checklist-preview { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .check-item { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.85); font-size: 15px; }
+    .check-icon { width: 22px; height: 22px; background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .check-icon svg { width: 12px; height: 12px; stroke: #4ADE80; }
+
+    /* Form card */
+    .form-card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    .form-card h3 { font-size: 20px; font-weight: 700; color: var(--g900); margin-bottom: 6px; }
+    .form-card p { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--g900); margin-bottom: 5px; }
+    input { width: 100%; padding: 11px 14px; border: 1.5px solid #D1D5DB; border-radius: 8px; font-size: 14px; color: var(--text); outline: none; transition: border-color 0.2s; font-family: inherit; }
+    input:focus { border-color: var(--g700); box-shadow: 0 0 0 3px rgba(35,122,74,0.1); }
+    .btn-submit { width: 100%; padding: 14px; background: var(--g700); color: #fff; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; font-family: inherit; transition: background 0.2s, transform 0.15s; }
+    .btn-submit:hover { background: #1a5e38; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .form-hint { font-size: 11px; color: #9CA3AF; text-align: center; margin-top: 10px; }
+    .form-success { display: none; text-align: center; padding: 16px 0; }
+    .form-success .icon { font-size: 48px; margin-bottom: 12px; }
+    .form-success h4 { font-size: 18px; font-weight: 700; color: var(--g700); margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--muted); }
+
+    /* Hero layout */
+    .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; position: relative; z-index: 1; }
+
+    /* What you get section */
+    .section { padding: 72px 0; }
+    .section--alt { background: var(--g50); }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--g700); margin-bottom: 10px; }
+    .section h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--g900); margin-bottom: 16px; letter-spacing: -0.01em; }
+    .section-lead { font-size: 16px; color: var(--muted); max-width: 520px; margin-bottom: 40px; }
+    .chapters-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .chapter-card { background: #fff; border: 1.5px solid #E5E7EB; border-radius: 14px; padding: 24px; }
+    .chapter-num { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--g500); margin-bottom: 10px; }
+    .chapter-card h4 { font-size: 16px; font-weight: 700; color: var(--g900); margin-bottom: 8px; }
+    .chapter-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* CTA bottom */
+    .cta-section { background: var(--g900); padding: 64px 0; text-align: center; }
+    .cta-section h2 { color: #fff; font-size: clamp(20px, 3vw, 30px); font-weight: 700; margin-bottom: 12px; }
+    .cta-section p { color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 28px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.15s, opacity 0.15s; }
+    .btn-cta:hover { transform: translateY(-2px); opacity: 0.92; }
+    .btn-green { background: var(--g700); color: #fff; }
+    .btn-wa-cta { background: var(--wa); color: #fff; }
+
+    /* Footer */
+    footer { background: var(--g900); border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 12px; color: #6B7280; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: #6B7280; text-decoration: none; }
+    .footer-links a:hover { color: #9CA3AF; }
+
+    /* WhatsApp float */
+    .wa-float { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; background: var(--wa); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 100; text-decoration: none; transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .form-card { max-width: 500px; }
+      .chapters-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 48px 0 40px; }
+      .chapters-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Irriga <span>Mühendislik</span></a>
+      <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="header-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Ücretsiz Rehber
+        </div>
+        <h1>Sulama Sistemi Kurmadan Önce<br><em>Bilmeniz Gereken 6 Adım</em></h1>
+        <p class="hero-lead">Arazi analizinden devlet desteği başvurusuna, teklif karşılaştırmasından bakım planlamasına — kurulumdan önce atlanan adımlar sonradan pahalıya patlıyor.</p>
+        <div class="checklist-preview">
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Arazi ve su kaynağı değerlendirme rehberi
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            KOSGEB & TKDK devlet destek başvuru takvimi
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Teklif karşılaştırma kriterleri listesi
+          </div>
+          <div class="check-item">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Kurulum sonrası bakım planı şablonu
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-card">
+        <h3>Ücretsiz PDF'i İndirin</h3>
+        <p>E-posta adresinizi bırakın, kontrol listesi hemen gönderilsin.</p>
+        <form id="magnetForm" novalidate>
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-group">
+            <label for="ad">Ad Soyad</label>
+            <input type="text" id="ad" name="ad" placeholder="Adınız Soyadınız" required>
+          </div>
+          <div class="form-group">
+            <label for="eposta">E-posta Adresi</label>
+            <input type="email" id="eposta" name="eposta" placeholder="ornek@email.com" required>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            📥 Kontrol Listesini Gönder
+          </button>
+          <p class="form-hint">🔒 E-posta adresiniz yalnızca bu rehberi göndermek için kullanılır. İstediğiniz zaman abonelikten çıkabilirsiniz.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="icon">💧</div>
+          <h4>Kontrol listeniz yolda!</h4>
+          <p>Gelen kutunuzu (ve spam klasörünü) kontrol edin.<br>Genellikle birkaç dakika içinde ulaşır.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chapters -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="eyebrow">Rehberin İçeriği</div>
+    <h2>6 Bölümde Kurulum Öncesi Hazırlık</h2>
+    <p class="section-lead">Her bölüm bağımsız okunabilir. Kendi durumunuzda önce hangi adım eksikse oradan başlayın.</p>
+    <div class="chapters-grid">
+      <div class="chapter-card">
+        <div class="chapter-num">Bölüm 1</div>
+        <h4>Arazi Analizi</h4>
+        <p>Toprak yapısı, eğim, yüzey alanı ve bitki çeşidi — bunları bilmeden sistem seçimi tahmin oyununa döner.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Bölüm 2</div>
+        <h4>Su Kaynağı Değerlendirmesi</h4>
+        <p>Kuyu, şebeke veya gölet — debi testi, su kalitesi analizi ve pompa seçimi kriterleri.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Bölüm 3</div>
+        <h4>Enerji İhtiyacı Hesabı</h4>
+        <p>Pompa gücü, elektrik altyapısı, güneş enerjisi seçeneği — maliyeti etkileyen ikinci büyük kalem.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Bölüm 4</div>
+        <h4>Devlet Destek Başvurusu</h4>
+        <p>KOSGEB, TKDK ve Tarım Bakanlığı destekleri — başvuru takvimi ve gerekli belgeler listesi.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Bölüm 5</div>
+        <h4>Teklif Karşılaştırma</h4>
+        <p>Fiyatı değil maliyeti kıyaslayın. Malzeme kalitesi, garanti koşulları ve referans sorgusu rehberi.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">Bölüm 6</div>
+        <h4>Bakım Planlaması</h4>
+        <p>Filtrasyon temizleme, sezonluk kontrol ve otomasyon kalibrasyonu — sistem ömrünü 3-5 katına çıkaran adımlar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap-narrow">
+    <h2>Araziinizi yerinde değerlendirelim</h2>
+    <p>Kontrol listesini uyguladınız, sorularınız var mı? Ücretsiz keşif ziyareti için iletişime geçin.</p>
+    <div class="cta-buttons">
+      <a href="iletisim.html" class="btn-cta btn-green">Ücretsiz Keşif Talep Et</a>
+      <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn-cta btn-wa-cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp'tan Yazın
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Irriga Mühendislik · irrigatr.com</span>
+      <div class="footer-links">
+        <a href="kvkk.html">KVKK</a>
+        <a href="gizlilik-politikasi.html">Gizlilik</a>
+        <a href="index.html">Ana Sayfa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+document.getElementById('magnetForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Gönderiliyor…';
+  const data = new FormData(this);
+  data.set('eylem', 'kayit');
+  try {
+    const res = await fetch('sekans.php', { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.ok) {
+      document.getElementById('magnetForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = '📥 Kontrol Listesini Gönder';
+      alert(json.error || 'Bir hata oluştu, tekrar deneyin.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = '📥 Kontrol Listesini Gönder';
+    alert('Bağlantı hatası, tekrar deneyin.');
+  }
+});
+</script>
+</body>
+</html>

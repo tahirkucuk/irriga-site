@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Irriga Mühendislik — Sulama Rehberi</title>
+    <link>https://irrigatr.com</link>
+    <description>Damlama sulama, akıllı sulama otomasyonu, devlet destekleri ve sektör güncellemeleri.</description>
+    <language>tr</language>
+    <atom:link href="https://irrigatr.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)</title>
+      <link>https://irrigatr.com/blog/sulama-sistemi-kurulum-maliyeti.html</link>
+      <description>Damlama ve basınçlı sulama sistemi ne kadar tutar? Faizsiz devlet kredileri, KOSGEB ve TKDK destekleri, geri ödeme hesabı.</description>
+      <pubDate>Sun, 31 Aug 2026 09:00:00 +0300</pubDate>
+      <guid>https://irrigatr.com/blog/sulama-sistemi-kurulum-maliyeti.html</guid>
+    </item>
+  </channel>
+</rss>

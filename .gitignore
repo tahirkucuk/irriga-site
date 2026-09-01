@@ -1,0 +1,4 @@
+.smtp-ayar.json
+lead-kayitlari/
+*.log
+.DS_Store

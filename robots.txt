@@ -1,0 +1,41 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /yonetim.html
+Disallow: /lead-takip.php
+Disallow: /lead-ihrac.php
+Disallow: /lead-ozet.php
+Disallow: /haber-gonder.php
+Disallow: /bulten-abone.php
+Disallow: /bulten-iptal.php
+Disallow: /bulten-onayla.php
+Disallow: /bulten-digest.php
+Disallow: /bulten-debug.php
+Disallow: /yayin-bildirim.php
+Disallow: /ads-veri.php
+Disallow: /seo-onay.php
+Disallow: /iletisim.php
+# Blog filtre/parametre görünümleri (blog.html'in kopyası; canonical zaten blog.html'e işaret ediyor) — gereksiz tarama olmasın
+Disallow: /*?cat=
+Disallow: /*?tag=
+
+# AI crawlers — GEO için açık
+User-agent: GPTBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: Google-Extended
+Allow: /
+
+# Canonical: non-www (https://irrigatr.com) kullanılmaktadır.
+# www.irrigatr.com → irrigatr.com yönlendirmesi sunucu (.htaccess) tarafında yapılmalıdır.
+
+Sitemap: https://irrigatr.com/sitemap.xml

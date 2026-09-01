@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026) | Irriga Mühendislik</title>
+  <meta name="description" content="Damlama ve basınçlı sulama sistemi kurulum maliyeti ne kadar? Faizsiz devlet kredileri, KOSGEB ve TKDK destekleri, geri ödeme hesaplama rehberi.">
+  <meta name="keywords" content="sulama sistemi kurulum maliyeti, damlama sulama fiyatı, faizsiz sulama kredisi, KOSGEB sulama desteği, TKDK damlama sulama">
+  <meta property="og:title" content="Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)">
+  <meta property="og:description" content="Damlama ve basınçlı sulama sistemi kurulum maliyeti ne kadar?">
+  <meta property="og:type" content="article">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://irrigatr.com/blog/sulama-sistemi-kurulum-maliyeti.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --g900: #0F2E1D; --g700: #237A4A; --g500: #3DAA6E;
+      --g50: #F0FAF4; --sand: #FAF9F5; --wa: #25D366;
+      --text: #16241C; --muted: #4A6357; --border: #E5E7EB;
+    }
+    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: var(--sand); line-height: 1.8; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    header { background: var(--g900); padding: 16px 0; position: sticky; top: 0; z-index: 50; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
+    .logo span { color: #4ADE80; }
+    .header-cta { background: var(--g700); color: #fff; font-weight: 600; font-size: 13px; padding: 8px 16px; border-radius: 8px; text-decoration: none; }
+
+    /* Article layout */
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 48px; padding: 48px 24px; max-width: 1100px; margin: 0 auto; align-items: start; }
+
+    /* Article head */
+    .article-head { padding: 48px 0 0; }
+    .article-cat { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--g700); margin-bottom: 14px; text-decoration: none; }
+    .article-cat:hover { text-decoration: underline; }
+    h1.article-title { font-size: clamp(22px, 3.5vw, 36px); font-weight: 800; color: var(--g900); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 13px; color: #9CA3AF; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .article-meta strong { color: var(--muted); }
+
+    /* TOC */
+    .toc { background: var(--g50); border: 1.5px solid #D1FAE5; border-radius: 12px; padding: 20px 22px; margin-bottom: 36px; }
+    .toc h4 { font-size: 13px; font-weight: 700; color: var(--g900); margin-bottom: 10px; }
+    .toc ol { padding-left: 18px; display: flex; flex-direction: column; gap: 5px; }
+    .toc li a { font-size: 13px; color: var(--g700); text-decoration: none; }
+    .toc li a:hover { text-decoration: underline; }
+
+    /* Article body */
+    .prose { font-size: 16px; color: #1C3428; }
+    .prose h2 { font-size: 22px; font-weight: 700; color: var(--g900); margin-top: 40px; margin-bottom: 14px; padding-top: 8px; border-top: 2px solid var(--g50); scroll-margin-top: 80px; }
+    .prose h3 { font-size: 18px; font-weight: 700; color: var(--g900); margin-top: 28px; margin-bottom: 10px; }
+    .prose p { margin-bottom: 18px; line-height: 1.82; }
+    .prose ul, .prose ol { padding-left: 22px; margin-bottom: 18px; }
+    .prose li { margin-bottom: 7px; line-height: 1.72; }
+    .prose strong { color: var(--g900); }
+    .prose a { color: var(--g700); }
+    .info-box { background: var(--g50); border-left: 4px solid var(--g700); border-radius: 0 10px 10px 0; padding: 16px 18px; margin: 24px 0; }
+    .info-box p { margin: 0; font-size: 14px; color: var(--muted); }
+    .info-box strong { color: var(--g900); display: block; margin-bottom: 4px; font-size: 14px; }
+    table.maliyet { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    table.maliyet th { background: var(--g900); color: #fff; text-align: left; padding: 10px 14px; font-size: 13px; }
+    table.maliyet td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--muted); }
+    table.maliyet tr:last-child td { border-bottom: none; }
+    table.maliyet td:last-child { font-weight: 700; color: var(--g700); }
+
+    /* CTA in article */
+    .article-cta { background: var(--g900); border-radius: 14px; padding: 28px; margin: 36px 0; text-align: center; }
+    .article-cta h3 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .article-cta p { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 18px; }
+    .btn-ac { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .btn-ac-green { background: var(--g700); color: #fff; }
+    .btn-ac-wa { background: var(--wa); color: #fff; }
+    .article-cta .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* Sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 80px; }
+    .widget { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 18px; }
+    .widget h3 { font-size: 14px; font-weight: 700; color: var(--g900); margin-bottom: 12px; }
+    .magnet-w { background: linear-gradient(135deg, var(--g900), #1a4d30); border-color: transparent; }
+    .magnet-w h3 { color: #fff; }
+    .magnet-w p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+    .btn-m { display: block; text-align: center; background: #4ADE80; color: var(--g900); font-weight: 700; font-size: 13px; padding: 10px 14px; border-radius: 8px; text-decoration: none; }
+    .related-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .related-list li a { font-size: 13px; color: var(--muted); text-decoration: none; line-height: 1.55; display: block; }
+    .related-list li a:hover { color: var(--g700); }
+
+    footer { background: var(--g900); border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 0; margin-top: 48px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 12px; color: #6B7280; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: #6B7280; text-decoration: none; }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; background: var(--wa); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 100; text-decoration: none; transition: transform 0.2s; }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)",
+    "datePublished": "2026-08-31",
+    "dateModified": "2026-08-31",
+    "author": { "@type": "Organization", "name": "Irriga Mühendislik" },
+    "publisher": { "@type": "Organization", "name": "Irriga Mühendislik", "url": "https://irrigatr.com" }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">Irriga <span>Mühendislik</span></a>
+      <a href="../randevu.html" class="header-cta">Keşif Randevusu</a>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <!-- Article -->
+  <article>
+    <div class="article-head">
+      <a href="../blog.html" class="article-cat">← Blog</a>
+      <h1 class="article-title">Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)</h1>
+      <div class="article-meta">
+        <span><strong>Kategori:</strong> Devlet Destekleri & Finansman</span>
+        <span><strong>Güncelleme:</strong> Ağustos 2026</span>
+        <span><strong>Okuma:</strong> ~7 dakika</span>
+      </div>
+    </div>
+
+    <nav class="toc">
+      <h4>İçindekiler</h4>
+      <ol>
+        <li><a href="#maliyet-ne-kadar">Sulama sistemi maliyeti ne kadar?</a></li>
+        <li><a href="#maliyet-belirleyen">Maliyeti belirleyen faktörler</a></li>
+        <li><a href="#devlet-destekleri">Devlet destekleri ve faizsiz kredi</a></li>
+        <li><a href="#geri-odeme">Geri ödeme hesabı: gerçekçi örnek</a></li>
+        <li><a href="#sonuc">Sonuç: Nasıl karar vermeli?</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose">
+
+      <p>Sulama sistemi yatırımı yapmak isteyen çiftçilerin ve arazi sahiplerinin ilk sorusu her zaman aynıdır: <strong>"Bu kaça mal olacak?"</strong> Doğrudan bir cevap vermek zor çünkü maliyet; arazi büyüklüğü, sistem tipi, su kaynağının durumu ve otomasyon tercihine göre büyük farklılıklar gösteriyor.</p>
+
+      <p>Bu yazıda sistematik bir çerçeve sunacağız: tipik maliyet aralıklarını, maliyeti şekillendiren değişkenleri ve 2026 itibarıyla kullanılabilecek devlet desteklerini ele alacağız.</p>
+
+      <h2 id="maliyet-ne-kadar">1. Sulama Sistemi Maliyeti Ne Kadar?</h2>
+
+      <p>Kaba bir karşılaştırma için aşağıdaki tabloyu kullanabilirsiniz. Rakamlar standart bir tarla projesi için hektara düşen yaklaşık maliyetleri göstermektedir (malzeme + işçilik, KDV hariç):</p>
+
+      <table class="maliyet">
+        <tr><th>Sistem Tipi</th><th>Hedef Kitle</th><th>ha/Maliyet Aralığı</th></tr>
+        <tr><td>Damla sulama (tarla)</td><td>Çiftçi, tarımsal işletme</td><td>8.000 – 18.000 ₺/da</td></tr>
+        <tr><td>Damla sulama (sera)</td><td>Sera işletmecisi</td><td>15.000 – 35.000 ₺/da</td></tr>
+        <tr><td>Yağmurlama / basınçlı</td><td>Büyük tarla, meyvelik</td><td>12.000 – 28.000 ₺/da</td></tr>
+        <tr><td>Mikro sprinkler</td><td>Fidanlık, bağ, bahçe</td><td>20.000 – 45.000 ₺/da</td></tr>
+        <tr><td>IoT + otomasyon eki</td><td>Her tür işletme</td><td>+ 15.000 – 60.000 ₺/proje</td></tr>
+      </table>
+
+      <div class="info-box">
+        <strong>Not:</strong>
+        <p>Bu rakamlar kaba tahmindir; gerçek fiyat keşif ziyareti sonrasında net olarak hesaplanır. Su kaynağı altyapısı (sondaj, pompa) ayrıca değerlendirilir.</p>
+      </div>
+
+      <h2 id="maliyet-belirleyen">2. Maliyeti Belirleyen Faktörler</h2>
+
+      <h3>Arazi Büyüklüğü ve Şekli</h3>
+      <p>Büyük ve düzgün parsellerde birim maliyet düşer; küçük, parçalı veya çok eğimli arazilerde boru ve fitting maliyeti artar. 5 dönümün altındaki parsellerde sabit giderler (pompa, filtre istasyonu, kontrol ünitesi) birim maliyeti yükseltir.</p>
+
+      <h3>Su Kaynağı</h3>
+      <p>Hâlihazırda kuyu veya gölet olan arazilerde sistem maliyeti daha düşük başlar. Sondaj gerekiyorsa 40.000–150.000 ₺ ek maliyet (derinlik ve debi'ye göre) hesaba katılmalıdır.</p>
+
+      <h3>Sistem Tipi ve Malzeme Kalitesi</h3>
+      <p>İtalyan veya İspanyol kökenli damlayıcılar yerli ürünlere göre %30–50 daha pahalı; ancak ömürleri çok daha uzun ve hassasiyetleri yüksektir. 10 yıllık bakım maliyeti hesaplandığında kaliteli malzeme genellikle daha avantajlıdır.</p>
+
+      <h3>Otomasyon Seviyesi</h3>
+      <p>Temel zamanlayıcıdan WiseConn gibi IoT sistemlere kadar geniş bir yelpaze var. Otomasyon; iş gücü maliyetini ve su israfını azaltır, ancak başlangıç yatırımını artırır. Büyük parseller veya insan gücünün kısıtlı olduğu işletmeler için geri dönüşü hızlıdır.</p>
+
+      <h2 id="devlet-destekleri">3. Devlet Destekleri ve Faizsiz Kredi</h2>
+
+      <h3>KOSGEB Faizsiz Kredi (Tarımsal Üreticiler)</h3>
+      <p>KOSGEB'in mikro ve küçük işletme destekleri kapsamında tarımsal amaçlı sulama yatırımları için düşük faizli kredi kullanmak mümkündür. 2026 itibarıyla üst limit ve koşullar KOSGEB'in güncel duyurusuyla takip edilmelidir.</p>
+
+      <h3>TKDK Kırsal Kalkınma Hibe Programı</h3>
+      <p>Türkiye'nin AB IPARD programı çerçevesinde TKDK; tarımsal işletme modernizasyonu kapsamında sulama yatırımlarına <strong>%50'ye kadar hibe</strong> desteği sunmaktadır. Tarımsal arazi sahipleri, üretici örgütleri ve genç çiftçiler bu destekten yararlanabilir.</p>
+
+      <div class="info-box">
+        <strong>TKDK Başvurusunda Dikkat Edilmesi Gerekenler:</strong>
+        <p>Hibe programları belirli dönemlerle açılır; sürekli aktif değildir. Teknik proje dosyası (etüt, ÇED, kadastro, su analizi) başvuru öncesinde hazırlanmalıdır. Irriga Mühendislik olarak başvuru dosyası hazırlama konusunda teknik destek sağlıyoruz.</p>
+      </div>
+
+      <h3>Tarım Bakanlığı Sulama Destekleme Ödemeleri</h3>
+      <p>Sulama birliklerine kayıtlı üreticiler için Tarım Bakanlığı'nın yıllık destekleme ödemeleri arasında basınçlı sulama ekipmanı alımı yer almaktadır. Dekar başı sabit destek tutarı her yıl güncellenir.</p>
+
+      <h3>Ziraat Bankası Tarımsal Kredi</h3>
+      <p>Tarımsal amaçlı makine/ekipman kredileri kapsamında sulama sistemleri için <strong>7 yıl vadeye kadar</strong> düşük faizli kredi kullanılabilmektedir. Borç yapılandırma ve taksit tatil dönemleri proje nakit akışına göre planlanabilir.</p>
+
+      <h2 id="geri-odeme">4. Geri Ödeme Hesabı: Gerçekçi Örnek</h2>
+
+      <p>14 dönüm çilek serası düşünelim. Mevcut yağmurlama sistemi aylık 280 m³ su kullanırken, damlama sistemi kurulumundan sonra aynı verim için 185 m³ yeterli olmaktadır.</p>
+
+      <ul>
+        <li>Kurulum maliyeti (14 da damlama + filtre): ~450.000 ₺</li>
+        <li>Yıllık su tasarrufu (kuyu + elektrik): ~65.000 ₺</li>
+        <li>İş gücü tasarrufu (sulama saatleri): ~40.000 ₺</li>
+        <li>Ürün kalitesi iyileşmesi (iade azalması): tahmini 30.000 ₺</li>
+        <li><strong>Toplam yıllık fayda: ~135.000 ₺</strong></li>
+        <li><strong>Geri ödeme süresi: yaklaşık 3.3 yıl</strong></li>
+      </ul>
+
+      <p>TKDK hibesi ile desteklendiğinde (%50 hibe varsayımıyla) geri ödeme süresi 1.7 yıla iner.</p>
+
+      <h2 id="sonuc">5. Sonuç: Nasıl Karar Vermeli?</h2>
+
+      <p>Sulama sistemi yatırım kararını üç adımda somutlaştırabilirsiniz:</p>
+
+      <ol>
+        <li><strong>Arazi ve su kaynağı değerlendirmesi</strong> — Bu olmadan sağlıklı fiyat almak mümkün değildir.</li>
+        <li><strong>Devlet desteği uygunluğunu sorgulayın</strong> — Brüt maliyetin %30–50'si hibe veya düşük faizli krediyle karşılanabilir.</li>
+        <li><strong>En az iki farklı teklif alın</strong> — Malzeme kalitesi, garanti koşulları ve referans sorgulamayı ihmal etmeyin.</li>
+      </ol>
+
+      <div class="article-cta">
+        <h3>Araziniz için ücretsiz maliyet tahmini alın</h3>
+        <p>Keşif ziyareti sonrasında size özel, yazılı ve garantili bir fiyat teklifi hazırlıyoruz.</p>
+        <div class="cta-btns">
+          <a href="../randevu.html" class="btn-ac btn-ac-green">Randevu Al</a>
+          <a href="https://wa.me/905327059400?text=Sulama+sistemi+maliyet+bilgisi+almak+istiyorum." target="_blank" class="btn-ac btn-ac-wa">WhatsApp'tan Sor</a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="widget magnet-w">
+      <h3>📋 Ücretsiz Kontrol Listesi</h3>
+      <p>Kurulum öncesi bilmeniz gereken 6 adım — PDF formatında.</p>
+      <a href="../sulama-sistemi-kurulum-kontrol-listesi.html" class="btn-m">Ücretsiz Al</a>
+    </div>
+    <div class="widget">
+      <h3>İlgili Yazılar</h3>
+      <ul class="related-list">
+        <li><a href="#">Toprak Altı Sulama: Avantajları ve Dezavantajları</a></li>
+        <li><a href="#">Akıllı Sulama Otomasyonu Devlet Desteği (2026)</a></li>
+        <li><a href="#">Faizsiz Basınçlı Sulama Kredisi Şartları</a></li>
+      </ul>
+    </div>
+    <div class="widget">
+      <h3>Hızlı Bağlantılar</h3>
+      <ul class="related-list">
+        <li><a href="../randevu.html">📅 Keşif Randevusu →</a></li>
+        <li><a href="../gelismeler.html">📰 Sektör Haberleri →</a></li>
+        <li><a href="../blog.html">📖 Tüm Yazılar →</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Irriga Mühendislik · irrigatr.com</span>
+      <div class="footer-links">
+        <a href="../kvkk.html">KVKK</a>
+        <a href="../gizlilik-politikasi.html">Gizlilik</a>
+        <a href="../index.html">Ana Sayfa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/905327059400?text=Merhaba" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+</body>
+</html>
