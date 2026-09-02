@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - /usr/bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' /home/u2838272/irriga-site/ /home/u2838272/public_html/
+    - /bin/cp -rf /home/u2838272/irriga-site/. /home/u2838272/public_html/
+    - /bin/rm -f /home/u2838272/public_html/.cpanel.yml
