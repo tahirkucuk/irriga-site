@@ -1,5 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/u2838272/public_html/
-    - /bin/cp -f $DEPLOYPATH/.htaccess $DEPLOYPATH/.htaccess.bak 2>/dev/null || true
+    - /usr/bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' /home/u2838272/irriga-site/ /home/u2838272/public_html/
