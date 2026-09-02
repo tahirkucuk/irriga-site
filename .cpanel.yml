@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - /bin/cp -rf /home/u2838272/irriga-site/. /home/u2838272/public_html/
-    - /bin/rm -f /home/u2838272/public_html/.cpanel.yml
+    - /bin/cp -rf /home/u2838272/irriga-site/. /home/u2838272/irriga.com.tr/
+    - /bin/rm -f /home/u2838272/public_html/.cpanel.yml /home/u2838272/irriga.com.tr/.cpanel.yml
