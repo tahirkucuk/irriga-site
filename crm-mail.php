@@ -8,7 +8,7 @@ header('Content-Type: application/json; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['ok'=>false]); exit; }
 if (!hash_equals('c41af87250434ecadaf9513850a46357', $_POST['token'] ?? '')) { http_response_code(404); exit; }
 
-$SITE = 'https://irrigatr.com';
+$SITE = 'https://irriga.com.tr';
 $tip = $_POST['tip'] ?? '';
 $eposta = strtolower(trim($_POST['eposta'] ?? ''));
 $ad = trim($_POST['ad'] ?? '');
@@ -72,7 +72,7 @@ $html = "<!DOCTYPE html><html><head><meta charset='UTF-8'></head>
 </td></tr>
 <tr><td style='background:#fff;padding:28px 26px;font-size:14.5px;line-height:1.75;color:#334155;'>{$secim['ic']}</td></tr>
 <tr><td style='background:#0F172A;padding:14px 26px;border-radius:0 0 12px 12px;'>
-  <p style='margin:0;font-size:11px;color:#475569;'>irrigatr.com · Trendyol & Pazaryeri Danışmanlığı</p>
+  <p style='margin:0;font-size:11px;color:#475569;'>irriga.com.tr · Trendyol & Pazaryeri Danışmanlığı</p>
 </td></tr>
 </table></td></tr></table></body></html>";
 
@@ -86,7 +86,7 @@ if(!$fp){ echo json_encode(['ok'=>false,'error'=>'smtp bağlantı']); exit; }
 stream_set_timeout($fp,15);
 $r=function()use($fp){$d='';while($l=fgets($fp,515)){$d.=$l;if(strlen($l)<4||$l[3]===' ')break;}return $d;};
 $c=function($cmd)use($fp,$r){fwrite($fp,$cmd."\r\n");return $r();};
-$r();$c('EHLO irrigatr.com');if($port===587){$c('STARTTLS');stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT);$c('EHLO irrigatr.com');}
+$r();$c('EHLO irriga.com.tr');if($port===587){$c('STARTTLS');stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT);$c('EHLO irriga.com.tr');}
 $c('AUTH LOGIN');$c(base64_encode($cfg['kullanici']));
 $okAuth = strpos($c(base64_encode($cfg['sifre'])),'235')===0;
 $ok = $okAuth
@@ -94,7 +94,7 @@ $ok = $okAuth
   && strpos($c("RCPT TO:<$eposta>"),'250')===0
   && strpos($c('DATA'),'354')===0;
 if ($ok) {
-    $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <{$cfg['kullanici']}>\r\nTo: $eposta\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irrigatr.com>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
+    $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <{$cfg['kullanici']}>\r\nTo: $eposta\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irriga.com.tr>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
     $ok = strpos($c($h."\r\n".preg_replace('/^\./m','..',$html)."\r\n."),'250')===0;
 }
 $c('QUIT'); fclose($fp);

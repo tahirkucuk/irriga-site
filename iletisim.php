@@ -170,7 +170,7 @@ function smtp_gonder($host, $port, $kullanici, $sifre, $to, $subject, $body, $re
     };
 
     $oku(); // karşılama
-    $komut('EHLO irrigatr.com');
+    $komut('EHLO irriga.com.tr');
 
     if ($port === 587) {
         $r = $komut('STARTTLS');
@@ -178,7 +178,7 @@ function smtp_gonder($host, $port, $kullanici, $sifre, $to, $subject, $body, $re
         if (!stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
             fclose($fp); return 'TLS başlatılamadı';
         }
-        $komut('EHLO irrigatr.com');
+        $komut('EHLO irriga.com.tr');
     }
 
     $komut('AUTH LOGIN');

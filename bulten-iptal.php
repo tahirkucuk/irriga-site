@@ -78,18 +78,18 @@ if (strlen($token) === 32) {
       <div class="icon">👋</div>
       <h1>Aboneliğiniz İptal Edildi</h1>
       <p>Artık bülten almayacaksınız. Pişman olursanız istediğiniz zaman yeniden abone olabilirsiniz.</p>
-      <a href="https://irrigatr.com" class="btn">Ana Sayfaya Dön</a><br>
-      <a href="https://irrigatr.com/blog.html" class="btn btn-ghost" style="display:inline-flex;margin-top:12px;">Rehberleri İncele</a>
+      <a href="https://irriga.com.tr" class="btn">Ana Sayfaya Dön</a><br>
+      <a href="https://irriga.com.tr/blog.html" class="btn btn-ghost" style="display:inline-flex;margin-top:12px;">Rehberleri İncele</a>
     <?php elseif ($zatenIptal): ?>
       <div class="icon">✓</div>
       <h1>Zaten İptal Edilmiş</h1>
       <p>Bu abonelik daha önce iptal edildi. Artık bülten almıyorsunuz.</p>
-      <a href="https://irrigatr.com" class="btn">Ana Sayfaya Dön</a>
+      <a href="https://irriga.com.tr" class="btn">Ana Sayfaya Dön</a>
     <?php else: ?>
       <div class="icon">⚠️</div>
       <h1>Geçersiz Link</h1>
       <p>Bu iptal bağlantısı geçersiz. Eğer hâlâ bülten alıyorsanız, aldığınız son e-postadaki iptal linkini kullanın.</p>
-      <a href="https://irrigatr.com" class="btn">Ana Sayfaya Dön</a>
+      <a href="https://irriga.com.tr" class="btn">Ana Sayfaya Dön</a>
     <?php endif; ?>
   </div>
 </body>

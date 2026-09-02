@@ -52,11 +52,11 @@ function smtp_baglanti($host, $port, $kullanici, $sifre)
     };
     $komut = function ($c) use ($fp, $oku) { fwrite($fp, $c . "\r\n"); return $oku(); };
     $oku();
-    $komut('EHLO irrigatr.com');
+    $komut('EHLO irriga.com.tr');
     if ($port === 587) {
         if (strpos($komut('STARTTLS'), '220') !== 0) { fclose($fp); return false; }
         if (!stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) { fclose($fp); return false; }
-        $komut('EHLO irrigatr.com');
+        $komut('EHLO irriga.com.tr');
     }
     $komut('AUTH LOGIN');
     $komut(base64_encode($kullanici));
@@ -156,7 +156,7 @@ if (!empty($aboneler) && $gecerliYazi) {
     $bultenSubject = '=?UTF-8?B?' . base64_encode('Yeni Rehber: ' . $baslik) . '?=';
 
     foreach ($aboneler as $abone) {
-        $iptalLink = 'https://irrigatr.com/bulten-iptal.php?token=' . ($abone['token'] ?? '');
+        $iptalLink = 'https://irriga.com.tr/bulten-iptal.php?token=' . ($abone['token'] ?? '');
 
         $htmlBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <body style="font-family:Arial,sans-serif;max-width:580px;margin:0 auto;background:#f8fafc;color:#334155;">
@@ -175,7 +175,7 @@ if (!empty($aboneler) && $gecerliYazi) {
 </div>
 <div style="background:#F1F5F9;padding:14px 32px;border-radius:0 0 12px 12px;border:1px solid #E2E8F0;border-top:none;">
   <p style="font-size:12px;color:#94A3B8;margin:0;">
-    <a href="https://irrigatr.com" style="color:#7C3AED;text-decoration:none;">irrigatr.com</a>
+    <a href="https://irriga.com.tr" style="color:#7C3AED;text-decoration:none;">irriga.com.tr</a>
     &nbsp;·&nbsp;
     <a href="' . htmlspecialchars($iptalLink) . '" style="color:#94A3B8;">Abonelikten çık</a>
   </p>

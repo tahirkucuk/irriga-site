@@ -57,7 +57,7 @@ if ($basari && $onaylananEposta !== '') {
     if ($cfg && !empty($cfg['kullanici']) && !empty($cfg['sifre'])) {
         $smtpHost = !empty($cfg['sunucu']) ? $cfg['sunucu'] : 'localhost';
         $smtpPort = !empty($cfg['port']) ? (int)$cfg['port'] : 465;
-        $iptalLink = 'https://irrigatr.com/bulten-iptal.php?token=' . $token;
+        $iptalLink = 'https://irriga.com.tr/bulten-iptal.php?token=' . $token;
 
         $subject = '=?UTF-8?B?' . base64_encode('Hoş geldiniz! Bülteniniz aktif — Irriga Mühendislik') . '?=';
 
@@ -65,7 +65,7 @@ if ($basari && $onaylananEposta !== '') {
 <body style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;background:#f8fafc;color:#334155;">
 <div style="background:#0F172A;padding:28px 32px;border-radius:12px 12px 0 0;">
   <span style="font-weight:800;font-size:18px;color:#fff;letter-spacing:-0.01em;">Irriga Mühendislik</span>
-  <span style="display:block;font-size:12px;color:#64748B;margin-top:4px;">irrigatr.com</span>
+  <span style="display:block;font-size:12px;color:#64748B;margin-top:4px;">irriga.com.tr</span>
 </div>
 <div style="background:#fff;padding:32px;border:1px solid #E2E8F0;border-top:none;">
   <h2 style="font-size:20px;font-weight:700;color:#0F172A;margin:0 0 16px;line-height:1.3;">Bültene hoş geldiniz!</h2>
@@ -75,14 +75,14 @@ if ($basari && $onaylananEposta !== '') {
   <p style="font-size:15px;line-height:1.7;color:#475569;margin:0 0 24px;">
     Mevcut rehberlerimize göz atmak ister misiniz?
   </p>
-  <a href="https://irrigatr.com/blog.html"
+  <a href="https://irriga.com.tr/blog.html"
      style="display:inline-block;padding:14px 28px;background:#7C3AED;color:#fff;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:-0.01em;">
     Rehberleri İncele →
   </a>
 </div>
 <div style="background:#F1F5F9;padding:14px 32px;border-radius:0 0 12px 12px;border:1px solid #E2E8F0;border-top:none;">
   <p style="font-size:12px;color:#94A3B8;margin:0;">
-    <a href="https://irrigatr.com" style="color:#7C3AED;text-decoration:none;">irrigatr.com</a>
+    <a href="https://irriga.com.tr" style="color:#7C3AED;text-decoration:none;">irriga.com.tr</a>
     &nbsp;·&nbsp;
     <a href="' . htmlspecialchars($iptalLink) . '" style="color:#94A3B8;">Abonelikten çık</a>
   </p>
@@ -91,7 +91,7 @@ if ($basari && $onaylananEposta !== '') {
 
         $textBody  = "Bültene hoş geldiniz — Irriga Mühendislik\n\n";
         $textBody .= "Aboneliğiniz onaylandı. Trendyol ve e-ticaret rehberleri artık doğrudan gelen kutunuza gelecek.\n\n";
-        $textBody .= "Rehberleri inceleyin: https://irrigatr.com/blog.html\n\n";
+        $textBody .= "Rehberleri inceleyin: https://irriga.com.tr/blog.html\n\n";
         $textBody .= "---\nAbonelikten çıkmak için: $iptalLink\n";
 
         $errno = 0; $errstr = '';
@@ -106,7 +106,7 @@ if ($basari && $onaylananEposta !== '') {
             };
             $komut = function ($c) use ($fp, $oku) { fwrite($fp, $c . "\r\n"); return $oku(); };
             $oku();
-            $komut('EHLO irrigatr.com');
+            $komut('EHLO irriga.com.tr');
             // Not: bu satır içi gönderim yalnızca port 465 (ssl://) içindir; STARTTLS eklenmedi.
             $komut('AUTH LOGIN');
             $komut(base64_encode($cfg['kullanici']));
@@ -162,17 +162,17 @@ if ($basari && $onaylananEposta !== '') {
       <div class="icon">✅</div>
       <h1>Aboneliğiniz Onaylandı!</h1>
       <p>Trendyol ve e-ticaret güncellemelerini artık doğrudan gelen kutunuzda alacaksınız. İstediğiniz zaman abonelikten çıkabilirsiniz.</p>
-      <a href="https://irrigatr.com/blog.html" class="btn">Rehberleri İncele →</a>
+      <a href="https://irriga.com.tr/blog.html" class="btn">Rehberleri İncele →</a>
     <?php elseif ($zatenOnaylandi): ?>
       <div class="icon">👍</div>
       <h1>Zaten Abonesiniz</h1>
       <p>Bu e-posta adresi zaten bültenimize kayıtlı. Yeni içerikler doğrudan size ulaşıyor.</p>
-      <a href="https://irrigatr.com" class="btn">Ana Sayfaya Dön</a>
+      <a href="https://irriga.com.tr" class="btn">Ana Sayfaya Dön</a>
     <?php else: ?>
       <div class="icon">⚠️</div>
       <h1>Geçersiz veya Süresi Dolmuş Link</h1>
       <p>Bu onay bağlantısı geçersiz veya daha önce kullanılmış. Yeniden abone olmayı deneyin.</p>
-      <a href="https://irrigatr.com/blog.html" class="btn">Siteye Dön</a>
+      <a href="https://irriga.com.tr/blog.html" class="btn">Siteye Dön</a>
     <?php endif; ?>
   </div>
 </body>

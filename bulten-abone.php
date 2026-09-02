@@ -108,8 +108,8 @@ if (!$cfg || empty($cfg['kullanici']) || empty($cfg['sifre'])) {
     exit;
 }
 
-$onayLink  = 'https://irrigatr.com/bulten-onayla.php?token=' . $token;
-$iptalLink = 'https://irrigatr.com/bulten-iptal.php?token=' . $token;
+$onayLink  = 'https://irriga.com.tr/bulten-onayla.php?token=' . $token;
+$iptalLink = 'https://irriga.com.tr/bulten-iptal.php?token=' . $token;
 
 $subject = '=?UTF-8?B?' . base64_encode('Bülten aboneliğinizi onaylayın — Irriga Mühendislik') . '?=';
 
@@ -117,13 +117,13 @@ $bodyHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <body style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;background:#f8fafc;color:#334155;">
 <div style="background:#0F172A;padding:28px 32px;border-radius:12px 12px 0 0;">
   <span style="font-weight:800;font-size:18px;color:#fff;letter-spacing:-0.01em;">Irriga Mühendislik</span>
-  <span style="display:block;font-size:12px;color:#64748B;margin-top:4px;">irrigatr.com</span>
+  <span style="display:block;font-size:12px;color:#64748B;margin-top:4px;">irriga.com.tr</span>
 </div>
 <div style="background:#fff;padding:32px;border:1px solid #E2E8F0;border-top:none;">
   <h2 style="font-size:20px;font-weight:700;color:#0F172A;margin:0 0 16px;line-height:1.3;">Bülten aboneliğinizi onaylayın</h2>
   <p style="font-size:15px;line-height:1.7;color:#475569;margin:0 0 24px;">
     Merhaba,<br><br>
-    <strong>irrigatr.com</strong> bültenine bu e-posta adresiyle abone olma isteği aldık.
+    <strong>irriga.com.tr</strong> bültenine bu e-posta adresiyle abone olma isteği aldık.
     Trendyol ve e-ticaret güncellemelerini almak için aşağıdaki butona tıklayarak aboneliğinizi onaylayın.
   </p>
   <a href="' . htmlspecialchars($onayLink) . '"
@@ -139,13 +139,13 @@ $bodyHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <div style="background:#F1F5F9;padding:14px 32px;border-radius:0 0 12px 12px;border:1px solid #E2E8F0;border-top:none;">
   <p style="font-size:12px;color:#94A3B8;margin:0;">
     Trendyol ve pazaryerleri rehberleri &nbsp;·&nbsp;
-    <a href="https://irrigatr.com" style="color:#7C3AED;text-decoration:none;">irrigatr.com</a>
+    <a href="https://irriga.com.tr" style="color:#7C3AED;text-decoration:none;">irriga.com.tr</a>
   </p>
 </div>
 </body></html>';
 
 $bodyText  = "Bülten aboneliğinizi onaylayın — Irriga Mühendislik\n\n";
-$bodyText .= "Bu e-posta ile irrigatr.com bültenine abone olma isteği aldık.\n\n";
+$bodyText .= "Bu e-posta ile irriga.com.tr bültenine abone olma isteği aldık.\n\n";
 $bodyText .= "Onaylamak için: " . $onayLink . "\n\n";
 $bodyText .= "Bu isteği siz yapmadıysanız bu maili silebilirsiniz.\n";
 $bodyText .= "Hemen iptal etmek için: " . $iptalLink . "\n";
@@ -164,11 +164,11 @@ function smtp_onayla($host, $port, $kullanici, $sifre, $to, $subject, $htmlBody,
     };
     $komut = function ($c) use ($fp, $oku) { fwrite($fp, $c . "\r\n"); return $oku(); };
     $oku();
-    $komut('EHLO irrigatr.com');
+    $komut('EHLO irriga.com.tr');
     if ($port === 587) {
         if (strpos($komut('STARTTLS'), '220') !== 0) { fclose($fp); return false; }
         if (!stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) { fclose($fp); return false; }
-        $komut('EHLO irrigatr.com');
+        $komut('EHLO irriga.com.tr');
     }
     $komut('AUTH LOGIN');
     $komut(base64_encode($kullanici));

@@ -17,11 +17,11 @@ RewriteRule ^(admin|yonetim)\.html$ - [G]
 
 # www → non-www (301)
 RewriteCond %{HTTP_HOST} ^www\.irrigatr\.com [NC]
-RewriteRule ^(.*)$ https://irrigatr.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://irriga.com.tr/$1 [R=301,L]
 
 # /index.html → / (301)
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
-RewriteRule ^index\.html$ https://irrigatr.com/ [R=301,L]
+RewriteRule ^index\.html$ https://irriga.com.tr/ [R=301,L]
 
 # Canonical: trailing-slash olmadan
 RewriteCond %{REQUEST_FILENAME} !-d

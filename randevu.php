@@ -49,8 +49,8 @@ function mailYolla($to, $subj, $html) {
     stream_set_timeout($fp, 12);
     $r = function() use ($fp) { $d=''; while($l=fgets($fp,515)){$d.=$l; if(strlen($l)<4||$l[3]===' ')break;} return $d; };
     $c = function($cmd) use ($fp,$r) { fwrite($fp,$cmd."\r\n"); return $r(); };
-    $r(); $c('EHLO irrigatr.com');
-    if ($port===587) { $c('STARTTLS'); @stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT); $c('EHLO irrigatr.com'); }
+    $r(); $c('EHLO irriga.com.tr');
+    if ($port===587) { $c('STARTTLS'); @stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT); $c('EHLO irriga.com.tr'); }
     $c('AUTH LOGIN'); $c(base64_encode($cfg['kullanici']));
     $ok = false;
     if (strpos($c(base64_encode($cfg['sifre'])),'235')===0
@@ -58,7 +58,7 @@ function mailYolla($to, $subj, $html) {
         && strpos($c("RCPT TO:<$to>"),'250')===0
         && strpos($c('DATA'),'354')===0) {
         $subjEnc = '=?UTF-8?B?'.base64_encode($subj).'?=';
-        $h = "From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <{$cfg['kullanici']}>\r\nTo: $to\r\nSubject: $subjEnc\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irrigatr.com>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
+        $h = "From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <{$cfg['kullanici']}>\r\nTo: $to\r\nSubject: $subjEnc\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irriga.com.tr>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
         $c($h."\r\n".preg_replace('/^\./m','..',$html)."\r\n.");
         $ok = true;
     }
@@ -188,7 +188,7 @@ if ($eylem === 'talep' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $ilkAd = htmlspecialchars(explode(' ', $ad)[0]);
         $deneBlok = '';
         if ($deneSektor !== '') {
-            $deneUrl = 'https://irrigatr.com/sistemini-dene.html?sektor=' . $deneSektor
+            $deneUrl = 'https://irriga.com.tr/sistemini-dene.html?sektor=' . $deneSektor
                      . ($deneMarka !== '' ? '&marka=' . rawurlencode($deneMarka) : '');
             $deneKim = ($deneMarka !== '') ? '<b>' . htmlspecialchars($deneMarka) . '</b> markasıyla' : 'sektörünüze özel';
             $deneBlok = "<p style='background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:12px 16px;'>"
@@ -207,7 +207,7 @@ if ($eylem === 'talep' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 {$deneBlok}
 <p style='font-size:13px;color:#64748B;'>Saat değişikliği gerekirse bu maile yanıt verebilirsiniz.</p>
 </td></tr>
-<tr><td style='background:#0F172A;padding:14px 26px;border-radius:0 0 12px 12px;'><p style='margin:0;font-size:11px;color:#475569;'>irrigatr.com · Trendyol & Pazaryeri Danışmanlığı</p></td></tr>
+<tr><td style='background:#0F172A;padding:14px 26px;border-radius:0 0 12px 12px;'><p style='margin:0;font-size:11px;color:#475569;'>irriga.com.tr · Trendyol & Pazaryeri Danışmanlığı</p></td></tr>
 </table></td></tr></table></body></html>";
         $subj='=?UTF-8?B?'.base64_encode("✅ Randevu talebiniz alındı — {$tStr}").'?=';
         $host=$cfg['sunucu']??'localhost'; $port=(int)($cfg['port']??465);
@@ -216,14 +216,14 @@ if ($eylem === 'talep' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             stream_set_timeout($fp,12);
             $r=function()use($fp){$d='';while($l=fgets($fp,515)){$d.=$l;if(strlen($l)<4||$l[3]===' ')break;}return $d;};
             $c=function($cmd)use($fp,$r){fwrite($fp,$cmd."\r\n");return $r();};
-            $r();$c('EHLO irrigatr.com');
-            if($port===587){$c('STARTTLS');@stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT);$c('EHLO irrigatr.com');}
+            $r();$c('EHLO irriga.com.tr');
+            if($port===587){$c('STARTTLS');@stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT);$c('EHLO irriga.com.tr');}
             $c('AUTH LOGIN');$c(base64_encode($cfg['kullanici']));
             if(strpos($c(base64_encode($cfg['sifre'])),'235')===0
                && strpos($c("MAIL FROM:<{$cfg['kullanici']}>"),'250')===0
                && strpos($c("RCPT TO:<$eposta>"),'250')===0
                && strpos($c('DATA'),'354')===0){
-                $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <{$cfg['kullanici']}>\r\nTo: $eposta\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irrigatr.com>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
+                $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <{$cfg['kullanici']}>\r\nTo: $eposta\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irriga.com.tr>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
                 $c($h."\r\n".preg_replace('/^\./m','..',$html)."\r\n.");
             }
             $c('QUIT'); fclose($fp);
@@ -287,7 +287,7 @@ if ($eylem === 'tamam' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <p style='text-align:center;margin:22px 0;'><a href='{$meetSafe}' style='display:inline-block;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:13px 26px;border-radius:10px;'>🎥 Meet Görüşmesine Katıl</a></p>
 <p style='font-size:13px;color:#64748B;'>Bağlantı çalışmazsa: <a href='{$meetSafe}' style='color:#2563EB;'>{$meetSafe}</a><br>Görüşme saatinde bu bağlantıya tıklamanız yeterli. Saat değişikliği için bu maile yanıt verebilirsiniz.</p>
 </td></tr>
-<tr><td style='background:#0F172A;padding:14px 26px;border-radius:0 0 12px 12px;'><p style='margin:0;font-size:11px;color:#475569;'>irrigatr.com · Trendyol & Pazaryeri Danışmanlığı</p></td></tr>
+<tr><td style='background:#0F172A;padding:14px 26px;border-radius:0 0 12px 12px;'><p style='margin:0;font-size:11px;color:#475569;'>irriga.com.tr · Trendyol & Pazaryeri Danışmanlığı</p></td></tr>
 </table></td></tr></table></body></html>";
         $mailGitti = mailYolla($bilgi['eposta'], "✅ Görüşmeniz onaylandı — Meet bağlantınız hazır", $html);
     }

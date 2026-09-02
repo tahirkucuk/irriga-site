@@ -19,8 +19,8 @@ stream_set_timeout($fp,15);
 $r=function()use($fp){$d='';while($l=fgets($fp,515)){$d.=$l;if(strlen($l)<4||$l[3]===' ')break;}return trim($d);};
 $c=function($cmd,$etiket)use($fp,$r,&$log){fwrite($fp,$cmd."\r\n");$y=$r();$log[]=[$etiket,$y];return $y;};
 $log[]=['BAGLANTI',$r()];
-$c('EHLO irrigatr.com','EHLO');
-if($port===587){$c('STARTTLS','STARTTLS');@stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT);$c('EHLO irrigatr.com','EHLO2');}
+$c('EHLO irriga.com.tr','EHLO');
+if($port===587){$c('STARTTLS','STARTTLS');@stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT);$c('EHLO irriga.com.tr','EHLO2');}
 $c('AUTH LOGIN','AUTH');
 $c(base64_encode($user),'USER');
 $c(base64_encode($cfg['sifre']),'PASS');
@@ -29,7 +29,7 @@ $c("RCPT TO:<$eposta>",'RCPT-TO');
 $dataY = $c('DATA','DATA');
 if (strpos($dataY,'354')===0) {
     $subj='=?UTF-8?B?'.base64_encode('SMTP teslimat testi — Irriga Mühendislik').'?=';
-    $mid = '<'.uniqid('',true).'@irrigatr.com>';
+    $mid = '<'.uniqid('',true).'@irriga.com.tr>';
     $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <$user>\r\nTo: $eposta\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: $mid\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\n";
     $body="Bu bir SMTP teslimat testidir. Bu maili gorduyseniz teslimat calisiyor.\r\nZaman: ".date('c');
     $c($h."\r\n".$body."\r\n.",'GONDERIM');

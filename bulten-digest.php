@@ -67,7 +67,7 @@ $sayi  = count($yazilar);
 // Her haber kartı
 function haberKart($y, $renkler) {
     $renk    = kategoriRenk($y['category'] ?? '', $renkler);
-    $url     = 'https://irrigatr.com/' . htmlspecialchars($y['url'] ?? '');
+    $url     = 'https://irriga.com.tr/' . htmlspecialchars($y['url'] ?? '');
     $baslik  = htmlspecialchars($y['title'] ?? '');
     $ozet    = htmlspecialchars($y['excerpt'] ?? '');
     $kat     = mb_strtoupper($y['category'] ?? 'GÜNCEL');
@@ -80,9 +80,9 @@ function haberKart($y, $renkler) {
     if (strpos($imgField, 'http') === 0) {
         $thumb = $imgField;
     } elseif ($imgField !== '' && is_file(__DIR__ . '/' . $imgField)) {
-        $thumb = 'https://irrigatr.com/' . $imgField;
+        $thumb = 'https://irriga.com.tr/' . $imgField;
     } elseif (is_file(__DIR__ . '/media/thumbnails/thumb-' . $slug . '.jpg')) {
-        $thumb = 'https://irrigatr.com/media/thumbnails/thumb-' . $slug . '.jpg';
+        $thumb = 'https://irriga.com.tr/media/thumbnails/thumb-' . $slug . '.jpg';
     }
     $gorselHucre = $thumb === '' ? '' : "
       <td width='180' style='vertical-align:top;padding:0;'>
@@ -125,7 +125,7 @@ $html = "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' 
 <tr><td style='background:#0F172A;padding:24px 28px 20px;border-radius:12px 12px 0 0;'>
   <table width='100%'><tr>
     <td><span style='font-size:20px;font-weight:700;color:#FFFFFF;letter-spacing:-0.02em;'>Irriga Mühendislik</span>
-      <span style='display:block;font-size:12px;color:#64748B;margin-top:3px;font-weight:400;'>irrigatr.com · Trendyol & E-Ticaret</span></td>
+      <span style='display:block;font-size:12px;color:#64748B;margin-top:3px;font-weight:400;'>irriga.com.tr · Trendyol & E-Ticaret</span></td>
     <td align='right'><span style='background:#F59E0B;color:#0F172A;font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:0.06em;'>BÜLTEN</span></td>
   </tr></table>
 </td></tr>
@@ -142,7 +142,7 @@ $html = "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' 
 <tr><td style='padding:0 16px 16px;'>
   <table width='100%' cellpadding='0' cellspacing='0'><tr>
     <td style='background:#0F172A;padding:16px 24px;border-radius:10px;text-align:center;'>
-      <a href='https://irrigatr.com' style='font-size:13px;font-weight:500;color:#F59E0B;text-decoration:none;'>Tüm içeriklere git →</a>
+      <a href='https://irriga.com.tr' style='font-size:13px;font-weight:500;color:#F59E0B;text-decoration:none;'>Tüm içeriklere git →</a>
     </td>
   </tr></table>
 </td></tr>
@@ -150,7 +150,7 @@ $html = "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' 
 <tr><td style='background:#0F172A;padding:18px 28px;border-radius:0 0 12px 12px;'>
   <p style='margin:0;font-size:11px;color:#475569;line-height:1.7;'>
     Irriga Mühendislik bültenine abonesin &nbsp;·&nbsp;
-    <a href='https://irrigatr.com' style='color:#64748B;'>irrigatr.com</a><br>
+    <a href='https://irriga.com.tr' style='color:#64748B;'>irriga.com.tr</a><br>
     %%IPTAL_LINK%%
   </p>
 </td></tr>
@@ -159,7 +159,7 @@ $html = "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' 
 </body></html>";
 
 $text = "Irriga Mühendislik Bülten — $tarih\n\n";
-foreach ($yazilar as $y) $text .= "• {$y['title']}\n  https://irrigatr.com/{$y['url']}\n\n";
+foreach ($yazilar as $y) $text .= "• {$y['title']}\n  https://irriga.com.tr/{$y['url']}\n\n";
 
 // SMTP
 function smtp_digest($host,$port,$user,$pass,$to,$subj,$html,$text){
@@ -167,13 +167,13 @@ function smtp_digest($host,$port,$user,$pass,$to,$subj,$html,$text){
     stream_set_timeout($fp,15);
     $r=function()use($fp){$d='';while($l=fgets($fp,515)){$d.=$l;if(strlen($l)<4||$l[3]===' ')break;}return $d;};
     $c=function($cmd)use($fp,$r){fwrite($fp,$cmd."\r\n");return $r();};
-    $r();$c('EHLO irrigatr.com');if($port===587){if(strpos($c('STARTTLS'),'220')!==0){fclose($fp);return false;}if(!stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT)){fclose($fp);return false;}$c('EHLO irrigatr.com');}$c('AUTH LOGIN');$c(base64_encode($user));
+    $r();$c('EHLO irriga.com.tr');if($port===587){if(strpos($c('STARTTLS'),'220')!==0){fclose($fp);return false;}if(!stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT)){fclose($fp);return false;}$c('EHLO irriga.com.tr');}$c('AUTH LOGIN');$c(base64_encode($user));
     if(strpos($c(base64_encode($pass)),'235')!==0){fclose($fp);return false;}
     if(strpos($c("MAIL FROM:<$user>"),'250')!==0){fclose($fp);return false;}
     if(strpos($c("RCPT TO:<$to>"),'250')!==0){fclose($fp);return false;}
     if(strpos($c('DATA'),'354')!==0){fclose($fp);return false;}
     $b='bd_'.md5($to.microtime());
-    $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik Bülten")."?= <$user>\r\nTo: $to\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irrigatr.com>\r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$b\"\r\n";
+    $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik Bülten")."?= <$user>\r\nTo: $to\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irriga.com.tr>\r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$b\"\r\n";
     $body="--$b\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n$text\r\n--$b\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n$html\r\n--$b--";
     if(strpos($c($h."\r\n".preg_replace('/^\./m','..',$body)."\r\n."),'250')!==0){fclose($fp);return false;}
     $c('QUIT');fclose($fp);return true;
@@ -183,7 +183,7 @@ $host=$cfg['sunucu']??'localhost'; $port=(int)($cfg['port']??465);
 $gonderilen=0; $basarisiz=0;
 
 foreach($aboneler as $eposta=>$token){
-    $iptal = $token ? "https://irrigatr.com/bulten-iptal.php?token=$token" : 'https://irrigatr.com/bulten-iptal.php';
+    $iptal = $token ? "https://irriga.com.tr/bulten-iptal.php?token=$token" : 'https://irriga.com.tr/bulten-iptal.php';
     $aboHtml = str_replace('%%IPTAL_LINK%%', "<a href='$iptal' style='color:#475569;'>Abonelikten çık</a>", $html);
     $aboText = $text."---\nAbonelikten çıkmak için: $iptal";
     $ok = smtp_digest($host,$port,$cfg['kullanici'],$cfg['sifre'],$eposta,$subj,$aboHtml,$aboText);

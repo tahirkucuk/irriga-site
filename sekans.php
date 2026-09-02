@@ -8,7 +8,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
 $TOKEN = 'f7682ccd38a9fc9de745805bfab3d9e9';
-$SITE  = 'https://irrigatr.com';
+$SITE  = 'https://irriga.com.tr';
 $PDF   = $SITE . '/media/rehber/sulama-sistemi-kurulum-kontrol-listesi.pdf';
 
 $dir = dirname(__DIR__) . '/lead-kayitlari';
@@ -34,7 +34,7 @@ function adimlar($ad, $iptal) {
 </td></tr>
 <tr><td style='background:#fff;padding:28px 26px;font-size:14.5px;line-height:1.75;color:#1C3428;'>{$icHtml}</td></tr>
 <tr><td style='background:#0F2E1D;padding:14px 26px;border-radius:0 0 12px 12px;'>
-  <p style='margin:0;font-size:11px;color:#6B7280;'>irrigatr.com · <a href='{$iptal}' style='color:#6B7280;'>Abonelikten çık</a></p>
+  <p style='margin:0;font-size:11px;color:#6B7280;'>irriga.com.tr · <a href='{$iptal}' style='color:#6B7280;'>Abonelikten çık</a></p>
 </td></tr>
 </table></td></tr></table></body></html>";
     };
@@ -85,7 +85,7 @@ function adimlar($ad, $iptal) {
 <p>1) Bu maile <b>doğrudan yanıt yazın</b> — sorunuzu okur, kısa da olsa cevaplarım.<br>
 2) <a href='{$wa}?text=Merhaba%2C+sulama+sistemi+konusunda+soru+sormak+istiyorum.' style='color:#237A4A;font-weight:700;'>WhatsApp'tan yazın</a> — genellikle aynı gün dönüyoruz.</p>
 <p>Sulama sektöründeki gelişmeler, devlet destekleri ve yeni sistem teknolojileri hakkında periyodik güncellemeler için bültenimizde kalabilirsiniz.</p>
-<p>İyi hasatlar!<br><b>Irriga Mühendislik Ekibi</b><br><a href='{$SITE}' style='color:#237A4A;'>irrigatr.com</a></p>"),
+<p>İyi hasatlar!<br><b>Irriga Mühendislik Ekibi</b><br><a href='{$SITE}' style='color:#237A4A;'>irriga.com.tr</a></p>"),
         ],
     ];
 }
@@ -99,13 +99,13 @@ function smtp_gonder($cfg,$to,$subjRaw,$html){
     stream_set_timeout($fp,15);
     $r=function()use($fp){$d='';while($l=fgets($fp,515)){$d.=$l;if(strlen($l)<4||$l[3]===' ')break;}return $d;};
     $c=function($cmd)use($fp,$r){fwrite($fp,$cmd."\r\n");return $r();};
-    $r();$c('EHLO irrigatr.com');if($port===587){if(strpos($c('STARTTLS'),'220')!==0){fclose($fp);return false;}if(!stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT)){fclose($fp);return false;}$c('EHLO irrigatr.com');}
+    $r();$c('EHLO irriga.com.tr');if($port===587){if(strpos($c('STARTTLS'),'220')!==0){fclose($fp);return false;}if(!stream_socket_enable_crypto($fp,true,STREAM_CRYPTO_METHOD_TLS_CLIENT)){fclose($fp);return false;}$c('EHLO irriga.com.tr');}
     $c('AUTH LOGIN');$c(base64_encode($user));
     if(strpos($c(base64_encode($pass)),'235')!==0){fclose($fp);return false;}
     if(strpos($c("MAIL FROM:<$user>"),'250')!==0){fclose($fp);return false;}
     if(strpos($c("RCPT TO:<$to>"),'250')!==0){fclose($fp);return false;}
     if(strpos($c('DATA'),'354')!==0){fclose($fp);return false;}
-    $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <$user>\r\nTo: $to\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irrigatr.com>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
+    $h="From: =?UTF-8?B?".base64_encode("Irriga Mühendislik")."?= <$user>\r\nTo: $to\r\nSubject: $subj\r\nDate: ".date('r')."\r\nMessage-ID: <".uniqid('',true)."@irriga.com.tr>\r\nMIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
     if(strpos($c($h."\r\n".preg_replace('/^\./m','..',$html)."\r\n."),'250')!==0){fclose($fp);return false;}
     $c('QUIT');fclose($fp);return true;
 }

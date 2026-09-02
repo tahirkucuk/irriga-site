@@ -35,7 +35,7 @@ Disallow: /admin.html
 User-agent: Google-Extended
 Allow: /
 
-# Canonical: non-www (https://irrigatr.com) kullanılmaktadır.
-# www.irrigatr.com → irrigatr.com yönlendirmesi sunucu (.htaccess) tarafında yapılmalıdır.
+# Canonical: non-www (https://irriga.com.tr) kullanılmaktadır.
+# www.irriga.com.tr → irriga.com.tr yönlendirmesi sunucu (.htaccess) tarafında yapılmalıdır.
 
-Sitemap: https://irrigatr.com/sitemap.xml
+Sitemap: https://irriga.com.tr/sitemap.xml
