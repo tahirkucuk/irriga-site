@@ -70,7 +70,7 @@ function smtp_gonder_metin($conn, $kullanici, $to, $subject, $body)
     if (strpos($komut('MAIL FROM:<' . $kullanici . '>'), '250') !== 0) return false;
     if (strpos($komut('RCPT TO:<' . $to . '>'), '250') !== 0) { $komut('RSET'); return false; }
     if (strpos($komut('DATA'), '354') !== 0) return false;
-    $headers  = "From: Basari Ustasi Icerik Ajani <$kullanici>\r\n";
+    $headers  = "From: =?UTF-8?B?" . base64_encode("Irriga İçerik Sistemi") . "?= <$kullanici>\r\n";
     $headers .= "To: $to\r\nSubject: $subject\r\n";
     $headers .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit";
     $data = $headers . "\r\n\r\n" . preg_replace('/^\./m', '..', $body) . "\r\n.";

@@ -67,7 +67,7 @@ $ntfyMsg = "Yeni lead: $name | $email" . ($phone !== '' ? " | $phone" : '') . ($
 @file_get_contents('https://ntfy.sh/basariustasi-ajans-2026', false, stream_context_create([
     'http' => [
         'method'  => 'POST',
-        'header'  => "Title: Yeni Danismanlik Talebi — Basari Ustasi\r\nPriority: high\r\nContent-Type: text/plain\r\n",
+        'header'  => "Title: Yeni Talep — Irriga\r\nPriority: high\r\nContent-Type: text/plain\r\n",
         'content' => $ntfyMsg,
         'timeout' => 5,
         'ignore_errors' => true,
@@ -109,7 +109,7 @@ if (is_readable($atCfgPath)) {
 // --- Otomatik yanıt — lead'e hemen onay gönder ---
 $autoReplyBody  = "Merhaba $name,\n\n";
 $autoReplyBody .= "Danışmanlık talebinizi aldık. En geç 24 saat içinde size dönüş yapacağız.\n\n";
-$autoReplyBody .= "Acil bir durumunuz varsa bize doğrudan yazabilirsiniz: tahirkucuk@gmail.com\n\n";
+$autoReplyBody .= "Acil bir durumunuz varsa bize doğrudan yazabilirsiniz: info@irriga.com.tr\n\n";
 $autoReplyBody .= "İyi günler,\nTahir Küçük\nIrriga Mühendislik";
 
 // --- SMTP ayarlarını oku ---
@@ -195,7 +195,7 @@ function smtp_gonder($host, $port, $kullanici, $sifre, $to, $subject, $body, $re
     $r = $komut('DATA');
     if (strpos($r, '354') !== 0) { fclose($fp); return 'DATA reddedildi: ' . trim($r); }
 
-    $headers  = "From: Basari Ustasi <$kullanici>\r\n";
+    $headers  = "From: =?UTF-8?B?" . base64_encode("Irriga Mühendislik") . "?= <$kullanici>\r\n";
     $headers .= "Reply-To: $replyTo\r\n";
     $headers .= "To: $to\r\n";
     $headers .= "Subject: $subject\r\n";

@@ -1,4 +1,14 @@
+# SMTP kimlik bilgileri — asla commit'leme
 .smtp-ayar.json
-lead-kayitlari/
+smtp-ayar.json
+
+# Log dosyaları
+logs/
 *.log
+
+# macOS
 .DS_Store
+
+# Geçici
+tmp/
+temp/
