@@ -1,234 +1,289 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hakkımızda | Irriga Mühendislik — Sulama Sistemleri</title>
-  <meta name="description" content="Irriga Mühendislik: damlama sulama, akıllı sulama ve sera sistemleri alanında mühendislik hizmetleri. Proje bazlı çalışma, teknik uzmanlık, garantili kurulum.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://irriga.com.tr/hakkimizda.html">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --g900: #0F2E1D; --g700: #237A4A; --g500: #3DAA6E;
-      --g50: #F0FAF4; --sand: #FAF9F5; --wa: #25D366;
-      --text: #16241C; --muted: #4A6357; --border: #E5E7EB;
-    }
-    body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; color: var(--text); background: var(--sand); line-height: 1.7; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    header { background: var(--g900); padding: 16px 0; position: sticky; top: 0; z-index: 50; }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
-    .logo span { color: #4ADE80; }
-    .header-cta { background: var(--g700); color: #fff; font-weight: 600; font-size: 13px; padding: 8px 16px; border-radius: 8px; text-decoration: none; }
-
-    /* Hero */
-    .hero { background: var(--g900); padding: 72px 0 64px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 120% at 70% 50%, rgba(35,122,74,0.2) 0%, transparent 70%); pointer-events: none; }
-    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #4ADE80; margin-bottom: 14px; }
-    .hero h1 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 800; color: #fff; line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 16px; }
-    .hero h1 em { color: #4ADE80; font-style: normal; }
-    .hero p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.75; }
-    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; }
-    .stat-num { font-size: 28px; font-weight: 800; color: #4ADE80; line-height: 1; margin-bottom: 6px; }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); }
-
-    /* Sections */
-    .section { padding: 72px 0; }
-    .section--alt { background: var(--g50); }
-    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--g700); margin-bottom: 10px; }
-    .section h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--g900); margin-bottom: 16px; letter-spacing: -0.01em; }
-    .section-lead { font-size: 16px; color: var(--muted); max-width: 560px; margin-bottom: 40px; }
-
-    /* Values */
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .value-card { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; padding: 24px; }
-    .value-icon { font-size: 28px; margin-bottom: 12px; }
-    .value-card h3 { font-size: 16px; font-weight: 700; color: var(--g900); margin-bottom: 8px; }
-    .value-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
-
-    /* Process */
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .process-step { position: relative; }
-    .process-step::after { content: '→'; position: absolute; right: -14px; top: 30px; color: #D1FAE5; font-size: 18px; }
-    .process-step:last-child::after { display: none; }
-    .step-bubble { width: 56px; height: 56px; background: var(--g900); color: #4ADE80; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; margin-bottom: 14px; }
-    .process-step h4 { font-size: 15px; font-weight: 700; color: var(--g900); margin-bottom: 6px; }
-    .process-step p { font-size: 13px; color: var(--muted); }
-
-    /* CTA */
-    .cta-section { background: var(--g900); padding: 64px 0; text-align: center; }
-    .cta-section h2 { color: #fff; font-size: clamp(20px, 3vw, 30px); font-weight: 700; margin-bottom: 12px; }
-    .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; }
-    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.15s; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-green { background: var(--g700); color: #fff; }
-    .btn-wa { background: var(--wa); color: #fff; }
-
-    footer { background: var(--g900); border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-copy { font-size: 12px; color: #6B7280; }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { font-size: 12px; color: #6B7280; text-decoration: none; }
-    .wa-float { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; background: var(--wa); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 100; text-decoration: none; transition: transform 0.2s; }
-    .wa-float:hover { transform: scale(1.1); }
-    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
-
-    @media (max-width: 860px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .process-step::after { display: none; }
-    }
-    @media (max-width: 600px) {
-      .values-grid { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: 1fr; }
-      .hero { padding: 48px 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakkımızda | Irriga Sulama Sistemleri</title>
+<meta name="description" content="Irriga Sulama Sistemleri hakkında bilgi edinin. Tarım ve sera sulamasında uzman ekibimiz, misyonumuz ve değerlerimiz.">
+<link rel="canonical" href="https://irriga.com.tr/hakkimizda.html">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-text h2{font-size:30px;color:var(--g900);margin-bottom:16px;line-height:1.25;}
+.about-text p{font-size:15px;color:var(--muted);margin-bottom:16px;line-height:1.75;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.about-stat{background:var(--g100);border-radius:12px;padding:20px;text-align:center;}
+.about-stat b{display:block;font-size:28px;font-weight:800;color:var(--g700);}
+.about-stat span{font-size:12.5px;color:var(--muted);}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.value-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 20px;text-align:center;}
+.value-icon{width:52px;height:52px;border-radius:14px;background:var(--g100);display:flex;align-items:center;justify-content:center;color:var(--g700);margin:0 auto 16px;font-size:22px;}
+.value-card h3{font-size:15px;font-weight:700;color:var(--g900);margin-bottom:8px;}
+.value-card p{font-size:13.5px;color:var(--muted);line-height:1.55;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.team-photo{height:160px;background:linear-gradient(135deg,var(--g500),var(--b600));display:flex;align-items:center;justify-content:center;font-size:48px;}
+.team-body{padding:20px;}
+.team-body h4{font-size:15px;font-weight:700;color:var(--g900);margin-bottom:4px;}
+.team-body span{font-size:12.5px;color:var(--muted);}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .values-grid,.team-grid{grid-template-columns:1fr;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+<!-- Google tag (gtag.js) — Measurement ID'yi Google Analytics'ten alıp girin -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="header-inner">
-      <a href="index.html" class="logo">Irriga <span>Mühendislik</span></a>
-      <a href="randevu.html" class="header-cta">Keşif Randevusu</a>
-    </div>
-  </div>
-</header>
 
-<section class="hero">
+<header id="site-header">
+  <nav class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">💧</div><span>Irriga Sulama Sistemleri</span></a>
+    <ul class="nav-links">
+      <li><a href="hizmetler.html">Hizmetler</a></li>
+      <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
+      <li><a href="referanslar.html">Referanslar</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="sss.html">SSS</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+    </ul>
+    <a href="iletisim.html" class="nav-cta">Ücretsiz Keşif Al</a>
+    <button class="hamburger" aria-label="Menüyü aç/kapat"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<nav class="mobile-nav">
+  <a href="hizmetler.html">🔧 Hizmetler</a>
+  <a href="hakkimizda.html">🏢 Hakkımızda</a>
+  <a href="referanslar.html">📋 Referanslar</a>
+  <a href="blog.html">📰 Blog</a>
+  <a href="sss.html">❓ SSS</a>
+  <a href="iletisim.html">📞 İletişim</a>
+  <a href="kvkk.html">🔒 KVKK & Gizlilik</a>
+  <a href="iletisim.html" class="btn btn-primary">Ücretsiz Keşif Talep Et</a>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
   <div class="wrap">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow">Irriga Mühendislik</div>
-        <h1>Akıllı Sulama,<br><em>Sürdürülebilir Tarım</em></h1>
-        <p>Damlama sulamadan IoT otomasyon sistemlerine, sera sulamadan proje danışmanlığına — sahadaki gerçek mühendislik deneyimiyle çözüm üretiyoruz.</p>
+    <p class="breadcrumb"><a href="index.html">Ana Sayfa</a> › <span>Hakkımızda</span></p>
+    <h1>Biz Kimiz?</h1>
+    <p>Tarım ve sera sektörüne profesyonel sulama çözümleri sunan, sahada çalışan bir ekibiz.</p>
+  </div>
+</section>
+
+<!-- Hikayemiz -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="eyebrow">🌱 Hikayemiz</div>
+        <h2>Tarladan başlayan bir tutkuyla kurduk</h2>
+        <p>Irriga Sulama Sistemleri, tarım arazilerinde su israfını azaltmak ve verimliliği artırmak amacıyla kuruldu. Küçük ölçekli sera projelerinden büyük tarla kurulumlarına kadar her ölçekte deneyim kazandık.</p>
+        <p>Ekibimiz; sulama mühendisliği, proje yönetimi ve saha teknikerleri olmak üzere farklı uzmanlıklardan oluşuyor. Her kurulum için önce araziye gidiyor, ihtiyacı yerinde anlıyor ve en verimli sistemi tasarlıyoruz.</p>
+        <p>Bugün 120'yi aşkın tamamlanan projemiz ve mutlu çiftçi aileleriyle çalışmaya devam ediyoruz.</p>
+        <div class="about-stats">
+          <div class="about-stat"><b>120+</b><span>Tamamlanan Proje</span></div>
+          <div class="about-stat"><b>%30</b><span>Ortalama Su Tasarrufu</span></div>
+          <div class="about-stat"><b>48 sa</b><span>İçinde Teklif</span></div>
+          <div class="about-stat"><b>7/24</b><span>WhatsApp Destek</span></div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">%30+</div>
-          <div class="stat-label">Ortalama su tasarrufu</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">5 gün</div>
-          <div class="stat-label">Ortalama kurulum süresi</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Hizmet alanı</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">B2B</div>
-          <div class="stat-label">Proje bazlı çalışma</div>
-        </div>
+      <div>
+        <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;box-shadow:var(--shadow);">
+          <defs>
+            <linearGradient id="abSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a8fae"/>
+              <stop offset="60%" stop-color="#2e9c5f"/>
+              <stop offset="100%" stop-color="#1c5c3a"/>
+            </linearGradient>
+          </defs>
+          <rect width="480" height="380" fill="url(#abSky)"/>
+          <!-- Sun -->
+          <circle cx="400" cy="60" r="32" fill="#ffe9a8" opacity=".9"/>
+          <circle cx="400" cy="60" r="48" fill="#ffe9a8" opacity=".12"/>
+          <!-- Ground -->
+          <rect x="0" y="260" width="480" height="120" fill="#1c5c3a"/>
+          <!-- Rows -->
+          <g stroke="#2e9c5f" stroke-width="1.5" opacity=".5">
+            <line x1="0" y1="280" x2="480" y2="280"/>
+            <line x1="0" y1="310" x2="480" y2="310"/>
+            <line x1="0" y1="340" x2="480" y2="340"/>
+          </g>
+          <!-- Plants -->
+          <g fill="#3fbf72">
+            <ellipse cx="48" cy="258" rx="14" ry="10"/>
+            <ellipse cx="96" cy="252" rx="16" ry="11"/>
+            <ellipse cx="144" cy="255" rx="15" ry="10"/>
+            <ellipse cx="192" cy="250" rx="17" ry="12"/>
+            <ellipse cx="240" cy="253" rx="15" ry="10"/>
+            <ellipse cx="288" cy="256" rx="14" ry="9"/>
+            <ellipse cx="336" cy="251" rx="16" ry="11"/>
+            <ellipse cx="384" cy="254" rx="15" ry="10"/>
+            <ellipse cx="432" cy="258" rx="13" ry="9"/>
+          </g>
+          <!-- Drip line -->
+          <line x1="0" y1="265" x2="480" y2="265" stroke="#bfe9ff" stroke-width="2" opacity=".7"/>
+          <!-- Drops -->
+          <g fill="#bfe9ff" opacity=".8">
+            <path d="M48 270 q3 7 0 10 q-3-3 0-10Z"/>
+            <path d="M144 272 q3 7 0 10 q-3-3 0-10Z"/>
+            <path d="M240 269 q3 7 0 10 q-3-3 0-10Z"/>
+            <path d="M336 271 q3 7 0 10 q-3-3 0-10Z"/>
+            <path d="M432 270 q3 7 0 10 q-3-3 0-10Z"/>
+          </g>
+          <!-- Person silhouette -->
+          <circle cx="200" cy="195" r="14" fill="#e7f5ec" opacity=".9"/>
+          <rect x="193" y="209" width="14" height="38" rx="5" fill="#e7f5ec" opacity=".9"/>
+          <rect x="185" y="214" width="10" height="24" rx="4" fill="#e7f5ec" opacity=".9"/>
+          <rect x="207" y="214" width="10" height="24" rx="4" fill="#e7f5ec" opacity=".9"/>
+          <!-- Pipe in hand -->
+          <line x1="215" y1="225" x2="250" y2="215" stroke="#bfe9ff" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#bfe9ff" opacity=".6">
+            <path d="M250 215 q4 6 0 9 q-4-3 0-9Z"/>
+            <path d="M258 210 q3 5 0 8 q-3-3 0-8Z"/>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- Değerlerimiz -->
+<section class="section section--sand">
   <div class="wrap">
-    <div class="section-eyebrow">Ne Yapıyoruz</div>
-    <h2>Hizmet Alanlarımız</h2>
-    <p class="section-lead">Her proje farklıdır. Önce arazinizi tanıyor, sonra sistem tasarlıyor, sonra kuruyoruz.</p>
+    <div class="section-head">
+      <div class="eyebrow">Değerlerimiz</div>
+      <h2>Çalışma şeklimizi belirleyen ilkeler</h2>
+      <p>Her projede aynı özenle yaklaştığımız dört temel değer.</p>
+    </div>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-icon">💧</div>
-        <h3>Damlama Sulama</h3>
-        <p>Tarla, bağ, bahçe ve sera uygulamaları için doğrudan kök bölgesine su iletimi. %30–50 su tasarrufu sağlayan sistemler.</p>
+        <div class="value-icon">🤝</div>
+        <h3>Güven</h3>
+        <p>Söz verdiğimiz tarihlere uyar, verdiğimiz teklifte saklı maliyet bırakmayız. Müşterimiz her zaman nerede olduğunu bilir.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🤖</div>
-        <h3>Akıllı Sulama (IoT)</h3>
-        <p>WiseConn ve benzeri platformlarla toprak nemi, iklim ve bitki gelişimine göre otomatik sulama. Telefondan kontrol.</p>
+        <div class="value-icon">⚙️</div>
+        <h3>Kalite</h3>
+        <p>Kullandığımız malzemeleri bizzat seçer, kurulum kalitesini sistematik testlerle doğrularız. İşimizin arkasında dururuz.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🏠</div>
-        <h3>Sera Sulama Sistemleri</h3>
-        <p>Nem, sıcaklık ve CO₂ entegrasyonuyla sera içi mikro iklim kontrolü. Damla + fogging kombinasyon seçenekleri.</p>
+        <div class="value-icon">⚡</div>
+        <h3>Hız</h3>
+        <p>Keşiften 48 saat içinde teklif, onaydan sonra planlanan tarihte kurulum. Çiftçinin zamanı bizim için değerlidir.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">📐</div>
-        <h3>Proje Danışmanlığı</h3>
-        <p>Arazi analizi, sistem seçimi, TKDK/KOSGEB başvuru desteği ve teknik rapor hazırlama hizmetleri.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🌊</div>
-        <h3>Basınçlı Sulama</h3>
-        <p>Yağmurlama ve mikro sprinkler sistemleri; büyük alanlı tarım projeleri için pompa + boru altyapısı.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🔧</div>
-        <h3>Bakım & Teknik Destek</h3>
-        <p>Sezonluk bakım, arıza giderme, filtre temizleme ve otomasyon kalibrasyonu. Periyodik kontrat seçeneği.</p>
+        <div class="value-icon">🛠️</div>
+        <h3>Sürekli Destek</h3>
+        <p>Kurulum sonrası ilişkimiz bitmez. Mevsim başı kontrol, arıza müdahalesi ve WhatsApp danışmanlık hattı her zaman açık.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--alt">
+<!-- Neden Irriga -->
+<section class="section section--dark">
   <div class="wrap">
-    <div class="section-eyebrow">Nasıl Çalışıyoruz</div>
-    <h2>Projeden Kuruluma</h2>
-    <p class="section-lead">Satın alım baskısı yok. Önce arazinizi birlikte değerlendiriyoruz.</p>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="step-bubble">1</div>
-        <h4>Ücretsiz Keşif</h4>
-        <p>Teknik mühendisimiz araziyi inceler, su kaynağı ve toprak değerlendirmesi yapar.</p>
+    <div class="section-head">
+      <div class="eyebrow">Neden Irriga?</div>
+      <h2>Büyük firmalar söz verir, biz tarlaya gideriz</h2>
+      <p>Bölgenizdeyiz, gerçekten ilgileniyoruz, kalıcı çözümler üretiyoruz.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="num">01</div>
+        <h3>Yerel & Ulaşılabilir</h3>
+        <p>Bölgenizdeyiz. Arıyorsunuz, biz geliyoruz. WhatsApp'tan anında iletişim.</p>
       </div>
-      <div class="process-step">
-        <div class="step-bubble">2</div>
-        <h4>Sistem Tasarımı</h4>
-        <p>Araziyle uyumlu sistem önerisi ve yazılı fiyat teklifi hazırlanır (1–3 iş günü).</p>
+      <div class="why-card">
+        <div class="num">02</div>
+        <h3>48 Saatte Teklif</h3>
+        <p>Keşif ziyaretinin ardından 48 saat içinde detaylı ve şeffaf fiyat teklifi.</p>
       </div>
-      <div class="process-step">
-        <div class="step-bubble">3</div>
-        <h4>Kurulum</h4>
-        <p>Onayınızdan sonra malzeme temin ve kurulum başlar. Ortalama 3–7 iş günü.</p>
+      <div class="why-card">
+        <div class="num">03</div>
+        <h3>Anahtar Teslim</h3>
+        <p>Tasarım, malzeme tedariki, kurulum ve test tek elden, tek fiyata.</p>
       </div>
-      <div class="process-step">
-        <div class="step-bubble">4</div>
-        <h4>Devir & Destek</h4>
-        <p>Sistem devri, kullanıcı eğitimi ve devam eden teknik destek hizmeti.</p>
+      <div class="why-card">
+        <div class="num">04</div>
+        <h3>Kurulum Sonrası Destek</h3>
+        <p>İş bitmez kurulumla. Bakım, arıza ve danışmanlık için yanınızdayız.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-section">
-  <div class="wrap">
-    <h2>Arazinizi Birlikte Değerlendirelim</h2>
-    <p>Ücretsiz keşif ziyareti için randevu alın ya da doğrudan WhatsApp'tan yazın.</p>
-    <div class="cta-buttons">
-      <a href="randevu.html" class="btn btn-green">Randevu Al</a>
-      <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn btn-wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        WhatsApp'tan Yazın
-      </a>
+<!-- CTA -->
+<section class="section section--sand">
+  <div class="wrap text-center">
+    <div class="eyebrow">Tanışalım</div>
+    <h2 style="font-size:28px;color:var(--g900);margin-bottom:14px;">Projenizi birlikte konuşalım</h2>
+    <p style="color:var(--muted);margin-bottom:32px;font-size:15.5px;max-width:480px;margin-left:auto;margin-right:auto;">Ücretsiz keşif ziyareti için bugün ulaşın, 48 saat içinde teklifiniz hazır.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="iletisim.html" class="btn btn-primary btn-lg">Ücretsiz Keşif Talep Et</a>
+      <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn btn-wa btn-lg">💬 WhatsApp</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-inner">
-      <span class="footer-copy">© 2026 Irriga Mühendislik · irriga.com.tr</span>
-      <div class="footer-links">
-        <a href="kvkk.html">KVKK</a>
-        <a href="gizlilik-politikasi.html">Gizlilik</a>
-        <a href="index.html">Ana Sayfa</a>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">💧 Irriga Sulama Sistemleri</div>
+        <p class="footer-desc">Tarım ve sera işletmeleri için profesyonel sulama sistemleri tasarımı, kurulumu ve teknik desteği.</p>
       </div>
+      <div class="footer-col">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="hizmetler.html">Damla Sulama</a></li>
+          <li><a href="hizmetler.html">Sprinkler &amp; Yağmurlama</a></li>
+          <li><a href="hizmetler.html">Sera Sulama</a></li>
+          <li><a href="hizmetler.html">Filtrasyon &amp; Otomasyon</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="referanslar.html">Referanslar</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="sss.html">SSS</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="kvkk.html">KVKK &amp; Gizlilik</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <ul>
+          <li class="footer-contact-item">📞 <a href="tel:+905327059400">+90 (532) 705 94 00</a></li>
+          <li class="footer-contact-item">✉️ <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a></li>
+          <li class="footer-contact-item">📍 No:369, Mersinli, Gaziler Cd Gıda Çarşısı, Batı İş Merkezi, 35000 Konak/İzmir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Irriga Sulama Sistemleri — Tüm hakları saklıdır.</span>
+      <div class="footer-bottom-links"><a href="kvkk.html">Gizlilik Politikası</a><a href="kvkk.html">KVKK</a></div>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/905327059400?text=Merhaba" class="wa-float" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." class="whatsapp-float" target="_blank" aria-label="WhatsApp'tan ulaşın">
+  <span class="whatsapp-tooltip">Hemen yazın!</span>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
+<button id="back-top" aria-label="Sayfanın başına dön">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>

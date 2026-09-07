@@ -12,3 +12,9 @@ logs/
 # Geçici
 tmp/
 temp/
+
+# Video dosyaları (büyük binary — cPanel'den ayrıca yükle)
+assets/video/
+*.mp4
+*.mov
+*.avi
