@@ -82,13 +82,9 @@ svg{display:block;}
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 24px;max-width:1140px;margin:0 auto;
 }
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:var(--g900);}
-.logo-mark{
-  width:36px;height:36px;border-radius:10px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--g500),var(--b600));
-  display:flex;align-items:center;justify-content:center;
-  color:var(--white);font-size:19px;
-}
+.logo{display:flex;align-items:center;}
+.logo-img{height:48px;width:auto;display:block;}
+.footer-logo-img{height:40px;width:auto;display:block;background:#fff;padding:5px 12px;border-radius:8px;}
 .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--muted);}
 .nav-links a:hover{color:var(--g700);}
 .nav-links a.active{color:var(--g700);}
