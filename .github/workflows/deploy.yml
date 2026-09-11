@@ -12,11 +12,13 @@ jobs:
         run: |
           # CPANEL_HOST sadece hostname olmalı, https:// veya port olmadan
           HOST="${{ secrets.CPANEL_HOST }}"
-          # Eğer http(s):// ile başlıyorsa temizle
+          # https:// veya http:// önekini temizle
           HOST="${HOST#https://}"
           HOST="${HOST#http://}"
-          # Eğer sonunda / varsa temizle
+          # Trailing slash temizle
           HOST="${HOST%/}"
+          # Port numarasını temizle (:2083, :2087 vb.)
+          HOST=$(echo "$HOST" | sed 's/:[0-9]*$//')
 
           URL="https://${HOST}:2083/execute/VersionControlDeployment/create?repository_root=%2Fhome%2Fu2838272%2Firriga-site"
 
