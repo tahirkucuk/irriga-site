@@ -8,23 +8,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: cPanel Git Deploy tetikle
-        run: |
-          HOST="${{ secrets.CPANEL_HOST }}"
-          HOST="${HOST#https://}"
-          HOST="${HOST#http://}"
-          HOST="${HOST%/}"
-          HOST=$(echo "$HOST" | sed 's/:[0-9]*$//')
+      - uses: actions/checkout@v4
 
-          HTTP=$(curl -sk -o /tmp/cpanel_response.txt -w "%{http_code}" \
-            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_API_TOKEN }}" \
-            "https://${HOST}:2083/execute/VersionControlDeployment/create?repository_root=%2Fhome%2Fu2838272%2Firriga-site")
-
-          echo "HTTP Status: $HTTP"
-          cat /tmp/cpanel_response.txt
-
-          if [ "$HTTP" != "200" ]; then
-            echo "Deploy başarısız: HTTP $HTTP"
-            exit 1
-          fi
-          echo "Deploy tetiklendi."
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: irriga.com.tr
+          username: ${{ secrets.CPANEL_USER }}
+          password: ${{ secrets.CPANEL_PASS }}
+          server-dir: /irriga.com.tr/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .cpanel.yml
