@@ -16,6 +16,8 @@ jobs:
           server: irriga.com.tr
           username: ${{ secrets.CPANEL_USER }}
           password: ${{ secrets.CPANEL_PASS }}
+          port: 21
+          security: loose
           server-dir: /irriga.com.tr/
           exclude: |
             **/.git*
