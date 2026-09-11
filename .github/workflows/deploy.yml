@@ -10,6 +10,25 @@ jobs:
     steps:
       - name: cPanel Git Deploy tetikle
         run: |
-          curl -s -o /dev/null -w "%{http_code}" \
+          # CPANEL_HOST sadece hostname olmalı, https:// veya port olmadan
+          HOST="${{ secrets.CPANEL_HOST }}"
+          # Eğer http(s):// ile başlıyorsa temizle
+          HOST="${HOST#https://}"
+          HOST="${HOST#http://}"
+          # Eğer sonunda / varsa temizle
+          HOST="${HOST%/}"
+
+          URL="https://${HOST}:2083/execute/VersionControlDeployment/create?repository_root=%2Fhome%2Fu2838272%2Firriga-site"
+
+          HTTP=$(curl -sk -o /tmp/cpanel_response.txt -w "%{http_code}" \
             --user "${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_PASS }}" \
-            "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControlDeployment/create?repository_root=%2Fhome%2Fu2838272%2Firriga-site"
+            "$URL")
+
+          echo "HTTP Status: $HTTP"
+          cat /tmp/cpanel_response.txt
+
+          if [ "$HTTP" != "200" ] && [ "$HTTP" != "000" ]; then
+            echo "Deploy başarısız: HTTP $HTTP"
+            exit 1
+          fi
+          echo "Deploy tetiklendi."
