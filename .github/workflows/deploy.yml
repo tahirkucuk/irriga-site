@@ -8,17 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          server-dir: /irriga.com.tr/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            .cpanel.yml
+      - name: cPanel Git Deploy tetikle
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            --user "${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_PASS }}" \
+            "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControlDeployment/create?repository_root=%2Fhome%2Fu2838272%2Firriga-site"
