@@ -160,4 +160,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  /* --- Dynamic Blog Posts Sync (posts.json) --- */
+  var blogGrid = document.getElementById('blogGrid');
+  if (blogGrid) {
+    fetch('posts.json')
+      .then(function (r) { return r.json(); })
+      .then(function (posts) {
+        if (!Array.isArray(posts)) return;
+        posts.forEach(function (p) {
+          if (!p.url) return;
+          var exists = blogGrid.querySelector('[data-url="' + p.url + '"]');
+          if (!exists) {
+            var card = document.createElement('div');
+            card.className = 'blog-card';
+            card.setAttribute('data-url', p.url);
+            card.innerHTML =
+              '<div class="blog-thumb" style="background:linear-gradient(135deg,#e7f5ec,#bfe3ee);font-size:44px;">' + (p.kapak ? '<img src="' + p.kapak + '" alt="' + (p.baslik || '') + '" style="width:100%;height:100%;object-fit:cover;">' : '💧') + '</div>' +
+              '<div class="blog-body">' +
+                '<div class="blog-meta">' +
+                  (p.kategori ? '<span class="blog-tag">' + p.kategori + '</span>' : '') +
+                  (p.tarih ? '<span class="blog-date">' + p.tarih + '</span>' : '') +
+                '</div>' +
+                '<h3>' + (p.baslik || '') + '</h3>' +
+                '<p>' + (p.ozet || '') + '</p>' +
+                '<a href="' + p.url + '" class="blog-read">Devamını Oku →</a>' +
+              '</div>';
+            blogGrid.insertBefore(card, blogGrid.firstChild);
+          }
+        });
+      })
+      .catch(function () {
+        // static cards already rendered
+      });
+  }
+
 });

@@ -4,33 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog & Makaleler | Irriga Sulama Sistemleri</title>
-<meta name="description" content="Damla sulama, yağmurlama ve tarım sulaması hakkında rehber makaleler. Sulama sistemi seçimi, su tasarrufu ve bakım ipuçları.">
+<meta name="description" content="Damla sulama, yağmurlama ve tarım sulaması hakkında rehber makaleler. Sulama sistemi seçimi, su tasarrufu, devlet destekleri ve bakım ipuçları.">
+<meta name="keywords" content="sulama rehberi, damla sulama makale, tarım sulama teknikleri, sulama sistemi kurulum maliyeti, sulama faizsiz kredi">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://irriga.com.tr/blog.html">
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.blog-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform var(--transition),box-shadow var(--transition);}
-.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.blog-thumb{height:170px;display:flex;align-items:center;justify-content:center;font-size:52px;}
-.blog-body{padding:22px;}
-.blog-meta{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
-.blog-tag{background:var(--g100);color:var(--g700);font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;}
-.blog-date{font-size:11.5px;color:var(--muted);}
-.blog-card h3{font-size:16px;font-weight:700;color:var(--g900);margin-bottom:9px;line-height:1.35;}
-.blog-card p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
-.blog-read{font-size:13px;font-weight:600;color:var(--g600);}
-.blog-read:hover{color:var(--g700);}
-.blog-coming{
-  background:var(--g100);border:1.5px dashed var(--g500);
-  border-radius:var(--radius);padding:36px;text-align:center;margin-top:12px;
+
+<!-- Open Graph -->
+<meta property="og:title" content="Blog & Makaleler | Irriga Sulama Sistemleri">
+<meta property="og:description" content="Sulama sistemleri, su tasarrufu ve tarımsal verimlilik hakkında rehber içerikler.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://irriga.com.tr/blog.html">
+<meta property="og:locale" content="tr_TR">
+
+<!-- Schema.org BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ana Sayfa",
+      "item": "https://irriga.com.tr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://irriga.com.tr/blog.html"
+    }
+  ]
 }
-.blog-coming p{color:var(--muted);font-size:14px;margin-top:8px;}
-@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
-</style>
-<!-- Google tag (gtag.js) — Measurement ID'yi Google Analytics'ten alıp girin -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -65,18 +73,33 @@
   <div class="wrap">
     <p class="breadcrumb"><a href="index.html">Ana Sayfa</a> › <span>Blog</span></p>
     <h1>Blog & Makaleler</h1>
-    <p>Sulama sistemleri, su tasarrufu ve tarımsal verimlilik hakkında rehber içerikler.</p>
+    <p>Sulama sistemleri, su tasarrufu, devlet destekleri ve tarımsal verimlilik rehberleri.</p>
   </div>
 </section>
 
 <!-- Blog Grid -->
 <section class="section section--sand">
   <div class="wrap">
-    <div class="blog-grid">
+    <div class="blog-grid" id="blogGrid">
 
-      <!-- Partner Makaleleri -->
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#e8f4f0,#c5e0d5);font-size:42px;">🌱</div>
+      <!-- BLOG_ARTICLES_START -->
+      <div class="blog-card" data-url="blog/sulama-sistemi-kurulum-maliyeti.html">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#e7f5ec,#bfe3ee);font-size:44px;">💰</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Devlet Destekleri</span>
+            <span class="blog-date">31 Ağustos 2026</span>
+          </div>
+          <h3>Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)</h3>
+          <p>Damlama ve basınçlı sulama sistemi kurulum maliyeti ne kadar? Faizsiz devlet kredileri, KOSGEB ve TKDK destekleri, geri ödeme hesaplama rehberi.</p>
+          <a href="blog/sulama-sistemi-kurulum-maliyeti.html" class="blog-read">Devamını Oku →</a>
+        </div>
+      </div>
+      <!-- BLOG_ARTICLES_END -->
+
+      <!-- PARTNER_ARTICLES_START -->
+      <div class="blog-card" data-url="partner-smartsoil.html">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#e8f4f0,#c5e0d5);font-size:44px;">🌱</div>
         <div class="blog-body">
           <div class="blog-meta">
             <span class="blog-tag">Partner</span>
@@ -88,8 +111,8 @@
         </div>
       </div>
 
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#e7f0fa,#c8daf5);font-size:42px;">⚗️</div>
+      <div class="blog-card" data-url="partner-itc.html">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#e7f0fa,#c8daf5);font-size:44px;">⚗️</div>
         <div class="blog-body">
           <div class="blog-meta">
             <span class="blog-tag">Partner</span>
@@ -101,8 +124,8 @@
         </div>
       </div>
 
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#f0f7e8,#d4ecb8);font-size:42px;">📡</div>
+      <div class="blog-card" data-url="partner-wiseconn.html">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#f0f7e8,#d4ecb8);font-size:44px;">📡</div>
         <div class="blog-body">
           <div class="blog-meta">
             <span class="blog-tag">Partner</span>
@@ -113,90 +136,13 @@
           <a href="partner-wiseconn.html" class="blog-read">Devamını Oku →</a>
         </div>
       </div>
-
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#e7f5ec,#bfe3ee);">💧</div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-tag">Rehber</span>
-            <span class="blog-date">Ağustos 2026</span>
-          </div>
-          <h3>Damla Sulama Sistemi Nedir, Nasıl Çalışır?</h3>
-          <p>Damla sulama, suyu doğrudan bitki kök bölgesine boru ve damlatıcılar aracılığıyla ileten en verimli sulama yöntemlerinden biridir.</p>
-          <a href="#" class="blog-read">Devamını Oku →</a>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#dff0e4,#e7f5ec);">🌾</div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-tag">Su Tasarrufu</span>
-            <span class="blog-date">Temmuz 2026</span>
-          </div>
-          <h3>Tarımda %30 Su Tasarrufu Nasıl Sağlanır?</h3>
-          <p>Doğru sistem seçimi, programlama ve sensör entegrasyonuyla tarla sulamasında ciddi miktarda su ve maliyet azaltılabilir.</p>
-          <a href="#" class="blog-read">Devamını Oku →</a>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#e7f5ec,#d0ede0);">🏠</div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-tag">Sera</span>
-            <span class="blog-date">Haziran 2026</span>
-          </div>
-          <h3>Sera Sulama Sistemi Kurulumunda Dikkat Edilecekler</h3>
-          <p>Sera koşullarında nem kontrolü, gübreleme entegrasyonu ve otomasyonun önemi; doğru sistem kurulumu için kritik adımlar.</p>
-          <a href="#" class="blog-read">Devamını Oku →</a>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#bfe3ee,#e7f5ec);">⚖️</div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-tag">Karşılaştırma</span>
-            <span class="blog-date">Mayıs 2026</span>
-          </div>
-          <h3>Sprinkler mi, Damla Sulama mı? Hangisi Sizin İçin?</h3>
-          <p>İki sistemin avantaj ve dezavantajları, hangi arazi ve bitki türleri için hangi yöntemin daha verimli olduğu detaylı şekilde açıklanıyor.</p>
-          <a href="#" class="blog-read">Devamını Oku →</a>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#f3faf6,#e7f5ec);">📱</div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-tag">Otomasyon</span>
-            <span class="blog-date">Nisan 2026</span>
-          </div>
-          <h3>Akıllı Sulama: Sensör ve Uzaktan Kontrol Sistemleri</h3>
-          <p>Toprak nem sensörleri, hava istasyonu entegrasyonu ve mobil uygulama kontrolüyle sulamayı otomatikleştirmenin yolları.</p>
-          <a href="#" class="blog-read">Devamını Oku →</a>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,#e7f5ec,#faf9f5);">🛠️</div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-tag">Bakım</span>
-            <span class="blog-date">Mart 2026</span>
-          </div>
-          <h3>Sulama Sistemi Bakımı: Sezon Öncesi ve Sonrası</h3>
-          <p>Sisteminizin ömrünü uzatmak ve sezon başında sorunsuz çalışmasını sağlamak için yapılması gereken bakım adımları.</p>
-          <a href="#" class="blog-read">Devamını Oku →</a>
-        </div>
-      </div>
+      <!-- PARTNER_ARTICLES_END -->
 
     </div>
 
     <div class="blog-coming">
       <div style="font-size:32px;">✍️</div>
-      <p><strong>Yeni makaleler düzenli olarak eklenmektedir.</strong><br>Güncel içeriklerden haberdar olmak için bizimle iletişimde kalın.</p>
+      <p><strong>Yeni rehber ve makaleler düzenli olarak eklenmektedir.</strong><br>Arazinize veya projenize özel danışmanlık almak için dilediğiniz zaman bizimle iletişime geçebilirsiniz.</p>
     </div>
   </div>
 </section>
@@ -205,8 +151,8 @@
 <section class="section section--dark">
   <div class="wrap text-center">
     <div class="eyebrow">Aklınızda Soru mu Kaldı?</div>
-    <h2 style="color:var(--white);margin-bottom:16px;">Uzmanlarımıza sorun, hemen yanıt alalım</h2>
-    <p style="color:#c8dccf;margin-bottom:36px;font-size:16px;">Projenize özel cevaplar için ücretsiz keşif talep edin.</p>
+    <h2 style="color:var(--white);margin-bottom:16px;">Uzmanlarımıza sorun, hemen yanıt verelim</h2>
+    <p style="color:#c8dccf;margin-bottom:36px;font-size:16px;">Projenize özel cevaplar ve mühendislik çözümleri için ücretsiz keşif talep edin.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="iletisim.html" class="btn btn-primary btn-lg">Ücretsiz Keşif Talep Et</a>
       <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn btn-wa btn-lg">💬 WhatsApp</a>
