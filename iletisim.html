@@ -3,32 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İletişim | Irriga Sulama Sistemleri</title>
-<meta name="description" content="Ücretsiz keşif ve teklif için bizimle iletişime geçin. WhatsApp, telefon veya form ile ulaşabilirsiniz.">
+<title>İletişim | İrriga Mühendislik</title>
+<meta name="description" content="Sulama ve fertigasyon projeleriniz için arazinizi birlikte değerlendirelim.">
 <link rel="canonical" href="https://irriga.com.tr/iletisim.html">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-.map-placeholder{
-  width:100%;height:280px;background:var(--g50);border:1px solid var(--border);
-  border-radius:var(--radius);display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:12px;margin-top:28px;
+/* ── Contact page ────────────────────────────────────────────── */
+.contact-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:start;
 }
-.map-placeholder svg{width:40px;height:40px;color:var(--g500);}
-.map-placeholder p{font-size:14px;color:var(--muted);}
-.map-placeholder a{font-size:13.5px;color:var(--g700);font-weight:600;text-decoration:underline;}
-.wa-cta-box{
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
-  border-radius:var(--radius);padding:32px;color:var(--white);margin-bottom:28px;
+
+/* ── Form ────────────────────────────────────────────────────── */
+.contact-form-wrap{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:36px 32px;
 }
-.wa-cta-box h4{font-size:19px;font-weight:700;margin-bottom:8px;}
-.wa-cta-box p{font-size:14px;opacity:.9;margin-bottom:20px;}
-.wa-cta-box a{
-  display:inline-flex;align-items:center;gap:9px;
-  background:var(--white);color:#1c7a46;padding:12px 22px;
-  border-radius:8px;font-weight:700;font-size:14.5px;
-  transition:.2s ease;
+.contact-form-wrap h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--g900);
+  margin-bottom:24px;
 }
-.wa-cta-box a:hover{background:#f0fff5;}
+.form-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:18px;
+}
+.form-field label{
+  font-size:.875rem;
+  font-weight:600;
+  color:var(--ink);
+}
+.form-field input,
+.form-field select,
+.form-field textarea{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:10px 14px;
+  font-size:.9rem;
+  color:var(--ink);
+  background:#fff;
+  transition:border-color .15s, outline .15s;
+  font-family:inherit;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{
+  color:#aab4ae;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  outline:2px solid var(--g500);
+  outline-offset:0;
+  border-color:var(--g500);
+}
+.form-field textarea{
+  resize:vertical;
+  min-height:100px;
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.kvkk-check{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:22px;
+}
+.kvkk-check input[type="checkbox"]{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+  margin-top:3px;
+  accent-color:var(--g600);
+  cursor:pointer;
+}
+.kvkk-check label{
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.55;
+}
+.kvkk-check label a{
+  color:var(--g700);
+  text-decoration:underline;
+}
+.btn-full{width:100%;}
+
+/* ── Info column ─────────────────────────────────────────────── */
+.contact-info-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.contact-info-wrap h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--g900);
+  margin-bottom:22px;
+}
+.contact-detail{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 0;
+  border-bottom:1px solid var(--border);
+}
+.contact-detail:last-of-type{
+  border-bottom:none;
+}
+.contact-detail-icon{
+  font-size:20px;
+  line-height:1;
+  flex-shrink:0;
+  padding-top:2px;
+}
+.contact-detail-body{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.contact-detail-body span{
+  font-size:.78rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:var(--muted);
+}
+.contact-detail-body a,
+.contact-detail-body p{
+  font-size:.95rem;
+  color:var(--ink);
+  font-weight:500;
+  line-height:1.5;
+}
+.contact-detail-body a{
+  color:var(--g700);
+}
+.contact-detail-body a:hover{
+  color:var(--g500);
+}
+.wa-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:#25D366;
+  color:#fff !important;
+  font-weight:700;
+  font-size:.9rem;
+  padding:12px 20px;
+  border-radius:var(--radius);
+  margin-top:24px;
+  transition:background .15s;
+  text-decoration:none !important;
+}
+.wa-btn:hover{
+  background:#1ebe5d;
+  color:#fff !important;
+}
+.wa-btn svg{
+  width:18px;height:18px;flex-shrink:0;
+}
+
+/* ── Nasıl İlerliyoruz section ───────────────────────────────── */
+.nasil-body{
+  max-width:760px;
+}
+.nasil-body p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:14px;
+  font-size:.95rem;
+}
+.nasil-body .text-link{
+  color:var(--g700);
+  font-weight:600;
+  font-size:.9rem;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .15s;
+}
+.nasil-body .text-link:hover{
+  border-color:var(--g700);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media(max-width:900px){
+  .contact-layout{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .form-row{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:600px){
+  .contact-form-wrap{
+    padding:24px 18px;
+  }
+}
 </style>
 <!-- Google tag (gtag.js) — Measurement ID'yi Google Analytics'ten alıp girin -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -38,192 +218,247 @@
 
 <header id="site-header">
   <nav class="nav-inner">
-    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Irriga Sulama Sistemleri" class="logo-img"></a>
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo.png" alt="İrriga Mühendislik" class="logo-img">
+    </a>
     <ul class="nav-links">
-      <li><a href="hizmetler.html">Hizmetler</a></li>
       <li><a href="hakkimizda.html">Hakkımızda</a></li>
-      <li><a href="referanslar.html">Referanslar</a></li>
+      <li><a href="yaklasimimiz.html">Yaklaşımımız</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Hizmetlerimiz</a>
+        <ul class="dropdown-menu">
+          <li><a href="sulama-sistemleri.html">Sulama Sistemleri Mühendisliği</a></li>
+          <li><a href="fertigasyon.html">Fertigasyon Sistemleri</a></li>
+          <li><a href="otomasyon-ve-izleme.html">Sulama Otomasyonu ve İzleme</a></li>
+          <li><a href="proje-ve-danismanlik.html">Proje ve Danışmanlık</a></li>
+          <li><a href="rehabilitasyon-ve-bakim.html">Rehabilitasyon ve Bakım</a></li>
+        </ul>
+      </li>
+      <li><a href="teknoloji-ve-cozum-ortaklari.html">Teknoloji</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="sss.html">SSS</a></li>
       <li><a href="iletisim.html" class="active">İletişim</a></li>
     </ul>
-    <a href="iletisim.html" class="nav-cta">Ücretsiz Keşif Al</a>
-    <button class="hamburger" aria-label="Menüyü aç/kapat"><span></span><span></span><span></span></button>
+    <a href="iletisim.html" class="nav-cta">Projenizi konuşalım</a>
+    <button class="hamburger" aria-label="Menüyü aç/kapat">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
-<nav class="mobile-nav">
-  <a href="hizmetler.html">🔧 Hizmetler</a>
+<nav class="mobile-nav" aria-label="Mobil menü">
   <a href="hakkimizda.html">🏢 Hakkımızda</a>
-  <a href="referanslar.html">📋 Referanslar</a>
+  <a href="yaklasimimiz.html">🔍 Yaklaşımımız</a>
+  <a href="sulama-sistemleri.html">💧 Sulama Sistemleri</a>
+  <a href="fertigasyon.html">🌱 Fertigasyon</a>
+  <a href="otomasyon-ve-izleme.html">📡 Otomasyon</a>
+  <a href="proje-ve-danismanlik.html">📋 Proje &amp; Danışmanlık</a>
+  <a href="rehabilitasyon-ve-bakim.html">🔧 Rehabilitasyon</a>
+  <a href="teknoloji-ve-cozum-ortaklari.html">⚙️ Teknoloji</a>
   <a href="blog.html">📰 Blog</a>
-  <a href="sss.html">❓ SSS</a>
   <a href="iletisim.html">📞 İletişim</a>
-  <a href="kvkk.html">🔒 KVKK & Gizlilik</a>
-  <a href="iletisim.html" class="btn btn-primary">Ücretsiz Keşif Talep Et</a>
+  <a href="kvkk.html">🔒 KVKK</a>
+  <a href="iletisim.html" class="btn btn-primary">Projenizi konuşalım</a>
 </nav>
 
+<!-- Page Hero -->
 <section class="page-hero">
   <div class="wrap">
     <p class="breadcrumb"><a href="index.html">Ana Sayfa</a> › <span>İletişim</span></p>
-    <h1>Bizimle İletişime Geçin</h1>
-    <p>Ücretsiz keşif için formu doldurun ya da WhatsApp'tan doğrudan yazın.</p>
+    <h1>Arazinizi birlikte değerlendirelim.</h1>
+    <p>Yeni bir yatırım planlıyorsanız nereden başlamanız gerektiğini, elinizde bir teklif varsa neyin doğru neyin eksik olduğunu konuşalım.</p>
   </div>
 </section>
 
+<!-- Nasıl İlerliyoruz -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nasıl İlerliyoruz</div>
+      <h2>Bize ulaştığınızda önce kısa bir ön görüşme yaparız</h2>
+    </div>
+    <div class="nasil-body">
+      <p>Arazinizi, su kaynağınızı ve ne yapmak istediğinizi dinleriz. Bu görüşme çoğu zaman telefonda yapılır ve size neyin mümkün olduğu konusunda ilk fikri verir.</p>
+      <p>Ardından, işin gerektirdiği durumda sahaya gelir; ölçer, su örneği alır ve yazılı bir keşif raporu hazırlarız. Buradan sonrası tasarım ve tekliftir.</p>
+      <a href="yaklasimimiz.html" class="text-link">Yaklaşımımızı okuyun →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
 <section class="section section--sand">
   <div class="wrap">
-    <div class="contact-grid">
+    <div class="contact-layout">
 
-      <!-- Left: Info -->
-      <div>
-        <div class="wa-cta-box">
-          <h4>💬 WhatsApp'tan Hızlı Ulaşın</h4>
-          <p>Mesai saatleri dışında da mesajınızı alıyoruz. En geç 2 saat içinde yanıt veriyoruz.</p>
-          <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum.+Arazi+b%C3%BCy%C3%BCkl%C3%BC%C4%9F%C3%BCm%3A+_+d%C3%B6n%C3%BCm%2C+%C3%9Cretti%C4%9Fim%3A" target="_blank">
-            <svg viewBox="0 0 24 24" fill="#1c7a46" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            WhatsApp'a Yaz
-          </a>
-        </div>
+      <!-- Left: Form -->
+      <div class="contact-form-wrap">
+        <h3>Proje talebi</h3>
+        <form action="#" method="post" novalidate>
 
-        <div class="contact-info">
-          <h3>İletişim Bilgileri</h3>
-          <p>Aşağıdaki kanallardan bize ulaşabilirsiniz. Mesai saatlerimiz Pazartesi–Cumartesi, 08:00–18:00.</p>
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.69A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-              </div>
-              <div>
-                <h4>Telefon</h4>
-                <a href="tel:+905327059400">+90 (532) 705 94 00</a>
-              </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-name">Ad Soyad *</label>
+              <input type="text" id="f-name" name="name" placeholder="Adınız Soyadınız" required>
             </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <h4>E-posta</h4>
-                <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <h4>Adres</h4>
-                <p>No:369, Mersinli, Gaziler Cd Gıda Çarşısı<br>Batı İş Merkezi, 35000 Konak/İzmir</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-              </div>
-              <div>
-                <h4>Mesai Saatleri</h4>
-                <p>Pzt–Cmt: 08:00–18:00<br>Pazar: Kapalı</p>
-              </div>
+            <div class="form-field">
+              <label for="f-phone">Telefon *</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="05xx xxx xx xx" required>
             </div>
           </div>
-        </div>
 
-        <!-- Google Maps placeholder -->
-        <div class="map-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <p>Google Haritalar</p>
-          <a href="https://maps.google.com" target="_blank">Haritada Görüntüle →</a>
-        </div>
-        <!-- Google Maps Embed (Aktif etmek için src alanını doldurun)
-        <iframe
-          src="https://maps.google.com/maps?q=[ENLEMİNİZ],[BOYLAMINIIZ]&z=15&output=embed"
-          width="100%" height="280" style="border:0;border-radius:14px;margin-top:28px;"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe> -->
+          <div class="form-field">
+            <label for="f-email">E-posta</label>
+            <input type="email" id="f-email" name="email" placeholder="ornek@mail.com">
+          </div>
+
+          <div class="form-field">
+            <label for="f-city">İl / İlçe *</label>
+            <input type="text" id="f-city" name="city" placeholder="Örn: İzmir / Selçuk" required>
+          </div>
+
+          <div class="form-field">
+            <label for="f-talep">Talebiniz</label>
+            <select id="f-talep" name="talep">
+              <option value="">Seçiniz…</option>
+              <option value="yeni-sistem">Yeni sistem kurulumu</option>
+              <option value="degerlendirme">Mevcut sistemi değerlendirme</option>
+              <option value="teklif-degerlendirme">Teklif değerlendirmesi</option>
+              <option value="proje-danismanlik">Proje ve danışmanlık</option>
+              <option value="diger">Diğer</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-bitki">Ürün / Bitki</label>
+              <input type="text" id="f-bitki" name="bitki" placeholder="zeytin, kiraz, sera vb.">
+            </div>
+            <div class="form-field">
+              <label for="f-alan">Yaklaşık alan</label>
+              <input type="text" id="f-alan" name="alan" placeholder="dekar">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="f-su">Su kaynağı</label>
+            <select id="f-su" name="su_kaynagi">
+              <option value="">Seçiniz…</option>
+              <option value="derin-kuyu">Derin kuyu</option>
+              <option value="kanal">Kanal / sulama birliği</option>
+              <option value="golet">Gölet / yüzey suyu</option>
+              <option value="sebeke">Şebeke</option>
+              <option value="belirsiz">Henüz belli değil</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="f-mevcut">Mevcut sulama sisteminiz var mı?</label>
+            <select id="f-mevcut" name="mevcut_sistem">
+              <option value="">Seçiniz…</option>
+              <option value="var">Var</option>
+              <option value="yok">Yok</option>
+              <option value="kismen">Kısmen</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="f-mesaj">Mesajınız</label>
+            <textarea id="f-mesaj" name="mesaj" rows="4" placeholder="Projeniz hakkında ek bilgi paylaşabilirsiniz…"></textarea>
+          </div>
+
+          <div class="kvkk-check">
+            <input type="checkbox" id="f-kvkk" name="kvkk" required>
+            <label for="f-kvkk">Formu göndererek, paylaştığınız bilgilerin talebinizin değerlendirilmesi amacıyla işlenmesini kabul etmiş olursunuz. <a href="kvkk.html" target="_blank">KVKK Aydınlatma Metni'ni</a> inceleyebilirsiniz.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Gönder</button>
+        </form>
       </div>
 
-      <!-- Right: Form -->
-      <div class="contact-form-box">
-        <h3>Ücretsiz Keşif &amp; Teklif Formu</h3>
-        <div class="form-wrap">
-          <form class="ajax-form" novalidate>
-            <input type="hidden" name="form_type" value="contact">
-            <div class="form-group">
-              <label for="c-name">Ad Soyad *</label>
-              <input type="text" id="c-name" name="name" placeholder="Adınız Soyadınız" required>
-            </div>
-            <div class="form-group">
-              <label for="c-phone">Telefon *</label>
-              <input type="tel" id="c-phone" name="phone" placeholder="05xx xxx xx xx" required>
-            </div>
-            <div class="form-group">
-              <label for="c-email">E-posta</label>
-              <input type="email" id="c-email" name="email" placeholder="ornek@mail.com">
-            </div>
-            <div class="form-group">
-              <label for="c-city">İl / İlçe</label>
-              <input type="text" id="c-city" name="city" placeholder="Örn: Antalya / Serik">
-            </div>
-            <div class="form-group">
-              <label for="c-size">Arazi / Sera Büyüklüğü</label>
-              <input type="text" id="c-size" name="size" placeholder="Örn: 20 dönüm veya 2.000 m²">
-            </div>
-            <div class="form-group">
-              <label for="c-type">İlgilendiğiniz Sistem</label>
-              <select id="c-type" name="system_type">
-                <option value="">Seçiniz…</option>
-                <option>Damla Sulama</option>
-                <option>Sprinkler / Yağmurlama</option>
-                <option>Sera Sulama</option>
-                <option>Filtrasyon &amp; Vana</option>
-                <option>Otomasyon &amp; Sensör</option>
-                <option>Bilmiyorum, önerin alayım</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="c-note">Eklemek istediğiniz notlar</label>
-              <textarea id="c-note" name="note" placeholder="Mevcut su kaynağınız, toprak yapısı, öncelikleriniz…"></textarea>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" id="c-kvkk" name="kvkk" required>
-              <label for="c-kvkk">
-                <a href="kvkk.html" target="_blank">KVKK aydınlatma metnini</a> okudum ve kişisel verilerimin işlenmesini kabul ediyorum.
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full btn-lg">Teklif Talebi Gönder</button>
-            <p class="form-hint mt-8">🔒 Bilgileriniz gizli tutulur, üçüncü kişilerle paylaşılmaz.</p>
-          </form>
-          <div class="form-success">
-            <div style="font-size:52px;margin-bottom:14px;">🌱</div>
-            <h4>Talebiniz alındı!</h4>
-            <p>En geç 48 saat içinde sizi arayacağız.<br><br>
-            Acil durumlar için:<br>
-            <a href="https://wa.me/905327059400" target="_blank" style="color:var(--g700);font-weight:700;">WhatsApp: +90 (532) 705 94 00</a></p>
+      <!-- Right: Contact info -->
+      <div class="contact-info-wrap">
+        <h3>İletişim</h3>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-body">
+            <span>Telefon</span>
+            <a href="tel:+905327059400">+90 (532) 705 94 00</a>
           </div>
         </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-body">
+            <span>E-posta</span>
+            <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-body">
+            <span>Adres</span>
+            <p>No:369, Mersinli, Gaziler Cd Gıda Çarşısı<br>Batı İş Merkezi, 35000 Konak/İzmir</p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+projesi+hakk%C4%B1nda+bilgi+almak+istiyorum." class="wa-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp'tan yazın
+        </a>
       </div>
 
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div><div class="footer-logo"><img src="assets/img/logo.png" alt="Irriga Sulama Sistemleri" class="footer-logo-img"></div><p class="footer-desc">Tarım ve sera için profesyonel sulama sistemleri kurulumu.</p></div>
-      <div class="footer-col"><h4>Hizmetler</h4><ul><li><a href="hizmetler.html">Damla Sulama</a></li><li><a href="hizmetler.html">Sprinkler</a></li><li><a href="hizmetler.html">Sera Sulama</a></li></ul></div>
-      <div class="footer-col"><h4>Kurumsal</h4><ul><li><a href="hakkimizda.html">Hakkımızda</a></li><li><a href="referanslar.html">Referanslar</a></li><li><a href="blog.html">Blog</a></li><li><a href="sss.html">SSS</a></li><li><a href="iletisim.html">İletişim</a></li><li><a href="kvkk.html">KVKK &amp; Gizlilik</a></li></ul></div>
-      <div class="footer-col"><h4>İletişim</h4><ul><li class="footer-contact-item">📞 <a href="tel:+905327059400">+90 (532) 705 94 00</a></li><li class="footer-contact-item">✉️ <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a></li></ul></div>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>İrriga Mühendislik</strong>
+      <p style="color:var(--muted);margin-top:6px;font-size:.9rem;">Doğru proje, doğru malzeme, doğru kurulum.</p>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:8px;">İrriga Mühendislik Sulama Sistemleri San. ve Tic. Ltd. Şti.<br>Mersinli Mah. Gaziler Cad. Batı İş Merkezi No: 369/Y, Konak / İZMİR</p>
     </div>
-    <div class="footer-bottom"><span>© 2026 Irriga Sulama Sistemleri</span><div class="footer-bottom-links"><a href="kvkk.html">KVKK</a></div></div>
+    <div>
+      <strong>Hizmetlerimiz</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;">
+        <li><a href="sulama-sistemleri.html">Sulama Sistemleri Mühendisliği</a></li>
+        <li><a href="fertigasyon.html">Fertigasyon Sistemleri</a></li>
+        <li><a href="otomasyon-ve-izleme.html">Sulama Otomasyonu ve İzleme</a></li>
+        <li><a href="proje-ve-danismanlik.html">Proje ve Danışmanlık</a></li>
+        <li><a href="rehabilitasyon-ve-bakim.html">Rehabilitasyon ve Bakım</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Kurumsal</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;">
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="yaklasimimiz.html">Yaklaşımımız</a></li>
+        <li><a href="teknoloji-ve-cozum-ortaklari.html">Teknoloji ve Çözüm Ortakları</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="kvkk.html">KVKK</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>İletişim</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;color:var(--muted);font-size:.9rem;">
+        <li>📞 <a href="tel:+905327059400">+90 532 705 94 00</a></li>
+        <li>✉️ <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a></li>
+        <li style="margin-top:12px;"><a href="iletisim.html" class="btn btn-primary" style="font-size:.9rem;padding:10px 18px;">Projenizi konuşalım</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:16px;border-top:1px solid var(--border);margin-top:32px;text-align:center;color:var(--muted);font-size:.85rem;">
+    © 2026 İrriga Mühendislik · irriga.tr
   </div>
 </footer>
 
-<a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+<a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+projesi+hakk%C4%B1nda+bilgi+almak+istiyorum." class="whatsapp-float" target="_blank" aria-label="WhatsApp'tan ulaşın">
   <span class="whatsapp-tooltip">Hemen yazın!</span>
   <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
-<button id="back-top" aria-label="Başa dön"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+<button id="back-top" aria-label="Sayfanın başına dön">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <script src="assets/js/main.js"></script>
 </body>

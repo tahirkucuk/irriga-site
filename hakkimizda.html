@@ -8,32 +8,30 @@
 <link rel="canonical" href="https://irriga.com.tr/hakkimizda.html">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-.about-text h2{font-size:30px;color:var(--g900);margin-bottom:16px;line-height:1.25;}
-.about-text p{font-size:15px;color:var(--muted);margin-bottom:16px;line-height:1.75;}
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
-.about-stat{background:var(--g100);border-radius:12px;padding:20px;text-align:center;}
-.about-stat b{display:block;font-size:28px;font-weight:800;color:var(--g700);}
-.about-stat span{font-size:12.5px;color:var(--muted);}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.value-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 20px;text-align:center;}
-.value-icon{width:52px;height:52px;border-radius:14px;background:var(--g100);display:flex;align-items:center;justify-content:center;color:var(--g700);margin:0 auto 16px;font-size:22px;}
-.value-card h3{font-size:15px;font-weight:700;color:var(--g900);margin-bottom:8px;}
-.value-card p{font-size:13.5px;color:var(--muted);line-height:1.55;}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-.team-photo{height:160px;background:linear-gradient(135deg,var(--g500),var(--b600));display:flex;align-items:center;justify-content:center;font-size:48px;}
-.team-body{padding:20px;}
-.team-body h4{font-size:15px;font-weight:700;color:var(--g900);margin-bottom:4px;}
-.team-body span{font-size:12.5px;color:var(--muted);}
+.disiplin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.disiplin-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;text-align:center;}
+.disiplin-icon{font-size:32px;margin-bottom:12px;}
+.disiplin-card h3{font-size:1rem;font-weight:700;color:var(--g900);margin-bottom:8px;}
+.disiplin-card p{font-size:.9rem;color:var(--muted);line-height:1.6;}
+.nasil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.nasil-item h3{color:var(--g700);font-size:.95rem;margin-bottom:10px;}
+.nasil-item p{color:var(--muted);font-size:.875rem;line-height:1.7;}
+.section-head{max-width:780px;margin:0 auto 52px;text-align:center;}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.ref-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.ref-img{height:200px;overflow:hidden;background:linear-gradient(135deg,var(--g100),var(--g50));display:flex;align-items:center;justify-content:center;font-size:48px;}
+.ref-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ref-body{padding:20px;}
+.ref-tag{display:inline-block;background:var(--g100);color:var(--g700);border-radius:6px;padding:3px 10px;font-size:.78rem;font-weight:600;margin-bottom:10px;}
+.ref-body h3{font-size:.9rem;font-weight:700;color:var(--g900);margin-bottom:6px;line-height:1.35;}
+.ref-body>p{font-size:.82rem;color:var(--muted);margin-bottom:4px;}
+.ref-detail{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:6px;}
 @media(max-width:900px){
-  .about-grid{grid-template-columns:1fr;}
-  .values-grid{grid-template-columns:1fr 1fr;}
-  .team-grid{grid-template-columns:1fr 1fr;}
+  .disiplin-grid,.nasil-grid{grid-template-columns:1fr 1fr;}
+  .ref-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:600px){
-  .values-grid,.team-grid{grid-template-columns:1fr;}
-  .about-stats{grid-template-columns:1fr 1fr;}
+  .disiplin-grid,.nasil-grid,.ref-grid{grid-template-columns:1fr;}
 }
 </style>
 <!-- Google tag (gtag.js) — Measurement ID'yi Google Analytics'ten alıp girin -->
@@ -44,235 +42,286 @@
 
 <header id="site-header">
   <nav class="nav-inner">
-    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Irriga Sulama Sistemleri" class="logo-img"></a>
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo.png" alt="İrriga Mühendislik" class="logo-img">
+    </a>
     <ul class="nav-links">
-      <li><a href="hizmetler.html">Hizmetler</a></li>
       <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
-      <li><a href="referanslar.html">Referanslar</a></li>
+      <li><a href="yaklasimimiz.html">Yaklaşımımız</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Hizmetlerimiz</a>
+        <ul class="dropdown-menu">
+          <li><a href="sulama-sistemleri.html">Sulama Sistemleri Mühendisliği</a></li>
+          <li><a href="fertigasyon.html">Fertigasyon Sistemleri</a></li>
+          <li><a href="otomasyon-ve-izleme.html">Sulama Otomasyonu ve İzleme</a></li>
+          <li><a href="proje-ve-danismanlik.html">Proje ve Danışmanlık</a></li>
+          <li><a href="rehabilitasyon-ve-bakim.html">Rehabilitasyon ve Bakım</a></li>
+        </ul>
+      </li>
+      <li><a href="teknoloji-ve-cozum-ortaklari.html">Teknoloji</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="sss.html">SSS</a></li>
       <li><a href="iletisim.html">İletişim</a></li>
     </ul>
-    <a href="iletisim.html" class="nav-cta">Ücretsiz Keşif Al</a>
-    <button class="hamburger" aria-label="Menüyü aç/kapat"><span></span><span></span><span></span></button>
+    <a href="iletisim.html" class="nav-cta">Projenizi konuşalım</a>
+    <button class="hamburger" aria-label="Menüyü aç/kapat">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
-<nav class="mobile-nav">
-  <a href="hizmetler.html">🔧 Hizmetler</a>
+<nav class="mobile-nav" aria-label="Mobil menü">
   <a href="hakkimizda.html">🏢 Hakkımızda</a>
-  <a href="referanslar.html">📋 Referanslar</a>
+  <a href="yaklasimimiz.html">🔍 Yaklaşımımız</a>
+  <a href="sulama-sistemleri.html">💧 Sulama Sistemleri</a>
+  <a href="fertigasyon.html">🌱 Fertigasyon</a>
+  <a href="otomasyon-ve-izleme.html">📡 Otomasyon</a>
+  <a href="proje-ve-danismanlik.html">📋 Proje & Danışmanlık</a>
+  <a href="rehabilitasyon-ve-bakim.html">🔧 Rehabilitasyon</a>
+  <a href="teknoloji-ve-cozum-ortaklari.html">⚙️ Teknoloji</a>
   <a href="blog.html">📰 Blog</a>
-  <a href="sss.html">❓ SSS</a>
   <a href="iletisim.html">📞 İletişim</a>
-  <a href="kvkk.html">🔒 KVKK & Gizlilik</a>
-  <a href="iletisim.html" class="btn btn-primary">Ücretsiz Keşif Talep Et</a>
+  <a href="kvkk.html">🔒 KVKK</a>
+  <a href="iletisim.html" class="btn btn-primary">Projenizi konuşalım</a>
 </nav>
 
 <!-- Page Hero -->
 <section class="page-hero">
   <div class="wrap">
     <p class="breadcrumb"><a href="index.html">Ana Sayfa</a> › <span>Hakkımızda</span></p>
-    <h1>Biz Kimiz?</h1>
-    <p>Tarım ve sera sektörüne profesyonel sulama çözümleri sunan, sahada çalışan bir ekibiz.</p>
+    <h1>Doğru proje, doğru malzeme, doğru kurulum.</h1>
+    <p>Sulama, gübreleme ve otomasyonu tek mühendislik altında topluyoruz.</p>
   </div>
 </section>
 
-<!-- Hikayemiz -->
+<!-- Giriş -->
 <section class="section section--light">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="eyebrow">🌱 Hikayemiz</div>
-        <h2>Tarladan başlayan bir tutkuyla kurduk</h2>
-        <p>Irriga Sulama Sistemleri, tarım arazilerinde su israfını azaltmak ve verimliliği artırmak amacıyla kuruldu. Küçük ölçekli sera projelerinden büyük tarla kurulumlarına kadar her ölçekte deneyim kazandık.</p>
-        <p>Ekibimiz; sulama mühendisliği, proje yönetimi ve saha teknikerleri olmak üzere farklı uzmanlıklardan oluşuyor. Her kurulum için önce araziye gidiyor, ihtiyacı yerinde anlıyor ve en verimli sistemi tasarlıyoruz.</p>
-        <p>Bugün 120'yi aşkın tamamlanan projemiz ve mutlu çiftçi aileleriyle çalışmaya devam ediyoruz.</p>
-        <div class="about-stats">
-          <div class="about-stat"><b>120+</b><span>Tamamlanan Proje</span></div>
-          <div class="about-stat"><b>%30</b><span>Ortalama Su Tasarrufu</span></div>
-          <div class="about-stat"><b>48 sa</b><span>İçinde Teklif</span></div>
-          <div class="about-stat"><b>7/24</b><span>WhatsApp Destek</span></div>
-        </div>
-      </div>
-      <div>
-        <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;box-shadow:var(--shadow);">
-          <defs>
-            <linearGradient id="abSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2a8fae"/>
-              <stop offset="60%" stop-color="#2e9c5f"/>
-              <stop offset="100%" stop-color="#1c5c3a"/>
-            </linearGradient>
-          </defs>
-          <rect width="480" height="380" fill="url(#abSky)"/>
-          <!-- Sun -->
-          <circle cx="400" cy="60" r="32" fill="#ffe9a8" opacity=".9"/>
-          <circle cx="400" cy="60" r="48" fill="#ffe9a8" opacity=".12"/>
-          <!-- Ground -->
-          <rect x="0" y="260" width="480" height="120" fill="#1c5c3a"/>
-          <!-- Rows -->
-          <g stroke="#2e9c5f" stroke-width="1.5" opacity=".5">
-            <line x1="0" y1="280" x2="480" y2="280"/>
-            <line x1="0" y1="310" x2="480" y2="310"/>
-            <line x1="0" y1="340" x2="480" y2="340"/>
-          </g>
-          <!-- Plants -->
-          <g fill="#3fbf72">
-            <ellipse cx="48" cy="258" rx="14" ry="10"/>
-            <ellipse cx="96" cy="252" rx="16" ry="11"/>
-            <ellipse cx="144" cy="255" rx="15" ry="10"/>
-            <ellipse cx="192" cy="250" rx="17" ry="12"/>
-            <ellipse cx="240" cy="253" rx="15" ry="10"/>
-            <ellipse cx="288" cy="256" rx="14" ry="9"/>
-            <ellipse cx="336" cy="251" rx="16" ry="11"/>
-            <ellipse cx="384" cy="254" rx="15" ry="10"/>
-            <ellipse cx="432" cy="258" rx="13" ry="9"/>
-          </g>
-          <!-- Drip line -->
-          <line x1="0" y1="265" x2="480" y2="265" stroke="#bfe9ff" stroke-width="2" opacity=".7"/>
-          <!-- Drops -->
-          <g fill="#bfe9ff" opacity=".8">
-            <path d="M48 270 q3 7 0 10 q-3-3 0-10Z"/>
-            <path d="M144 272 q3 7 0 10 q-3-3 0-10Z"/>
-            <path d="M240 269 q3 7 0 10 q-3-3 0-10Z"/>
-            <path d="M336 271 q3 7 0 10 q-3-3 0-10Z"/>
-            <path d="M432 270 q3 7 0 10 q-3-3 0-10Z"/>
-          </g>
-          <!-- Person silhouette -->
-          <circle cx="200" cy="195" r="14" fill="#e7f5ec" opacity=".9"/>
-          <rect x="193" y="209" width="14" height="38" rx="5" fill="#e7f5ec" opacity=".9"/>
-          <rect x="185" y="214" width="10" height="24" rx="4" fill="#e7f5ec" opacity=".9"/>
-          <rect x="207" y="214" width="10" height="24" rx="4" fill="#e7f5ec" opacity=".9"/>
-          <!-- Pipe in hand -->
-          <line x1="215" y1="225" x2="250" y2="215" stroke="#bfe9ff" stroke-width="3" stroke-linecap="round"/>
-          <g fill="#bfe9ff" opacity=".6">
-            <path d="M250 215 q4 6 0 9 q-4-3 0-9Z"/>
-            <path d="M258 210 q3 5 0 8 q-3-3 0-8Z"/>
-          </g>
-        </svg>
-      </div>
-    </div>
+  <div class="wrap" style="max-width:760px;">
+    <p style="font-size:1.1rem;color:var(--ink);line-height:1.85;margin-bottom:18px;">Türkiye'de sulama yatırımlarının büyük bölümü yanlış soruyla başlar: <strong>"Hangi damlatıcıyı alalım?"</strong></p>
+    <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">Doğru soru şudur: Bu arazide, bu su kaynağıyla, bu bitki için — ne kadar suyu, ne zaman, hangi yöntemle ve hangi gübre çözeltisiyle vermem gerekiyor?</p>
+    <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">Bu soru cevaplanmadan seçilen her ekipman, bir tahmindir. Ve tahminin bedeli genellikle ilk sezonda değil, üçüncü yılda ortaya çıkar: tıkanan damlatıcılar, dengesiz basınç, kök bölgesinde tuz birikimi, beklenenin altında verim.</p>
+    <p style="color:var(--ink);font-weight:600;line-height:1.8;">İrriga Mühendislik, bu soruyu cevaplamak için kuruldu.</p>
   </div>
 </section>
 
-<!-- Değerlerimiz -->
+<!-- Üç Disiplin -->
 <section class="section section--sand">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Değerlerimiz</div>
-      <h2>Çalışma şeklimizi belirleyen ilkeler</h2>
-      <p>Her projede aynı özenle yaklaştığımız dört temel değer.</p>
+      <div class="eyebrow">Ne Yapıyoruz</div>
+      <h2>Üç disiplini tek çatı altında</h2>
+      <p>Sulama, gübreleme ve otomasyon ayrı işler değil, aynı sistemin üç yüzüdür.</p>
     </div>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">🤝</div>
-        <h3>Güven</h3>
-        <p>Söz verdiğimiz tarihlere uyar, verdiğimiz teklifte saklı maliyet bırakmayız. Müşterimiz her zaman nerede olduğunu bilir.</p>
+    <div class="disiplin-grid">
+      <div class="disiplin-card">
+        <div class="disiplin-icon">💧</div>
+        <h3>Sulama</h3>
+        <p>Hidrolik hesap, sistem seçimi, boru ve pompa tasarımı, basınç yönetimi, filtrasyon.</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">⚙️</div>
-        <h3>Kalite</h3>
-        <p>Kullandığımız malzemeleri bizzat seçer, kurulum kalitesini sistematik testlerle doğrularız. İşimizin arkasında dururuz.</p>
+      <div class="disiplin-card">
+        <div class="disiplin-icon">🌱</div>
+        <h3>Gübreleme</h3>
+        <p>Fertigasyon mimarisi, dozajlama, EC/pH kontrolü, çözelti uyumluluğu ve karışım planı.</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">⚡</div>
-        <h3>Hız</h3>
-        <p>Keşiften 48 saat içinde teklif, onaydan sonra planlanan tarihte kurulum. Çiftçinin zamanı bizim için değerlidir.</p>
+      <div class="disiplin-card">
+        <div class="disiplin-icon">📡</div>
+        <h3>Otomasyon</h3>
+        <p>Saha kontrolü, toprak nemi ve iklim ölçümü, uydu görüntüleri, veriye dayalı sulama kararı.</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🛠️</div>
-        <h3>Sürekli Destek</h3>
-        <p>Kurulum sonrası ilişkimiz bitmez. Mevsim başı kontrol, arıza müdahalesi ve WhatsApp danışmanlık hattı her zaman açık.</p>
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:28px;font-size:.9rem;max-width:640px;margin-left:auto;margin-right:auto;">Gübreleme planı bilinmeden filtre seçilmez; otomasyon senaryosu bilinmeden vana bölümlemesi yapılmaz. Sektörde bu üçü çoğunlukla farklı firmalar tarafından, birbirinden habersiz kurgulanır. Sonucu sahada görüyoruz.</p>
+  </div>
+</section>
+
+<!-- Nasıl Çalışıyoruz -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nasıl Çalışıyoruz</div>
+      <h2>Başlıktaki üç söz, üç ayrı iş demek.</h2>
+    </div>
+    <div class="nasil-grid">
+      <div class="nasil-item">
+        <h3>Doğru proje — önce hesap, sonra ekipman</h3>
+        <p>Bir sulama projesi, ekipman seçimiyle değil ölçümle başlar: su analizi, toprak, topoğrafya, bitki su ihtiyacı. Ekipman seçimini tasarımın sonunda yaparız, başında değil.</p>
+        <p style="margin-top:10px;">Her teklifin ekinde bir Tasarım Esasları Özeti vardır: kabul edilen su ihtiyacı, pik debi, bölge sayısı, filtrasyon seçim gerekçesi ve gübreleme yaklaşımı.</p>
+      </div>
+      <div class="nasil-item">
+        <h3>Doğru malzeme — seçimin gerekçesi yazılıdır</h3>
+        <p>Birlikte çalıştığımız çözüm sağlayıcılarının ürün gamını yakından tanıyoruz: hangi malzeme sizin arazinize uygundur, hangi kontrol ünitesi hangi ölçekte doğru cevabı verir.</p>
+        <p style="margin-top:10px;">Seçimi bu bilgi belirler, elimizde ne olduğu değil. Bir projede daha ekonomik bir çözüm yeterliyse, pahalı olanı önermeyiz.</p>
+      </div>
+      <div class="nasil-item">
+        <h3>Doğru kurulum — ölçülerek teslim edilir</h3>
+        <p>Bir sistem, su verdiği anda değil doğrulandığı anda teslim edilmiş sayılır: hatlar yıkanır, basınç testi yapılır, damlatıcı debisi ölçülür, sonuç hesapla karşılaştırılır.</p>
+        <p style="margin-top:10px;">Kapsam, süre, garanti ve fiyat yazılıdır. Teslimden sonra bakım programını yazılı olarak bırakırız.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Neden Irriga -->
-<section class="section section--dark">
+<!-- Mühendislik Kadrosu -->
+<section class="section section--sand">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Neden Irriga?</div>
-      <h2>Büyük firmalar söz verir, biz tarlaya gideriz</h2>
-      <p>Bölgenizdeyiz, gerçekten ilgileniyoruz, kalıcı çözümler üretiyoruz.</p>
+      <div class="eyebrow">Mühendislik Kadromuz</div>
+      <h2>Araştırma ile saha bir arada</h2>
+      <p>Hem bitki su tüketimi ve sensör teknolojisi üzerine yıllarca araştırma yaptık, hem de yüzlerce projeyi çizip sahada kurduk. Bu ikisini bir arada yapan firma sayısı Türkiye'de azdır.</p>
     </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="num">01</div>
-        <h3>Yerel & Ulaşılabilir</h3>
-        <p>Bölgenizdeyiz. Arıyorsunuz, biz geliyoruz. WhatsApp'tan anında iletişim.</p>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:36px;max-width:760px;margin:0 auto;">
+      <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g500),var(--b600));display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">👨‍🔬</div>
+        <div style="flex:1;min-width:240px;">
+          <h3 style="color:var(--g900);margin-bottom:4px;font-size:1.05rem;">Dr. Ulaş Tunalı</h3>
+          <p style="color:var(--g700);font-size:.875rem;font-weight:600;margin-bottom:14px;">Kurucu, Şirket Müdürü — Ziraat Mühendisi, Dr.</p>
+          <p style="color:var(--muted);font-size:.875rem;line-height:1.75;margin-bottom:10px;">Ege Üniversitesi Ziraat Fakültesi, Tarımsal Yapılar ve Sulama Bölümü (lisans, yüksek lisans, doktora). Doktora: topraksız tarımda kök bölgesi nem algılayıcıları ile sulamanın yönetimi ve yapay sinir ağları ile bitki su tüketiminin tahminlenmesi. Yüksek lisans: açık ve kapalı besleme sistemlerinde tuzluluğun bitki tepkisine etkisi.</p>
+          <p style="color:var(--muted);font-size:.875rem;line-height:1.75;margin-bottom:10px;">Ege Üniversitesi Araştırma Görevlisi (2009–2015) — FLOW-AID ve AQUATAG uluslararası projeleri. Teknotar / Devint (2015–2022) — 200'ün üzerinde proje, tasarımdan devreye almaya. Agrodrip (2022–2026).</p>
+          <p style="color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);padding-top:10px;margin-top:4px;">15'in üzerinde ulusal ve uluslararası bilimsel yayın — sera sulama otomasyonu, toprak nemi algılayıcıları, kısıtlı sulama, bitki su tüketimi modellemesi.</p>
+        </div>
       </div>
-      <div class="why-card">
-        <div class="num">02</div>
-        <h3>48 Saatte Teklif</h3>
-        <p>Keşif ziyaretinin ardından 48 saat içinde detaylı ve şeffaf fiyat teklifi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Saha Geçmişi -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Saha Geçmişi</div>
+      <h2>Kurucu kadromuzun son dönem saha çalışmalarından bir seçki.</h2>
+      <p style="font-size:.875rem;color:var(--muted);">İrriga Ağustos 2026'da kuruldu. Aşağıdaki işler, kuruluştan önce yürütülen çalışmalardır. Kuruluş sonrası projeler teslim sonrası yayımlanacaktır.</p>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-01-a.jpeg" alt="Zeytin bahçesi sulama ve otomasyon — Muğla" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">Sulama · Otomasyon</span>
+          <h3>Zeytin bahçesi sulama ve otomasyon</h3>
+          <p>Muğla · 1.200 dekar · 2025</p>
+          <p class="ref-detail">Su kaynağı: kanal · Damla sulama<br>Kapsam: Uygulama · Devreye alma</p>
+        </div>
       </div>
-      <div class="why-card">
-        <div class="num">03</div>
-        <h3>Anahtar Teslim</h3>
-        <p>Tasarım, malzeme tedariki, kurulum ve test tek elden, tek fiyata.</p>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-02-a.jpeg" alt="Kiraz bahçesi damla sulama ve pompaj — Manisa" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">Sulama · Pompaj</span>
+          <h3>Kiraz bahçesi damla sulama ve pompaj</h3>
+          <p>Manisa · 150 dekar · 2025</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Damla sulama + pompaj<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
       </div>
-      <div class="why-card">
-        <div class="num">04</div>
-        <h3>Kurulum Sonrası Destek</h3>
-        <p>İş bitmez kurulumla. Bakım, arıza ve danışmanlık için yanınızdayız.</p>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-03-a.jpeg" alt="Kiraz bahçesi pompaj tesisi — Çanakkale" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">Pompaj</span>
+          <h3>Kiraz bahçesi pompaj tesisi</h3>
+          <p>Çanakkale · 600 dekar · 2024</p>
+          <p class="ref-detail">Yüzen dalgıç pompa<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-04-a.jpeg" alt="Zeytin bahçesi toprakaltı damla sulama — Manisa" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">SDI · Otomasyon</span>
+          <h3>Zeytin bahçesi toprakaltı damla sulama ve otomasyon</h3>
+          <p>Manisa · 150 dekar · 2024</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Toprakaltı damla sulama (SDI)<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-05-a.jpeg" alt="Mandalina bahçesi toprakaltı damla sulama — İzmir" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">SDI · Otomasyon</span>
+          <h3>Mandalina bahçesi toprakaltı damla sulama ve otomasyon</h3>
+          <p>İzmir · 50 dekar · 2024</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Toprakaltı damla sulama (SDI)<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-06-a.jpeg" alt="Tıbbi ve aromatik bitki sera tesisi — Erzincan" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">Sera · Otomasyon</span>
+          <h3>Tıbbi ve aromatik bitki sera tesisi</h3>
+          <p>Erzincan · 45 dekar · 2026</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · 5 sera, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-img">🌿</div>
+        <div class="ref-body">
+          <span class="ref-tag">Topraksız · Otomasyon</span>
+          <h3>Enginar üretimi, saksıda yetiştiricilik</h3>
+          <p>İzmir · 40 dekar · 2025</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Saksıda yetiştiricilik, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-08-a.jpeg" alt="Safran üretimi topraksız tarım — Manisa" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">Topraksız · Otomasyon</span>
+          <h3>Safran üretimi, topraksız tarım</h3>
+          <p>Manisa · 7 dekar · 2026</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Topraksız tarım, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-img"><img src="assets/img/saha/proje-09-a.jpeg" alt="Hammadde sahası toz önleme sistemi — İzmir" loading="lazy"></div>
+        <div class="ref-body">
+          <span class="ref-tag">Endüstriyel</span>
+          <h3>Hammadde sahası toz önleme sistemi</h3>
+          <p>İzmir · 200 dekar · 2025</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Endüstriyel toz bastırma<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="section section--sand">
+<section class="section section--dark">
   <div class="wrap text-center">
-    <div class="eyebrow">Tanışalım</div>
-    <h2 style="font-size:28px;color:var(--g900);margin-bottom:14px;">Projenizi birlikte konuşalım</h2>
-    <p style="color:var(--muted);margin-bottom:32px;font-size:15.5px;max-width:480px;margin-left:auto;margin-right:auto;">Ücretsiz keşif ziyareti için bugün ulaşın, 48 saat içinde teklifiniz hazır.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="iletisim.html" class="btn btn-primary btn-lg">Ücretsiz Keşif Talep Et</a>
-      <a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn btn-wa btn-lg">💬 WhatsApp</a>
-    </div>
+    <h2 style="color:#fff;font-size:28px;margin-bottom:14px;">Arazinizi birlikte değerlendirelim.</h2>
+    <p style="color:rgba(255,255,255,.8);margin-bottom:32px;font-size:15.5px;max-width:520px;margin-left:auto;margin-right:auto;">Mevcut bir sisteminiz varsa neyin iyileştirilebileceğini, yeni bir yatırım planlıyorsanız nereden başlamanız gerektiğini konuşalım.</p>
+    <a href="iletisim.html" class="btn btn-primary btn-lg">Projenizi konuşalım</a>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="assets/img/logo.png" alt="Irriga Sulama Sistemleri" class="footer-logo-img"></div>
-        <p class="footer-desc">Tarım ve sera işletmeleri için profesyonel sulama sistemleri tasarımı, kurulumu ve teknik desteği.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Hizmetler</h4>
-        <ul>
-          <li><a href="hizmetler.html">Damla Sulama</a></li>
-          <li><a href="hizmetler.html">Sprinkler &amp; Yağmurlama</a></li>
-          <li><a href="hizmetler.html">Sera Sulama</a></li>
-          <li><a href="hizmetler.html">Filtrasyon &amp; Otomasyon</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kurumsal</h4>
-        <ul>
-          <li><a href="hakkimizda.html">Hakkımızda</a></li>
-          <li><a href="referanslar.html">Referanslar</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="sss.html">SSS</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-          <li><a href="kvkk.html">KVKK &amp; Gizlilik</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>İletişim</h4>
-        <ul>
-          <li class="footer-contact-item">📞 <a href="tel:+905327059400">+90 (532) 705 94 00</a></li>
-          <li class="footer-contact-item">✉️ <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a></li>
-          <li class="footer-contact-item">📍 No:369, Mersinli, Gaziler Cd Gıda Çarşısı, Batı İş Merkezi, 35000 Konak/İzmir</li>
-        </ul>
-      </div>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>İrriga Mühendislik</strong>
+      <p style="color:var(--muted);margin-top:6px;font-size:.9rem;">Doğru proje, doğru malzeme, doğru kurulum.</p>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:8px;">İrriga Mühendislik Sulama Sistemleri San. ve Tic. Ltd. Şti.<br>Mersinli Mah. Gaziler Cad. Batı İş Merkezi No: 369/Y, Konak / İZMİR</p>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Irriga Sulama Sistemleri — Tüm hakları saklıdır.</span>
-      <div class="footer-bottom-links"><a href="kvkk.html">Gizlilik Politikası</a><a href="kvkk.html">KVKK</a></div>
+    <div>
+      <strong>Hizmetlerimiz</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;">
+        <li><a href="sulama-sistemleri.html">Sulama Sistemleri Mühendisliği</a></li>
+        <li><a href="fertigasyon.html">Fertigasyon Sistemleri</a></li>
+        <li><a href="otomasyon-ve-izleme.html">Sulama Otomasyonu ve İzleme</a></li>
+        <li><a href="proje-ve-danismanlik.html">Proje ve Danışmanlık</a></li>
+        <li><a href="rehabilitasyon-ve-bakim.html">Rehabilitasyon ve Bakım</a></li>
+      </ul>
     </div>
+    <div>
+      <strong>Kurumsal</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;">
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="yaklasimimiz.html">Yaklaşımımız</a></li>
+        <li><a href="teknoloji-ve-cozum-ortaklari.html">Teknoloji ve Çözüm Ortakları</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="kvkk.html">KVKK</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>İletişim</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;color:var(--muted);font-size:.9rem;">
+        <li>📞 <a href="tel:+905327059400">+90 532 705 94 00</a></li>
+        <li>✉️ <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a></li>
+        <li style="margin-top:12px;"><a href="iletisim.html" class="btn btn-primary" style="font-size:.9rem;padding:10px 18px;">Projenizi konuşalım</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:16px;border-top:1px solid var(--border);margin-top:32px;text-align:center;color:var(--muted);font-size:.85rem;">
+    © 2026 İrriga Mühendislik · irriga.tr
   </div>
 </footer>
 
