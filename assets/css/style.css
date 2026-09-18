@@ -80,10 +80,10 @@ svg{display:block;}
 #site-header.scrolled{box-shadow:var(--shadow-sm);}
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 24px;max-width:1140px;margin:0 auto;
+  padding:10px 24px;max-width:1140px;margin:0 auto;
 }
 .logo{display:flex;align-items:center;}
-.logo-img{height:52px;width:auto;display:block;}
+.logo-img{height:68px;width:auto;display:block;}
 .footer-logo-img{height:32px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.88;}
 .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--muted);}
 .nav-links a:hover{color:var(--g700);}
