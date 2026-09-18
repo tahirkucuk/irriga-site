@@ -26,6 +26,18 @@
 .ref-body h3{font-size:.9rem;font-weight:700;color:var(--g900);margin-bottom:6px;line-height:1.35;}
 .ref-body>p{font-size:.82rem;color:var(--muted);margin-bottom:4px;}
 .ref-detail{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:6px;}
+.ref-img{cursor:pointer;}
+.ref-thumbs{display:flex;gap:5px;padding:8px 10px;background:#f4f7f5;border-top:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.ref-thumbs::-webkit-scrollbar{display:none;}
+.ref-thumb{height:44px;width:58px;flex-shrink:0;object-fit:cover;border-radius:5px;cursor:pointer;opacity:.65;transition:opacity .15s,outline .15s;}
+.ref-thumb:hover,.ref-thumb.active{opacity:1;outline:2px solid var(--g500);}
+/* Lightbox */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;gap:16px;}
+#lb.open{display:flex;}
+#lb-img{max-height:88vh;max-width:82vw;border-radius:10px;object-fit:contain;display:block;}
+.lb-btn{background:rgba(255,255,255,.15);border:none;color:#fff;font-size:28px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+.lb-btn:hover{background:rgba(255,255,255,.3);}
+#lb-close{position:absolute;top:16px;right:20px;font-size:26px;line-height:1;}
 @media(max-width:900px){
   .disiplin-grid,.nasil-grid{grid-template-columns:1fr 1fr;}
   .ref-grid{grid-template-columns:repeat(2,1fr);}
@@ -188,85 +200,145 @@
       <p style="font-size:.875rem;color:var(--muted);">İrriga Ağustos 2026'da kuruldu. Aşağıdaki işler, kuruluştan önce yürütülen çalışmalardır. Kuruluş sonrası projeler teslim sonrası yayımlanacaktır.</p>
     </div>
     <div class="ref-grid">
+      <!-- 01 -->
       <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-02-a.jpeg" alt="Kiraz bahçesi damla sulama ve pompaj — Manisa" loading="lazy"></div>
-        <div class="ref-body">
-          <span class="ref-tag">Sulama · Pompaj</span>
-          <h3>Kiraz bahçesi damla sulama ve pompaj</h3>
-          <p>Manisa · 150 dekar · 2025</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · Damla sulama + pompaj<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        <div class="ref-img" onclick="lbOpen(p01,0)"><img src="assets/img/saha/proje-01-a.jpeg" alt="Zeytin bahçesi sulama ve otomasyon — Muğla" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-01-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p01,0)">
+          <img src="assets/img/saha/proje-01-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p01,1)">
+          <img src="assets/img/saha/proje-01-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p01,2)">
         </div>
-      </div>
-      <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-01-a.jpeg" alt="Zeytin bahçesi sulama ve otomasyon — Muğla" loading="lazy"></div>
         <div class="ref-body">
           <span class="ref-tag">Sulama · Otomasyon</span>
           <h3>Zeytin bahçesi sulama ve otomasyon</h3>
           <p>Muğla · 1.200 dekar · 2025</p>
-          <p class="ref-detail">Su kaynağı: kanal · Damla sulama<br>Kapsam: Uygulama · Devreye alma</p>
+          <p class="ref-detail">Su kaynağı: kanal · Sistem: damla sulama<br>Kapsam: Uygulama · Devreye alma</p>
         </div>
       </div>
+      <!-- 02 -->
       <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-04-a.jpeg" alt="Zeytin bahçesi toprakaltı damla sulama — Manisa" loading="lazy"></div>
+        <div class="ref-img" onclick="lbOpen(p02,0)"><img src="assets/img/saha/proje-02-a.jpeg" alt="Kiraz bahçesi damla sulama ve pompaj — Manisa" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-02-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p02,0)">
+          <img src="assets/img/saha/proje-02-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p02,1)">
+          <img src="assets/img/saha/proje-02-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p02,2)">
+          <img src="assets/img/saha/proje-02-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p02,3)">
+        </div>
         <div class="ref-body">
-          <span class="ref-tag">SDI · Otomasyon</span>
-          <h3>Zeytin bahçesi toprakaltı damla sulama ve otomasyon</h3>
-          <p>Manisa · 150 dekar · 2024</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · Toprakaltı damla sulama (SDI)<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+          <span class="ref-tag">Sulama · Pompaj</span>
+          <h3>Kiraz bahçesi damla sulama ve pompaj</h3>
+          <p>Manisa · 150 dekar · 2025</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: damla sulama, pompaj<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
         </div>
       </div>
+      <!-- 03 -->
       <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-08-a.jpeg" alt="Kiraz bahçesi pompaj tesisi — Çanakkale" loading="lazy"></div>
+        <div class="ref-img" onclick="lbOpen(p03,0)"><img src="assets/img/saha/proje-03-a.jpeg" alt="Kiraz bahçesi pompaj tesisi — Çanakkale" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-03-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p03,0)">
+          <img src="assets/img/saha/proje-03-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p03,1)">
+        </div>
         <div class="ref-body">
           <span class="ref-tag">Pompaj</span>
           <h3>Kiraz bahçesi pompaj tesisi</h3>
           <p>Çanakkale · 600 dekar · 2024</p>
-          <p class="ref-detail">Yüzen dalgıç pompa<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+          <p class="ref-detail">Sistem: yüzen dalgıç pompa<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
         </div>
       </div>
+      <!-- 04 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p04,0)"><img src="assets/img/saha/proje-04-a.jpeg" alt="Zeytin bahçesi toprakaltı damla sulama — Manisa" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-04-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p04,0)">
+          <img src="assets/img/saha/proje-04-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p04,1)">
+          <img src="assets/img/saha/proje-04-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p04,2)">
+          <img src="assets/img/saha/proje-04-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p04,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">SDI · Otomasyon</span>
+          <h3>Zeytin bahçesi toprakaltı damla sulama ve otomasyon</h3>
+          <p>Manisa · 150 dekar · 2024</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: toprakaltı damla sulama (SDI)<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <!-- 05 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p05,0)"><img src="assets/img/saha/proje-05-a.jpeg" alt="Mandalina bahçesi toprakaltı damla sulama — İzmir" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-05-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p05,0)">
+          <img src="assets/img/saha/proje-05-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p05,1)">
+          <img src="assets/img/saha/proje-05-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p05,2)">
+          <img src="assets/img/saha/proje-05-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p05,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">SDI · Otomasyon</span>
+          <h3>Mandalina bahçesi toprakaltı damla sulama ve otomasyon</h3>
+          <p>İzmir · 50 dekar · 2024</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: toprakaltı damla sulama (SDI)<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <!-- 06 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p06,0)"><img src="assets/img/saha/proje-06-a.jpeg" alt="Tıbbi ve aromatik bitki sera tesisi — Erzincan" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-06-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p06,0)">
+          <img src="assets/img/saha/proje-06-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,1)">
+          <img src="assets/img/saha/proje-06-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,2)">
+          <img src="assets/img/saha/proje-06-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,3)">
+          <img src="assets/img/saha/proje-06-e.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,4)">
+          <img src="assets/img/saha/proje-06-f.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,5)">
+          <img src="assets/img/saha/proje-06-g.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,6)">
+          <img src="assets/img/saha/proje-06-h.jpg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,7)">
+          <img src="assets/img/saha/proje-06-i.png" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,8)">
+          <img src="assets/img/saha/proje-06-j.png" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,9)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Sera · Otomasyon</span>
+          <h3>Tıbbi ve aromatik bitki sera tesisi</h3>
+          <p>Erzincan · 45 dekar · 2026</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: 5 sera, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        </div>
+      </div>
+      <!-- 07 — fotoğraf yok -->
       <div class="ref-card">
         <div class="ref-img">🌿</div>
         <div class="ref-body">
           <span class="ref-tag">Topraksız · Otomasyon</span>
           <h3>Enginar üretimi, saksıda yetiştiricilik</h3>
           <p>İzmir · 40 dekar · 2025</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · Saksıda yetiştiricilik, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: saksıda yetiştiricilik, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
         </div>
       </div>
+      <!-- 08 -->
       <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-09-a.jpeg" alt="Hammadde sahası toz önleme sistemi — İzmir" loading="lazy"></div>
-        <div class="ref-body">
-          <span class="ref-tag">Endüstriyel</span>
-          <h3>Hammadde sahası toz önleme sistemi</h3>
-          <p>İzmir · 200 dekar · 2025</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · Endüstriyel toz bastırma<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+        <div class="ref-img" onclick="lbOpen(p08,0)"><img src="assets/img/saha/proje-08-a.jpeg" alt="Safran üretimi topraksız tarım — Manisa" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-08-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p08,0)">
+          <img src="assets/img/saha/proje-08-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p08,1)">
+          <img src="assets/img/saha/proje-08-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p08,2)">
+          <img src="assets/img/saha/proje-08-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p08,3)">
         </div>
-      </div>
-      <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-05-a.jpeg" alt="Mandalina bahçesi toprakaltı damla sulama — İzmir" loading="lazy"></div>
-        <div class="ref-body">
-          <span class="ref-tag">SDI · Otomasyon</span>
-          <h3>Mandalina bahçesi toprakaltı damla sulama ve otomasyon</h3>
-          <p>İzmir · 50 dekar · 2024</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · Toprakaltı damla sulama (SDI)<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
-        </div>
-      </div>
-      <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-03-a.jpeg" alt="Safran üretimi topraksız tarım — Manisa" loading="lazy"></div>
         <div class="ref-body">
           <span class="ref-tag">Topraksız · Otomasyon</span>
           <h3>Safran üretimi, topraksız tarım</h3>
           <p>Manisa · 7 dekar · 2026</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · Topraksız tarım, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: topraksız tarım, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
         </div>
       </div>
+      <!-- 09 -->
       <div class="ref-card">
-        <div class="ref-img"><img src="assets/img/saha/proje-06-a.jpeg" alt="Tıbbi ve aromatik bitki sera tesisi — Erzincan" loading="lazy"></div>
+        <div class="ref-img" onclick="lbOpen(p09,0)"><img src="assets/img/saha/proje-09-a.jpeg" alt="Hammadde sahası toz önleme sistemi — İzmir" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="assets/img/saha/proje-09-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p09,0)">
+          <img src="assets/img/saha/proje-09-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p09,1)">
+          <img src="assets/img/saha/proje-09-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p09,2)">
+          <img src="assets/img/saha/proje-09-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p09,3)">
+        </div>
         <div class="ref-body">
-          <span class="ref-tag">Sera · Otomasyon</span>
-          <h3>Tıbbi ve aromatik bitki sera tesisi</h3>
-          <p>Erzincan · 45 dekar · 2026</p>
-          <p class="ref-detail">Su kaynağı: derin kuyu · 5 sera, sulama ve otomasyon<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
+          <span class="ref-tag">Endüstriyel</span>
+          <h3>Hammadde sahası toz önleme sistemi</h3>
+          <p>İzmir · 200 dekar · 2025</p>
+          <p class="ref-detail">Su kaynağı: derin kuyu · Sistem: endüstriyel toz bastırma<br>Kapsam: Tasarım · Uygulama · Devreye alma</p>
         </div>
       </div>
     </div>
@@ -331,5 +403,49 @@
 </button>
 
 <script src="assets/js/main.js"></script>
+
+<!-- Lightbox -->
+<div id="lb" onclick="lbBgClose(event)">
+  <button class="lb-btn" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-btn" id="lb-next" onclick="lbNav(1)">&#8250;</button>
+  <button class="lb-btn" id="lb-close" onclick="lbClose()">&#10005;</button>
+</div>
+
+<script>
+const p01=['assets/img/saha/proje-01-a.jpeg','assets/img/saha/proje-01-b.jpeg','assets/img/saha/proje-01-c.jpeg'];
+const p02=['assets/img/saha/proje-02-a.jpeg','assets/img/saha/proje-02-b.jpeg','assets/img/saha/proje-02-c.jpeg','assets/img/saha/proje-02-d.jpeg'];
+const p03=['assets/img/saha/proje-03-a.jpeg','assets/img/saha/proje-03-b.jpeg'];
+const p04=['assets/img/saha/proje-04-a.jpeg','assets/img/saha/proje-04-b.jpeg','assets/img/saha/proje-04-c.jpeg','assets/img/saha/proje-04-d.jpeg'];
+const p05=['assets/img/saha/proje-05-a.jpeg','assets/img/saha/proje-05-b.jpeg','assets/img/saha/proje-05-c.jpeg','assets/img/saha/proje-05-d.jpeg'];
+const p06=['assets/img/saha/proje-06-a.jpeg','assets/img/saha/proje-06-b.jpeg','assets/img/saha/proje-06-c.jpeg','assets/img/saha/proje-06-d.jpeg','assets/img/saha/proje-06-e.jpeg','assets/img/saha/proje-06-f.jpeg','assets/img/saha/proje-06-g.jpeg','assets/img/saha/proje-06-h.jpg','assets/img/saha/proje-06-i.png','assets/img/saha/proje-06-j.png'];
+const p08=['assets/img/saha/proje-08-a.jpeg','assets/img/saha/proje-08-b.jpeg','assets/img/saha/proje-08-c.jpeg','assets/img/saha/proje-08-d.jpeg'];
+const p09=['assets/img/saha/proje-09-a.jpeg','assets/img/saha/proje-09-b.jpeg','assets/img/saha/proje-09-c.jpeg','assets/img/saha/proje-09-d.jpeg'];
+
+let lbArr=[],lbIdx=0;
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+
+function lbOpen(arr,idx){
+  lbArr=arr; lbIdx=idx;
+  lbImg.src=arr[idx];
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function lbClose(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbBgClose(e){ if(e.target===lb) lbClose(); }
+function lbNav(dir){
+  lbIdx=(lbIdx+dir+lbArr.length)%lbArr.length;
+  lbImg.src=lbArr[lbIdx];
+}
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') lbClose();
+  if(e.key==='ArrowLeft') lbNav(-1);
+  if(e.key==='ArrowRight') lbNav(1);
+});
+</script>
 </body>
 </html>
