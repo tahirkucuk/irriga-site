@@ -614,6 +614,7 @@ footer{background:var(--g900);color:#c8dccf;padding:56px 0 26px;}
 .article-cta h3{color:var(--white);font-size:20px;font-weight:700;margin-bottom:8px;}
 .article-cta p{color:#c8dccf;font-size:14.5px;margin-bottom:22px;max-width:540px;margin-left:auto;margin-right:auto;}
 .article-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.article-body .article-cta a.btn{color:#ffffff;}
 
 /* Sidebar */
 .article-sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:90px;}
