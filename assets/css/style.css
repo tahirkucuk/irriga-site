@@ -595,8 +595,8 @@ footer{background:var(--g900);color:#c8dccf;padding:56px 0 26px;}
 .article-body ul,.article-body ol{padding-left:24px;margin-bottom:20px;}
 .article-body li{margin-bottom:8px;line-height:1.7;}
 .article-body strong{color:var(--g900);font-weight:700;}
-.article-body a{color:var(--g600);text-decoration:underline;}
-.article-body a:hover{color:var(--g700);}
+.article-body a:not(.btn){color:var(--g600);text-decoration:underline;}
+.article-body a:not(.btn):hover{color:var(--g700);}
 
 /* Tables & Callouts */
 .article-table-wrap{overflow-x:auto;margin:24px 0;}
