@@ -132,31 +132,13 @@
         <nav class="toc" aria-label="İçindekiler">
           <div class="toc-title">📌 İçindekiler</div>
           <ol>
-            <li><a href="#bolum-1">1. Bölüm Başlığı</a></li>
-            <li><a href="#bolum-2">2. Bölüm Başlığı</a></li>
-            <li><a href="#bolum-3">3. Bölüm Başlığı</a></li>
+            {{TOC_ITEMS}}
           </ol>
         </nav>
 
         <!-- Article Body -->
         <div class="article-body">
-          <h2 id="bolum-1">1. Giriş ve Temel İlkeler</h2>
-          <p>Yazı içeriği giriş paragrafı burada yer alır. Sulama projelerinde doğru fizibilite ve teknik hesaplama hayati önem taşır.</p>
-
-          <div class="info-callout">
-            <strong>💡 Uzman Tavsiyesi:</strong>
-            <p>Arazinizde sulama sistemi kurmadan önce su debisi ve toprak geçirgenlik analizini mutlaka tamamlayın.</p>
-          </div>
-
-          <h2 id="bolum-2">2. Detaylı Teknik İnceleme</h2>
-          <p>Sistem bileşenleri, borulama standartları ve filtrasyon üniteleri hakkında kapsamlı bilgi.</p>
-          <ul>
-            <li><strong>Basınç Regülasyonu:</strong> Eğimli arazilerde homojen su dağılımı.</li>
-            <li><strong>Filtrasyon Kalitesi:</strong> Damlatıcıların tıkanmasını önleyen hidrosiklon ve disk filtreler.</li>
-          </ul>
-
-          <h2 id="bolum-3">3. Sonuç ve Öneriler</h2>
-          <p>Yatırım geri dönüş süresi ve operasyonel verimlilik özet değerlendirmesi.</p>
+          {{ARTICLE_BODY}}
         </div>
 
         <!-- In-Article CTA -->

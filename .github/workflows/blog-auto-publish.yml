@@ -1,0 +1,120 @@
+name: Blog Auto-Publish
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'   # Pazartesi  — 10:00 Türkiye (yaz) / 09:00 (kış)
+    - cron: '0 7 * * 3'   # Çarşamba
+    - cron: '0 7 * * 5'   # Cuma
+  workflow_dispatch:       # Manuel tetikleme için
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      article_generated: ${{ steps.generate.outputs.article_generated }}
+      article_slug: ${{ steps.generate.outputs.article_slug }}
+      article_url: ${{ steps.generate.outputs.article_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Bağımlılıkları yükle
+        run: pip install anthropic
+
+      - name: Makale oluştur
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_article.py
+
+      - name: Değişiklikleri commit et ve push yap
+        if: steps.generate.outputs.article_generated == 'true'
+        env:
+          ARTICLE_SLUG: ${{ steps.generate.outputs.article_slug }}
+        run: |
+          git config user.name "Irriga Blog Bot"
+          git config user.email "bot@irriga.com.tr"
+          git add blog/ posts.json blog.html scripts/topics.json
+          TITLE=$(cat .article_title.txt 2>/dev/null || echo "$ARTICLE_SLUG")
+          git commit -m "Blog: $TITLE"
+          git push
+
+      - name: FTP Deploy
+        if: steps.generate.outputs.article_generated == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.irrigatr.com
+          username: ${{ secrets.CPANEL_USER }}
+          password: ${{ secrets.CPANEL_PASS }}
+          port: 21
+          security: loose
+          server-dir: /irriga.com.tr/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .cpanel.yml
+            scripts/
+            scripts/**
+            .article_title.txt
+
+      - name: Başarı bildirimi gönder
+        if: steps.generate.outputs.article_generated == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: tahirkucuk@gmail.com
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "✅ Yeni Blog Makalesi Yayınlandı"
+          to: tahirkucuk@gmail.com
+          from: "Irriga Blog <tahirkucuk@gmail.com>"
+          content_type: text/html
+          body: |
+            <h2>Yeni bir blog makalesi yayınlandı!</h2>
+            <p><strong>Başlık:</strong> ${{ steps.generate.outputs.article_slug }}</p>
+            <p><strong>URL:</strong> <a href="${{ steps.generate.outputs.article_url }}">${{ steps.generate.outputs.article_url }}</a></p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">GitHub Actions logları</a></p>
+
+      - name: Konu listesi tükendi bildirimi
+        if: steps.generate.outputs.article_generated == 'no_topics'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: tahirkucuk@gmail.com
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "⚠️ Irriga Blog: Konu Listesi Tükendi"
+          to: tahirkucuk@gmail.com
+          from: "Irriga Blog <tahirkucuk@gmail.com>"
+          body: |
+            Blog otomasyonu çalıştı ancak scripts/topics.json dosyasında bekleyen konu kalmadı.
+
+            Yeni konular eklemek için repository'deki scripts/topics.json dosyasını güncelleyin.
+
+            GitHub Actions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+  notify-failure:
+    runs-on: ubuntu-latest
+    needs: publish
+    if: failure()
+    steps:
+      - name: Hata bildirimi gönder
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: tahirkucuk@gmail.com
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "❌ Irriga Blog Otomasyonu Başarısız — Müdahale Gerekiyor"
+          to: tahirkucuk@gmail.com
+          from: "Irriga Blog <tahirkucuk@gmail.com>"
+          content_type: text/html
+          body: |
+            <h2>⚠️ Blog otomasyonu başarısız oldu!</h2>
+            <p>Makale oluşturma veya yayınlama sırasında bir hata oluştu.</p>
+            <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">Hata loglarını inceleyin →</a></p>
+            <p><em>Bu e-posta GitHub Actions tarafından otomatik gönderilmiştir.</em></p>

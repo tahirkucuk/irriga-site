@@ -23,3 +23,6 @@ jobs:
             **/.git*
             **/.git*/**
             .cpanel.yml
+            scripts/
+            scripts/**
+            .article_title.txt

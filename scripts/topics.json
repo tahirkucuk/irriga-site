@@ -1,0 +1,275 @@
+{
+  "pending": [
+    {
+      "slug": "toprak-alti-damla-sulama",
+      "baslik": "Toprak Altı Damla Sulama: Yüzeyden 3 Kat Daha Verimli",
+      "kategori": "Rehber",
+      "emoji": "🌱",
+      "gradient_from": "#e7f5ec",
+      "gradient_to": "#c8e6d0",
+      "anahtar_kelimeler": ["toprak altı sulama", "subsurface drip", "damla sulama", "sulama verimi", "sulama borulama", "tarımsal sulama"]
+    },
+    {
+      "slug": "fertigasyon-gubre-yonetimi",
+      "baslik": "Fertigasyon ile Gübre Tasarrufu ve Verim Artışı",
+      "kategori": "Fertigasyon",
+      "emoji": "🧪",
+      "gradient_from": "#e0f0f8",
+      "gradient_to": "#b8d8f0",
+      "anahtar_kelimeler": ["fertigasyon", "sulama ile gübreleme", "damlama fertigasyon", "NPK sulama", "bitki besleme", "gübre tasarrufu"]
+    },
+    {
+      "slug": "zeytin-sulama-stratejisi",
+      "baslik": "Zeytin Bahçelerinde Sulama: Kuraklığa Dayanıklı Yönetim",
+      "kategori": "Meyve Bahçeleri",
+      "emoji": "🫒",
+      "gradient_from": "#e8f0e0",
+      "gradient_to": "#c0d8a0",
+      "anahtar_kelimeler": ["zeytin sulaması", "zeytinlik sulama sistemi", "zeytin damlama", "zeytin verimi", "kısıtlı sulama", "Ege tarımı"]
+    },
+    {
+      "slug": "bag-urum-sulama",
+      "baslik": "Bağ ve Üzüm Bahçelerinde Damla Sulama Rehberi",
+      "kategori": "Meyve Bahçeleri",
+      "emoji": "🍇",
+      "gradient_from": "#f0eafa",
+      "gradient_to": "#d8c8f5",
+      "anahtar_kelimeler": ["bağ sulaması", "üzüm sulama sistemi", "asma damlama", "vineyard irrigation", "bağda sulama", "şarap üzümü sulaması"]
+    },
+    {
+      "slug": "narenciye-sulama",
+      "baslik": "Narenciye Bahçelerinde Sulama: Portakal, Mandalina, Limon",
+      "kategori": "Meyve Bahçeleri",
+      "emoji": "🍊",
+      "gradient_from": "#fef3e0",
+      "gradient_to": "#f5deb3",
+      "anahtar_kelimeler": ["narenciye sulaması", "portakal sulama", "mandalina sulama", "limon sulama sistemi", "turunçgil sulama", "Akdeniz tarımı"]
+    },
+    {
+      "slug": "sera-domates-fertigasyon",
+      "baslik": "Sera Domatesinde Fertigasyon ile Kilogram Başına Daha Az Su",
+      "kategori": "Sera",
+      "emoji": "🍅",
+      "gradient_from": "#faeae0",
+      "gradient_to": "#f5c8b0",
+      "anahtar_kelimeler": ["sera domates sulaması", "domates fertigasyon", "domates sulama sistemi", "sera sulama otomasyonu", "domates verimi", "hidroponik domates"]
+    },
+    {
+      "slug": "solar-pompa-sulama",
+      "baslik": "Güneş Enerjili Sulama Pompaları: Elektriksiz Tarım Mümkün",
+      "kategori": "Enerji",
+      "emoji": "☀️",
+      "gradient_from": "#fef9e0",
+      "gradient_to": "#f5e8a0",
+      "anahtar_kelimeler": ["solar sulama pompası", "güneş enerjili sulama", "off-grid sulama", "fotovoltaik sulama", "elektriksiz sulama", "güneş paneli tarım"]
+    },
+    {
+      "slug": "sulama-programi-hazirlama",
+      "baslik": "Sulama Programı Nasıl Hazırlanır? Adım Adım Rehber",
+      "kategori": "Rehber",
+      "emoji": "📅",
+      "gradient_from": "#e7f5ec",
+      "gradient_to": "#bfe3ee",
+      "anahtar_kelimeler": ["sulama programı", "sulama takvimi", "ne zaman sulama", "sulama sıklığı", "sulama miktarı hesaplama", "sulama planlama"]
+    },
+    {
+      "slug": "evapotranspirasyon-hesap",
+      "baslik": "Evapotranspirasyon ile Sulama Miktarı Nasıl Hesaplanır?",
+      "kategori": "Rehber",
+      "emoji": "💧",
+      "gradient_from": "#e4f4fc",
+      "gradient_to": "#b8dff0",
+      "anahtar_kelimeler": ["evapotranspirasyon", "ET0 hesaplama", "bitki su ihtiyacı", "sulama miktarı", "Penman-Monteith", "su bütçesi tarım"]
+    },
+    {
+      "slug": "sulama-suyu-ph-ec",
+      "baslik": "Sulama Suyunda pH ve EC Ölçümü: Önemi ve Yönetimi",
+      "kategori": "Su Kalitesi",
+      "emoji": "🧫",
+      "gradient_from": "#e0f4f8",
+      "gradient_to": "#b8dce8",
+      "anahtar_kelimeler": ["sulama suyu kalitesi", "sulama suyu pH", "sulama suyu EC", "su analizi tarım", "tuzluluk sulama", "sulama suyu analizi"]
+    },
+    {
+      "slug": "tarimsal-pompa-secimi",
+      "baslik": "Tarımsal Sulama Pompası Seçiminde Kritik 7 Kriter",
+      "kategori": "Sistem Tasarımı",
+      "emoji": "⚙️",
+      "gradient_from": "#eaf0fb",
+      "gradient_to": "#c5d8f8",
+      "anahtar_kelimeler": ["sulama pompası seçimi", "tarımsal pompa", "santrifüj pompa", "dalgıç pompa", "pompa debisi", "pompa basıncı"]
+    },
+    {
+      "slug": "filtrasyon-sistemleri",
+      "baslik": "Sulama Filtrasyon Sistemleri: Disk, Kum ve Hidrosiklon",
+      "kategori": "Sistem Tasarımı",
+      "emoji": "🔧",
+      "gradient_from": "#eef0f5",
+      "gradient_to": "#d0d8e8",
+      "anahtar_kelimeler": ["sulama filtresi", "disk filtre", "kum filtresi", "hidrosiklon filtre", "sulama sistemi bakımı", "damlatıcı tıkanması"]
+    },
+    {
+      "slug": "biber-sulama-fertigasyon",
+      "baslik": "Açık Alan Biber Yetiştiriciliğinde Sulama ve Fertigasyon",
+      "kategori": "Sebze",
+      "emoji": "🌶️",
+      "gradient_from": "#e0f0e0",
+      "gradient_to": "#b8d8b8",
+      "anahtar_kelimeler": ["biber sulaması", "biber fertigasyon", "açık alan biber", "biber sulama sistemi", "biber verimi artırma", "sebze sulaması"]
+    },
+    {
+      "slug": "patates-sulama",
+      "baslik": "Patates Sulaması: Yumru Döneminde Su Yönetiminin Önemi",
+      "kategori": "Sebze",
+      "emoji": "🥔",
+      "gradient_from": "#f5ede0",
+      "gradient_to": "#e8d0b0",
+      "anahtar_kelimeler": ["patates sulaması", "patates sulama sistemi", "yumru sulama", "patates verim", "patates sulama takvimi", "tarla patates sulaması"]
+    },
+    {
+      "slug": "tarimsal-hibe-2026",
+      "baslik": "2026 Tarımsal Sulama Hibe ve Teşviklerinde Başvuru Rehberi",
+      "kategori": "Devlet Destekleri",
+      "emoji": "📋",
+      "gradient_from": "#fef3e0",
+      "gradient_to": "#f5deb3",
+      "anahtar_kelimeler": ["tarımsal hibe 2026", "sulama sistemi hibesi", "TKDK hibe", "tarım teşvik", "IPARD sulama", "Tarım Bakanlığı hibe"]
+    },
+    {
+      "slug": "tuzlu-su-sulama-yonetimi",
+      "baslik": "Tuzlu Sulama Suyuyla Tarım: Sorunlar ve Pratik Çözümler",
+      "kategori": "Su Kalitesi",
+      "emoji": "🧂",
+      "gradient_from": "#e0f4f8",
+      "gradient_to": "#b8dce8",
+      "anahtar_kelimeler": ["tuzlu su sulama", "sulama suyu tuzluluğu", "ECw değeri", "sodyum tehlikesi", "tuzlu toprak sulama", "SAR değeri"]
+    },
+    {
+      "slug": "yagmur-sensoru-otomasyon",
+      "baslik": "Yağış Sensörlü Sulama Otomasyonu ile Su Tasarrufu",
+      "kategori": "Otomasyon",
+      "emoji": "🌧️",
+      "gradient_from": "#e5edfb",
+      "gradient_to": "#c0d4f5",
+      "anahtar_kelimeler": ["yağış sensörü sulama", "sulama otomasyonu", "akıllı sulama", "sulama kontrolörü", "otomatik sulama sistemi", "su tasarrufu otomasyon"]
+    },
+    {
+      "slug": "tahil-yagmurlama-sulama",
+      "baslik": "Tahıl Arazilerinde Yağmurlama Sulama: Arpa, Buğday, Mısır",
+      "kategori": "Tarla Bitkileri",
+      "emoji": "🌾",
+      "gradient_from": "#f5f0e0",
+      "gradient_to": "#e8d8a0",
+      "anahtar_kelimeler": ["tahıl sulaması", "buğday sulaması", "arpa sulaması", "mısır sulaması", "yağmurlama sulama", "pivot sulama"]
+    },
+    {
+      "slug": "toprak-nemi-izleme",
+      "baslik": "Meyve Bahçelerinde Toprak Nemi İzleme Teknolojileri",
+      "kategori": "Otomasyon",
+      "emoji": "📡",
+      "gradient_from": "#e5edfb",
+      "gradient_to": "#c0d4f5",
+      "anahtar_kelimeler": ["toprak nemi sensörü", "toprak nemi ölçümü", "FDR sensör", "tensiometre", "toprak nem izleme sistemi", "sulama kararı"]
+    },
+    {
+      "slug": "plastik-mulch-damla-sulama",
+      "baslik": "Plastik Malç Altında Damla Sulama: Avantajlar ve Kurulum",
+      "kategori": "Teknikler",
+      "emoji": "🏗️",
+      "gradient_from": "#eef0f5",
+      "gradient_to": "#d0d8e8",
+      "anahtar_kelimeler": ["plastik malç sulama", "malç altı sulama", "malçlama ve sulama", "yabancı ot kontrolü sulama", "toprak ısısı sulama", "plastik örtü sulama"]
+    },
+    {
+      "slug": "sulama-sisteminde-hatalar",
+      "baslik": "Sulama Sistemlerinde En Sık Yapılan 10 Hata ve Çözümleri",
+      "kategori": "Bakım",
+      "emoji": "⚠️",
+      "gradient_from": "#f5ede0",
+      "gradient_to": "#e8d0b0",
+      "anahtar_kelimeler": ["sulama sistemi hataları", "sulama sistemi sorunları", "damlatıcı tıkanması", "sulama verimi düşüklüğü", "sulama arızaları", "sulama bakımı"]
+    },
+    {
+      "slug": "findik-damla-sulama",
+      "baslik": "Fındık Bahçelerinde Damla Sulama: Karadeniz Deneyimi",
+      "kategori": "Meyve Bahçeleri",
+      "emoji": "🌰",
+      "gradient_from": "#e8f0e0",
+      "gradient_to": "#c0d8a0",
+      "anahtar_kelimeler": ["fındık sulaması", "fındık damla sulama", "Karadeniz fındık", "fındık verimi artırma", "fındık sulama sistemi", "Giresun Ordu sulama"]
+    },
+    {
+      "slug": "boru-basinc-hesabi",
+      "baslik": "Sulama Borulama ve Basınç Hesabı: Mühendislik Rehberi",
+      "kategori": "Sistem Tasarımı",
+      "emoji": "📐",
+      "gradient_from": "#eaf0fb",
+      "gradient_to": "#c5d8f8",
+      "anahtar_kelimeler": ["sulama boru hesabı", "lateral boru çapı", "sulama basınç kaybı", "Hazen-Williams formülü", "sulama mühendisliği", "boru çapı seçimi"]
+    },
+    {
+      "slug": "enerji-tasarrufu-sulama",
+      "baslik": "Sulama Sistemlerinde Enerji Tasarrufu: Pompa ve Otomasyon",
+      "kategori": "Enerji",
+      "emoji": "⚡",
+      "gradient_from": "#fef9e0",
+      "gradient_to": "#f5e8a0",
+      "anahtar_kelimeler": ["sulama enerji tasarrufu", "sulama pompa verimliliği", "frekans konvertörü sulama", "sulama elektrik maliyeti", "VFD sulama pompası", "enerji verimli sulama"]
+    },
+    {
+      "slug": "kuraklikta-sulama-stratejisi",
+      "baslik": "Kuraklık Dönemlerinde Tarımsal Sulama Stratejisi",
+      "kategori": "Su Tasarrufu",
+      "emoji": "🌵",
+      "gradient_from": "#fef3e0",
+      "gradient_to": "#f5deb3",
+      "anahtar_kelimeler": ["kuraklık sulaması", "su kısıtlaması tarım", "kuraklık yönetimi", "kısıtlı sulama", "deficit irrigation", "kuraklığa dayanıklı tarım"]
+    },
+    {
+      "slug": "kavun-karpuz-sulama",
+      "baslik": "Kavun ve Karpuz Sulamasında Kritik Gelişim Dönemleri",
+      "kategori": "Sebze",
+      "emoji": "🍉",
+      "gradient_from": "#faeae0",
+      "gradient_to": "#f5c8b0",
+      "anahtar_kelimeler": ["kavun sulaması", "karpuz sulaması", "kavun karpuz sulama sistemi", "meyve büyüme dönemi sulama", "kavun verimi", "karpuz sulama takvimi"]
+    },
+    {
+      "slug": "damlatici-secimi-rehberi",
+      "baslik": "Damlatıcı Seçimi Rehberi: Kompanse mi, Standart mı?",
+      "kategori": "Sistem Tasarımı",
+      "emoji": "🔩",
+      "gradient_from": "#eef0f5",
+      "gradient_to": "#d0d8e8",
+      "anahtar_kelimeler": ["damlatıcı seçimi", "kompanse damlatıcı", "standart damlatıcı", "damlatıcı debisi", "damlatıcı tıkanma", "sulama damlatıcı tipleri"]
+    },
+    {
+      "slug": "cilek-sulama-fertigasyon",
+      "baslik": "Çilek Yetiştiriciliğinde Damla Sulama ve Fertigasyon",
+      "kategori": "Sera",
+      "emoji": "🍓",
+      "gradient_from": "#faeae0",
+      "gradient_to": "#f5c8b0",
+      "anahtar_kelimeler": ["çilek sulaması", "çilek damla sulama", "çilek fertigasyon", "çilek sulama sistemi", "çilek verimi", "sera çilek sulaması"]
+    },
+    {
+      "slug": "iklim-degisikligi-sulama",
+      "baslik": "İklim Değişikliğine Uyum: Akıllı Sulama ile Sürdürülebilir Tarım",
+      "kategori": "Çevre",
+      "emoji": "🌍",
+      "gradient_from": "#e4f4e4",
+      "gradient_to": "#b8dbb8",
+      "anahtar_kelimeler": ["iklim değişikliği tarım", "sürdürülebilir sulama", "akıllı sulama iklim", "kuraklık dayanıklılık", "karbon ayak izi tarım", "yeşil tarım sulama"]
+    },
+    {
+      "slug": "sezon-acilis-kontrol",
+      "baslik": "Sulama Sezonu Açılış Kontrolü: Başlamadan Önce Bunları Yapın",
+      "kategori": "Bakım",
+      "emoji": "✅",
+      "gradient_from": "#f5ede0",
+      "gradient_to": "#e8d0b0",
+      "anahtar_kelimeler": ["sulama sezonu açılış", "sulama sistem kontrolü", "sulama devreye alma", "sulama sezon hazırlık", "sulama kontrol listesi", "sulama bahar hazırlığı"]
+    }
+  ],
+  "published": []
+}
