@@ -7,5 +7,59 @@
     "tarih": "31 Ağu 2026",
     "tarih_iso": "2026-08-31",
     "kapak": null
+  },
+  {
+    "url": "blog/damla-sulama-nedir.html",
+    "baslik": "Damla Sulama Sistemi Nedir, Nasıl Çalışır?",
+    "ozet": "Damla sulama sistemi nedir, nasıl çalışır? Bileşenleri, avantajları ve hangi arazilere uygun olduğu hakkında kapsamlı rehber.",
+    "kategori": "Rehber",
+    "tarih": "15 Ağu 2026",
+    "tarih_iso": "2026-08-15",
+    "kapak": null
+  },
+  {
+    "url": "blog/tarimda-su-tasarrufu.html",
+    "baslik": "Tarımda %30 Su Tasarrufu Nasıl Sağlanır?",
+    "ozet": "Doğru sistem seçimi, programlama ve sensör entegrasyonuyla tarla sulamasında ciddi miktarda su ve maliyet azaltılabilir.",
+    "kategori": "Su Tasarrufu",
+    "tarih": "20 Tem 2026",
+    "tarih_iso": "2026-07-20",
+    "kapak": null
+  },
+  {
+    "url": "blog/sera-sulama-sistemi.html",
+    "baslik": "Sera Sulama Sistemi Kurulumunda Dikkat Edilecekler",
+    "ozet": "Sera koşullarında nem kontrolü, fertigasyon entegrasyonu ve otomasyonun önemi; doğru sera sulama sistemi kurulumu için kritik adımlar.",
+    "kategori": "Sera",
+    "tarih": "15 Haz 2026",
+    "tarih_iso": "2026-06-15",
+    "kapak": null
+  },
+  {
+    "url": "blog/sprinkler-vs-damla-sulama.html",
+    "baslik": "Sprinkler mi, Damla Sulama mı? Hangisi Sizin İçin?",
+    "ozet": "İki sistemin avantaj ve dezavantajları, hangi arazi ve bitki türleri için hangi yöntemin daha verimli olduğu detaylı şekilde açıklanıyor.",
+    "kategori": "Karşılaştırma",
+    "tarih": "20 May 2026",
+    "tarih_iso": "2026-05-20",
+    "kapak": null
+  },
+  {
+    "url": "blog/akilli-sulama-sistemleri.html",
+    "baslik": "Akıllı Sulama: Sensör ve Uzaktan Kontrol Sistemleri",
+    "ozet": "Toprak nem sensörleri, hava istasyonu entegrasyonu ve mobil uygulama kontrolüyle sulamayı otomatikleştirmenin yolları.",
+    "kategori": "Otomasyon",
+    "tarih": "15 Nis 2026",
+    "tarih_iso": "2026-04-15",
+    "kapak": null
+  },
+  {
+    "url": "blog/sulama-sistemi-bakimi.html",
+    "baslik": "Sulama Sistemi Bakımı: Sezon Öncesi ve Sonrası",
+    "ozet": "Sisteminizin ömrünü uzatmak ve sezon başında sorunsuz çalışmasını sağlamak için yapılması gereken bakım adımları.",
+    "kategori": "Bakım",
+    "tarih": "15 Mar 2026",
+    "tarih_iso": "2026-03-15",
+    "kapak": null
   }
 ]
