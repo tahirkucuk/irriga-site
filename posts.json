@@ -6,7 +6,7 @@
     "kategori": "Devlet Destekleri",
     "tarih": "31 Ağu 2026",
     "tarih_iso": "2026-08-31",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-sulama-sistemi-kurulum-maliyeti.jpg"
   },
   {
     "url": "blog/damla-sulama-nedir.html",
@@ -15,7 +15,7 @@
     "kategori": "Rehber",
     "tarih": "15 Ağu 2026",
     "tarih_iso": "2026-08-15",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-damla-sulama-nedir.jpg"
   },
   {
     "url": "blog/tarimda-su-tasarrufu.html",
@@ -24,7 +24,7 @@
     "kategori": "Su Tasarrufu",
     "tarih": "20 Tem 2026",
     "tarih_iso": "2026-07-20",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-tarimda-su-tasarrufu.jpg"
   },
   {
     "url": "blog/sera-sulama-sistemi.html",
@@ -33,7 +33,7 @@
     "kategori": "Sera",
     "tarih": "15 Haz 2026",
     "tarih_iso": "2026-06-15",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-sera-sulama-sistemi.jpg"
   },
   {
     "url": "blog/sprinkler-vs-damla-sulama.html",
@@ -42,7 +42,7 @@
     "kategori": "Karşılaştırma",
     "tarih": "20 May 2026",
     "tarih_iso": "2026-05-20",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-sprinkler-vs-damla-sulama.jpg"
   },
   {
     "url": "blog/akilli-sulama-sistemleri.html",
@@ -51,7 +51,7 @@
     "kategori": "Otomasyon",
     "tarih": "15 Nis 2026",
     "tarih_iso": "2026-04-15",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-akilli-sulama-sistemleri.jpg"
   },
   {
     "url": "blog/sulama-sistemi-bakimi.html",
@@ -60,6 +60,6 @@
     "kategori": "Bakım",
     "tarih": "15 Mar 2026",
     "tarih_iso": "2026-03-15",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-sulama-sistemi-bakimi.jpg"
   }
 ]
