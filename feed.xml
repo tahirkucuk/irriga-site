@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Irriga Sulama Sistemleri Blog</title>
+  <link>https://irriga.com.tr/blog.html</link>
+  <description>Sulama mühendisliği, damlama sistemleri ve tarımsal otomasyon rehberleri</description>
+  <language>tr</language>
+  <lastBuildDate>Sun, 27 Sep 2026 23:42:58 +0000</lastBuildDate>
+  <atom:link href="https://irriga.com.tr/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)</title>
+    <link>https://irriga.com.tr/blog/sulama-sistemi-kurulum-maliyeti.html</link>
+    <guid>https://irriga.com.tr/blog/sulama-sistemi-kurulum-maliyeti.html</guid>
+    <pubDate>Mon, 31 Aug 2026 09:00:00 +0300</pubDate>
+    <description>Damlama ve basınçlı sulama sistemi kurulum maliyeti ne kadar? Faizsiz devlet kredileri, KOSGEB ve TKDK destekleri, geri ödeme hesaplama rehberi.</description>
+    <category>Devlet Destekleri</category>
+  </item>
+  <item>
+    <title>Damla Sulama Sistemi Nedir, Nasıl Çalışır?</title>
+    <link>https://irriga.com.tr/blog/damla-sulama-nedir.html</link>
+    <guid>https://irriga.com.tr/blog/damla-sulama-nedir.html</guid>
+    <pubDate>Sat, 15 Aug 2026 09:00:00 +0300</pubDate>
+    <description>Damla sulama sistemi nedir, nasıl çalışır? Bileşenleri, avantajları ve hangi arazilere uygun olduğu hakkında kapsamlı rehber.</description>
+    <category>Rehber</category>
+  </item>
+  <item>
+    <title>Tarımda %30 Su Tasarrufu Nasıl Sağlanır?</title>
+    <link>https://irriga.com.tr/blog/tarimda-su-tasarrufu.html</link>
+    <guid>https://irriga.com.tr/blog/tarimda-su-tasarrufu.html</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0300</pubDate>
+    <description>Doğru sistem seçimi, programlama ve sensör entegrasyonuyla tarla sulamasında %30 ve üzeri su ve maliyet tasarrufu nasıl sağlanır? Uzman rehberi.</description>
+    <category>Su Tasarrufu</category>
+  </item>
+  <item>
+    <title>Sera Sulama Sistemi Kurulumunda Dikkat Edilecekler</title>
+    <link>https://irriga.com.tr/blog/sera-sulama-sistemi.html</link>
+    <guid>https://irriga.com.tr/blog/sera-sulama-sistemi.html</guid>
+    <pubDate>Mon, 15 Jun 2026 09:00:00 +0300</pubDate>
+    <description>Sera koşullarında nem kontrolü, fertigasyon entegrasyonu ve otomasyonun önemi; doğru sera sulama sistemi kurulumu için kritik adımlar.</description>
+    <category>Sera</category>
+  </item>
+  <item>
+    <title>Sprinkler mi, Damla Sulama mı? Hangisi Sizin İçin?</title>
+    <link>https://irriga.com.tr/blog/sprinkler-vs-damla-sulama.html</link>
+    <guid>https://irriga.com.tr/blog/sprinkler-vs-damla-sulama.html</guid>
+    <pubDate>Wed, 20 May 2026 09:00:00 +0300</pubDate>
+    <description>Sprinkler ve damla sulama sistemlerinin karşılaştırması: avantaj ve dezavantajları, hangi arazi ve bitki türleri için hangi yöntemin daha verimli olduğu.</description>
+    <category>Karşılaştırma</category>
+  </item>
+  <item>
+    <title>Akıllı Sulama: Sensör ve Uzaktan Kontrol Sistemleri</title>
+    <link>https://irriga.com.tr/blog/akilli-sulama-sistemleri.html</link>
+    <guid>https://irriga.com.tr/blog/akilli-sulama-sistemleri.html</guid>
+    <pubDate>Wed, 15 Apr 2026 09:00:00 +0300</pubDate>
+    <description>Toprak nem sensörleri, hava istasyonu entegrasyonu ve mobil uygulama kontrolüyle sulamayı otomatikleştirmenin yolları. IoT tabanlı akıllı sulama rehberi.</description>
+    <category>Otomasyon</category>
+  </item>
+  <item>
+    <title>Sulama Sistemi Bakımı: Sezon Öncesi ve Sonrası</title>
+    <link>https://irriga.com.tr/blog/sulama-sistemi-bakimi.html</link>
+    <guid>https://irriga.com.tr/blog/sulama-sistemi-bakimi.html</guid>
+    <pubDate>Sun, 15 Mar 2026 09:00:00 +0300</pubDate>
+    <description>Sulama sisteminin ömrünü uzatmak ve sezon başında sorunsuz çalışmasını sağlamak için yapılması gereken sezon öncesi ve sonrası bakım adımları.</description>
+    <category>Bakım</category>
+  </item>
+</channel>
+</rss>

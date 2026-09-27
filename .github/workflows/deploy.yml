@@ -25,4 +25,10 @@ jobs:
             .cpanel.yml
             scripts/
             scripts/**
+            yerel-araclar/
+            yerel-araclar/**
+            node_modules/
+            node_modules/**
+            package.json
+            package-lock.json
             .article_title.txt

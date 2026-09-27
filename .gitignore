@@ -11,6 +11,10 @@ logs/
 # macOS
 .DS_Store
 
+# Node
+node_modules/
+package-lock.json
+
 # Geçici
 tmp/
 temp/
