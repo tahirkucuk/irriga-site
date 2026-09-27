@@ -10,6 +10,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     outputs:
       article_generated: ${{ steps.generate.outputs.article_generated }}
       article_slug: ${{ steps.generate.outputs.article_slug }}
@@ -17,6 +19,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Secret'ları doğrula
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "❌ ANTHROPIC_API_KEY GitHub Secret'ı tanımlı değil!"
+            echo "   Ayarlar: repo → Settings → Secrets and variables → Actions → New secret"
+            exit 1
+          fi
+          if [ -z "$GMAIL_APP_PASSWORD" ]; then
+            echo "⚠️  GMAIL_APP_PASSWORD tanımlı değil — e-posta bildirimleri devre dışı"
+          fi
+          echo "✅ Gerekli secret'lar mevcut"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
 
       - uses: actions/setup-python@v5
         with:
@@ -70,14 +87,14 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
-          server_port: 587
+          server_port: 465
+          secure: true
           username: tahirkucuk@gmail.com
           password: ${{ secrets.GMAIL_APP_PASSWORD }}
           subject: "❌ Irriga Blog Otomasyonu Başarısız — Müdahale Gerekiyor"
           to: tahirkucuk@gmail.com
           from: "Irriga Blog <tahirkucuk@gmail.com>"
-          content_type: text/html
-          body: |
+          html_body: |
             <h2>⚠️ Blog otomasyonu başarısız oldu!</h2>
             <p>Script başlayamadı veya infrastructure hatası oluştu.</p>
             <p><a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">Hata loglarını inceleyin →</a></p>
