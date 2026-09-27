@@ -1,4 +1,6 @@
-# SMTP kimlik bilgileri — asla commit'leme
+# API anahtarları ve kimlik bilgileri — asla commit'leme
+.env
+scripts/.env
 .smtp-ayar.json
 smtp-ayar.json
 
