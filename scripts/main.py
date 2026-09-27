@@ -3,12 +3,16 @@
 Irriga Blog Otomasyon — Ana Çalıştırıcı
 
 Kullanım:
-  python main.py setup                  # Bağlantı ve dosya testi
-  python main.py batch                  # topics.json'dan sıradaki konuyu yayınla
-  python main.py write "konu başlığı"  # Belirli bir konu üret ve yayınla
+  python main.py setup          # Bağlantı ve dosya testi
+  python main.py batch          # topics.json'dan sıradaki konuyu yayınla
+  python main.py write "konu"   # Belirli bir konu üret ve yayınla
+
+Cron örneği (haftada 3 kez, Pzt/Çar/Cum 10:00):
+  0 7 * * 1,3,5 cd /Users/tahirkucuk/irriga && python scripts/main.py batch >> /tmp/irriga-blog.log 2>&1
 """
 import sys
 import json
+import subprocess
 import argparse
 import logging
 from pathlib import Path
@@ -30,14 +34,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger("main")
 
+REPO_ROOT = Path(__file__).parent.parent
 TOPICS_FILE = Path(__file__).parent / "topics.json"
 
 
 def setup():
     site = SiteClient()
-    email = EmailNotifier()
     config = SITES["irriga"]
-
     logger.info(f"🔧 {config['name']} kurulumu kontrol ediliyor...")
 
     if not site.test_connection():
@@ -55,15 +58,35 @@ def setup():
     return True
 
 
-def batch(github_output_file: str = None):
+def git_commit_push(title: str):
+    """Değişiklikleri commit et ve push yap — deploy.yml FTP'ye alır."""
+    try:
+        subprocess.run(
+            ["git", "add", "blog/", "posts.json", "blog.html", "scripts/topics.json"],
+            cwd=REPO_ROOT, check=True,
+        )
+        subprocess.run(
+            ["git", "commit", "-m", f"Blog: {title}"],
+            cwd=REPO_ROOT, check=True,
+        )
+        subprocess.run(
+            ["git", "push", "origin", "main"],
+            cwd=REPO_ROOT, check=True,
+        )
+        logger.info("✅ Git commit + push tamamlandı — deploy.yml tetiklendi")
+        return True
+    except subprocess.CalledProcessError as e:
+        logger.error(f"❌ Git işlemi başarısız: {e}")
+        return False
+
+
+def batch():
     topics_data = json.loads(TOPICS_FILE.read_text(encoding="utf-8"))
     pending = topics_data.get("pending", [])
 
     if not pending:
         logger.warning("⚠️  Konu listesi tükendi!")
-        email = EmailNotifier()
-        email.send_no_topics()
-        _set_output(github_output_file, "article_generated", "no_topics")
+        EmailNotifier().send_no_topics()
         return
 
     topic = pending[0]
@@ -74,7 +97,6 @@ def batch(github_output_file: str = None):
     result = agent.create_article(topic)
 
     if result:
-        # Konuyu yayınlandı listesine taşı
         topics_data["pending"].pop(0)
         topics_data.setdefault("published", []).append({
             **topic,
@@ -83,26 +105,22 @@ def batch(github_output_file: str = None):
         TOPICS_FILE.write_text(
             json.dumps(topics_data, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        logger.info(f"✅ topics.json güncellendi")
+        logger.info("✅ topics.json güncellendi")
 
-        _set_output(github_output_file, "article_generated", "true")
-        _set_output(github_output_file, "article_slug", result["slug"])
-        _set_output(github_output_file, "article_url", result["url"])
-        # Başlığı dosyaya yaz (encoding-safe)
-        (Path(__file__).parent / ".article_title.txt").write_text(
-            result["title"], encoding="utf-8"
-        )
+        if not git_commit_push(result["title"]):
+            email.send_failure("Git commit/push başarısız. Makale oluşturuldu ama deploy edilemedi.")
+            sys.exit(1)
     else:
-        _set_output(github_output_file, "article_generated", "false")
         sys.exit(1)
 
 
 def write_topic(topic_str: str):
     """Serbest konuyla tek makale yaz (topics.json'a eklenmez)."""
     topic = {
-        "slug": topic_str.lower().replace(" ", "-").replace("ş", "s").replace("ğ", "g")
-                          .replace("ü", "u").replace("ö", "o").replace("ç", "c")
-                          .replace("ı", "i")[:60],
+        "slug": (topic_str.lower()
+                 .replace(" ", "-").replace("ş", "s").replace("ğ", "g")
+                 .replace("ü", "u").replace("ö", "o").replace("ç", "c")
+                 .replace("ı", "i"))[:60],
         "baslik": topic_str,
         "kategori": "Rehber",
         "emoji": "📖",
@@ -115,17 +133,9 @@ def write_topic(topic_str: str):
     agent = ContentAgent(site, email)
     result = agent.create_article(topic)
     if result:
-        logger.info(f"✅ Yayınlandı: {result['url']}")
+        git_commit_push(result["title"])
     else:
-        logger.error("❌ Makale oluşturulamadı")
         sys.exit(1)
-
-
-def _set_output(output_file: str, name: str, value: str):
-    if output_file:
-        with open(output_file, "a", encoding="utf-8") as f:
-            f.write(f"{name}={value}\n")
-    print(f"[output] {name}={value}")
 
 
 def main():
@@ -136,26 +146,14 @@ def main():
         help="Çalıştırılacak komut",
     )
     parser.add_argument("topic", nargs="*", help="write komutu için konu")
-    parser.add_argument(
-        "--github-output",
-        default=None,
-        help="GitHub Actions GITHUB_OUTPUT dosya yolu",
-    )
     args = parser.parse_args()
 
     if args.command == "setup":
         setup()
-
     elif args.command == "batch":
-        import os
-        gho = args.github_output or os.environ.get("GITHUB_OUTPUT")
-        batch(gho)
-
+        batch()
     elif args.command == "write":
-        if not args.topic:
-            topic_str = input("Konu girin: ").strip()
-        else:
-            topic_str = " ".join(args.topic)
+        topic_str = " ".join(args.topic) if args.topic else input("Konu girin: ").strip()
         write_topic(topic_str)
 
 
