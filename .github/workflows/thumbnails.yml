@@ -17,6 +17,8 @@ permissions:
 
 jobs:
   postprocess:
+    # github-actions[bot] kendi push'unda tekrar tetiklenmesin
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +48,7 @@ jobs:
             echo "Değişiklik yok."
             exit 0
           fi
-          git commit -m "Thumbnail + grid/feed/sitemap otomatik senkron [skip ci]"
+          git commit -m "Thumbnail + grid/feed/sitemap otomatik senkron"
           git pull --rebase -X theirs origin main
           git config http.postBuffer 524288000
           git config http.lowSpeedLimit 0
