@@ -1,0 +1,49 @@
+name: Blog Makale Yayınla
+
+on:
+  schedule:
+    # Pzt/Çar/Cum 10:03 Türkiye saati (UTC+3 → UTC 07:03)
+    - cron: '3 7 * * 1,3,5'
+  workflow_dispatch:
+
+concurrency:
+  group: blog-yayinla
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  yayinla:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Bağımlılıkları kur
+        run: pip install -r scripts/requirements.txt
+
+      - name: Git kimliği ayarla
+        run: |
+          git config user.email "ajan@irriga.com.tr"
+          git config user.name "Irriga Ajan"
+
+      - name: Makale üret ve yayınla
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_USER: tahirkucuk@gmail.com
+          NOTIFY_TO: tahirkucuk@gmail.com
+        run: cd scripts && python main.py batch
+
+      - name: Hata bildirimi
+        if: failure()
+        run: |
+          curl -s -H "Title: Irriga Ajan HATA" -H "Priority: high" -H "Tags: warning" \
+            -d "Blog makale üretimi başarısız: https://github.com/${{ github.repository }}/actions" \
+            https://ntfy.sh/irriga-ajan-2026
