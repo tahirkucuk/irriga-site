@@ -1,22 +1,6 @@
 {
   "pending": [
     {
-      "slug": "fertigasyon-gubre-yonetimi",
-      "baslik": "Fertigasyon ile Gübre Tasarrufu ve Verim Artışı",
-      "kategori": "Fertigasyon",
-      "emoji": "🧪",
-      "gradient_from": "#e0f0f8",
-      "gradient_to": "#b8d8f0",
-      "anahtar_kelimeler": [
-        "fertigasyon",
-        "sulama ile gübreleme",
-        "damlama fertigasyon",
-        "NPK sulama",
-        "bitki besleme",
-        "gübre tasarrufu"
-      ]
-    },
-    {
       "slug": "zeytin-sulama-stratejisi",
       "baslik": "Zeytin Bahçelerinde Sulama: Kuraklığa Dayanıklı Yönetim",
       "kategori": "Meyve Bahçeleri",
@@ -480,6 +464,23 @@
         "sulama verimi",
         "sulama borulama",
         "tarımsal sulama"
+      ],
+      "tarih_iso": "2026-09-28"
+    },
+    {
+      "slug": "fertigasyon-gubre-yonetimi",
+      "baslik": "Fertigasyon ile Gübre Tasarrufu ve Verim Artışı",
+      "kategori": "Fertigasyon",
+      "emoji": "🧪",
+      "gradient_from": "#e0f0f8",
+      "gradient_to": "#b8d8f0",
+      "anahtar_kelimeler": [
+        "fertigasyon",
+        "sulama ile gübreleme",
+        "damlama fertigasyon",
+        "NPK sulama",
+        "bitki besleme",
+        "gübre tasarrufu"
       ],
       "tarih_iso": "2026-09-28"
     }
