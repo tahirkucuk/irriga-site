@@ -1,22 +1,6 @@
 {
   "pending": [
     {
-      "slug": "zeytin-sulama-stratejisi",
-      "baslik": "Zeytin Bahçelerinde Sulama: Kuraklığa Dayanıklı Yönetim",
-      "kategori": "Meyve Bahçeleri",
-      "emoji": "🫒",
-      "gradient_from": "#e8f0e0",
-      "gradient_to": "#c0d8a0",
-      "anahtar_kelimeler": [
-        "zeytin sulaması",
-        "zeytinlik sulama sistemi",
-        "zeytin damlama",
-        "zeytin verimi",
-        "kısıtlı sulama",
-        "Ege tarımı"
-      ]
-    },
-    {
       "slug": "bag-urum-sulama",
       "baslik": "Bağ ve Üzüm Bahçelerinde Damla Sulama Rehberi",
       "kategori": "Meyve Bahçeleri",
@@ -481,6 +465,23 @@
         "NPK sulama",
         "bitki besleme",
         "gübre tasarrufu"
+      ],
+      "tarih_iso": "2026-09-28"
+    },
+    {
+      "slug": "zeytin-sulama-stratejisi",
+      "baslik": "Zeytin Bahçelerinde Sulama: Kuraklığa Dayanıklı Yönetim",
+      "kategori": "Meyve Bahçeleri",
+      "emoji": "🫒",
+      "gradient_from": "#e8f0e0",
+      "gradient_to": "#c0d8a0",
+      "anahtar_kelimeler": [
+        "zeytin sulaması",
+        "zeytinlik sulama sistemi",
+        "zeytin damlama",
+        "zeytin verimi",
+        "kısıtlı sulama",
+        "Ege tarımı"
       ],
       "tarih_iso": "2026-09-28"
     }

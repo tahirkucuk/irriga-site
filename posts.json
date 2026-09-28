@@ -6,7 +6,7 @@
     "kategori": "Fertigasyon",
     "tarih": "28 Eyl 2026",
     "tarih_iso": "2026-09-28",
-    "kapak": null
+    "kapak": "media/thumbnails/thumb-fertigasyon-gubre-yonetimi.jpg"
   },
   {
     "url": "blog/toprak-alti-damla-sulama.html",
@@ -16,6 +16,15 @@
     "tarih": "28 Eyl 2026",
     "tarih_iso": "2026-09-28",
     "kapak": "media/thumbnails/thumb-toprak-alti-damla-sulama.jpg"
+  },
+  {
+    "url": "blog/zeytin-sulama-stratejisi.html",
+    "baslik": "Zeytin Bahçesi Sulama Rehberi: Kuraklığa Karşı Damlama Sistemi",
+    "ozet": "Zeytin bahçesi sulama için debi, basınç ve dönem verileri. Damlama sistemiyle verimini artır, suyu koru. 2026 devlet destekleri ve pratik öneriler.",
+    "kategori": "Meyve Bahçeleri",
+    "tarih": "28 Eyl 2026",
+    "tarih_iso": "2026-09-28",
+    "kapak": "media/thumbnails/thumb-zeytin-sulama-stratejisi.jpg"
   },
   {
     "url": "blog/sulama-sistemi-kurulum-maliyeti.html",

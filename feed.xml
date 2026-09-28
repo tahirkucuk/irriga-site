@@ -5,8 +5,16 @@
   <link>https://irriga.com.tr/blog.html</link>
   <description>Sulama mühendisliği, damlama sistemleri ve tarımsal otomasyon rehberleri</description>
   <language>tr</language>
-  <lastBuildDate>Mon, 28 Sep 2026 10:36:46 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 21:04:33 +0000</lastBuildDate>
   <atom:link href="https://irriga.com.tr/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Fertigasyon ile Gübre Tasarrufu: %17 Az Gübre, %30 Fazla Verim</title>
+    <link>https://irriga.com.tr/blog/fertigasyon-gubre-yonetimi.html</link>
+    <guid>https://irriga.com.tr/blog/fertigasyon-gubre-yonetimi.html</guid>
+    <pubDate>Mon, 28 Sep 2026 09:00:00 +0300</pubDate>
+    <description>Fertigasyon ile gübre tasarrufu nasıl sağlanır? Debi, basınç ayarları, %70&apos;e varan devlet hibesi ve pratik NPK uygulama rehberi bu yazıda.</description>
+    <category>Fertigasyon</category>
+  </item>
   <item>
     <title>Toprak Altı Damla Sulama: Yüzeyden 3 Kat Verimli Sistem Rehberi</title>
     <link>https://irriga.com.tr/blog/toprak-alti-damla-sulama.html</link>
@@ -14,6 +22,14 @@
     <pubDate>Mon, 28 Sep 2026 09:00:00 +0300</pubDate>
     <description>Toprak altı damla sulama ile %60 su tasarrufu ve %27 verim artışı sağla. Debi, basınç, gömme derinliği ve 2026 hibe destekleri tek rehberde.</description>
     <category>Rehber</category>
+  </item>
+  <item>
+    <title>Zeytin Bahçesi Sulama Rehberi: Kuraklığa Karşı Damlama Sistemi</title>
+    <link>https://irriga.com.tr/blog/zeytin-sulama-stratejisi.html</link>
+    <guid>https://irriga.com.tr/blog/zeytin-sulama-stratejisi.html</guid>
+    <pubDate>Mon, 28 Sep 2026 09:00:00 +0300</pubDate>
+    <description>Zeytin bahçesi sulama için debi, basınç ve dönem verileri. Damlama sistemiyle verimini artır, suyu koru. 2026 devlet destekleri ve pratik öneriler.</description>
+    <category>Meyve Bahçeleri</category>
   </item>
   <item>
     <title>Sulama Sistemi Kurulum Maliyeti ve Finansmanı (2026)</title>
