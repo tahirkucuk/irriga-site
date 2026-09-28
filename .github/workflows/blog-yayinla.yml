@@ -25,25 +25,91 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Bağımlılıkları kur
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Python bağımlılıkları
         run: pip install -r scripts/requirements.txt
+
+      - name: Node bağımlılıkları (Puppeteer)
+        run: npm install
 
       - name: Git kimliği ayarla
         run: |
           git config user.email "ajan@irriga.com.tr"
           git config user.name "Irriga Ajan"
 
-      - name: Makale üret ve yayınla
+      - name: Makale üret
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           GMAIL_USER: tahirkucuk@gmail.com
           NOTIFY_TO: tahirkucuk@gmail.com
+          GITHUB_ACTIONS: "true"
         run: cd scripts && python main.py batch
+
+      - name: Thumbnail üret
+        run: node yerel-araclar/thumbnail-uret.mjs
+
+      - name: Blog grid senkronla
+        run: node yerel-araclar/blog-uret.mjs
+
+      - name: feed.xml + sitemap.xml senkronla
+        run: node yerel-araclar/feed-sitemap-uret.mjs
+
+      - name: Tüm değişiklikleri push'la
+        run: |
+          git add blog/ posts.json blog.html scripts/topics.json \
+                  media/thumbnails feed.xml sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok."
+            exit 0
+          fi
+          git commit --amend --no-edit
+          git config http.postBuffer 524288000
+          git config http.lowSpeedLimit 0
+          git config http.lowSpeedTime 999999
+          push_ok=0
+          for i in 1 2 3 4 5; do
+            if git push origin main; then push_ok=1; break; fi
+            echo "Push denemesi $i başarısız, 15sn bekleniyor..."
+            sleep 15
+          done
+          [ "$push_ok" -eq 1 ] || { echo "Push başarısız."; exit 1; }
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.irrigatr.com
+          username: ${{ secrets.CPANEL_USER }}
+          password: ${{ secrets.CPANEL_PASS }}
+          port: 21
+          security: loose
+          server-dir: /irriga.com.tr/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .cpanel.yml
+            scripts/
+            scripts/**
+            yerel-araclar/
+            yerel-araclar/**
+            node_modules/
+            node_modules/**
+            package.json
+            package-lock.json
+            .article_title.txt
+
+      - name: Başarı bildirimi
+        run: |
+          curl -s -H "Title: Irriga Ajan" -H "Tags: seedling" \
+            -d "Yeni makale yayınlandı ve siteye deploy edildi." \
+            https://ntfy.sh/irriga-ajan-2026
 
       - name: Hata bildirimi
         if: failure()
         run: |
           curl -s -H "Title: Irriga Ajan HATA" -H "Priority: high" -H "Tags: warning" \
-            -d "Blog makale üretimi başarısız: https://github.com/${{ github.repository }}/actions" \
+            -d "Blog yayınlama başarısız: https://github.com/${{ github.repository }}/actions" \
             https://ntfy.sh/irriga-ajan-2026

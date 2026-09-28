@@ -10,6 +10,7 @@ Kullanım:
 Cron örneği (haftada 3 kez, Pzt/Çar/Cum 10:00):
   0 7 * * 1,3,5 cd /Users/tahirkucuk/irriga && python scripts/main.py batch >> /tmp/irriga-blog.log 2>&1
 """
+import os
 import sys
 import json
 import subprocess
@@ -59,7 +60,10 @@ def setup():
 
 
 def git_commit_push(title: str):
-    """Değişiklikleri commit et ve push yap — deploy.yml FTP'ye alır."""
+    """Değişiklikleri commit et ve push yap.
+    GitHub Actions'ta (GITHUB_ACTIONS=true) push atlanır — workflow halleder.
+    """
+    in_ci = os.environ.get("GITHUB_ACTIONS") == "true"
     try:
         subprocess.run(
             ["git", "add", "blog/", "posts.json", "blog.html", "scripts/topics.json"],
@@ -69,6 +73,9 @@ def git_commit_push(title: str):
             ["git", "commit", "-m", f"Blog: {title}"],
             cwd=REPO_ROOT, check=True,
         )
+        if in_ci:
+            logger.info("✅ Git commit tamamlandı (CI: push workflow tarafından yapılacak)")
+            return True
         subprocess.run(
             ["git", "push", "origin", "main"],
             cwd=REPO_ROOT, check=True,
