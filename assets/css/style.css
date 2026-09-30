@@ -86,7 +86,8 @@ svg{display:block;}
 .logo{display:flex;align-items:center;}
 .logo-img{height:95px;width:auto;display:block;}
 .footer-logo-img{height:32px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.88;}
-.nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--muted);}
+.nav-links{display:flex;gap:20px;font-size:14px;font-weight:500;color:var(--muted);align-items:center;}
+.nav-links a{white-space:nowrap;}
 .nav-links a:hover{color:var(--g700);}
 .nav-links a.active{color:var(--g700);}
 .nav-cta{
@@ -700,7 +701,7 @@ footer{background:var(--g900);color:#c8dccf;padding:56px 0 26px;}
   transition: transform var(--transition), border-color var(--transition);
   overflow: hidden;
 }
-.lang-btn:hover { transform: scale(1.12); border-color: var(--g400); }
+.lang-btn:hover { transform: scale(1.12); border-color: var(--g600); }
 .lang-btn.active { border-color: var(--g700); box-shadow: 0 0 0 2px var(--g100); }
 @media(max-width:768px) {
   .lang-switch { margin-left: 8px; gap: 4px; }
