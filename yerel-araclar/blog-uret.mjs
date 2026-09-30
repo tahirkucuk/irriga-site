@@ -16,7 +16,8 @@ const AYLAR_SHORT = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Ek
 const BUGUN = new Date().toISOString().slice(0, 10);
 
 const KATEGORI_GORSEL = {
-  'Rehber':            { emoji: '💧', from: '#e7f5ec', to: '#c8e6d0' },
+  // Türkçe kategoriler
+  'Rehber':            { emoji: '📖', from: '#e7f5ec', to: '#c8e6d0' },
   'Sera':              { emoji: '🌿', from: '#e8f5e9', to: '#a5d6a7' },
   'Fertigasyon':       { emoji: '🌱', from: '#f9fbe7', to: '#dcedc8' },
   'Su Tasarrufu':      { emoji: '💦', from: '#e3f2fd', to: '#bbdefb' },
@@ -24,13 +25,29 @@ const KATEGORI_GORSEL = {
   'Bakım':             { emoji: '🔧', from: '#fff3e0', to: '#ffcc80' },
   'Devlet Destekleri': { emoji: '📋', from: '#fce4ec', to: '#f48fb1' },
   'Karşılaştırma':     { emoji: '⚖️', from: '#f3e5f5', to: '#b39ddb' },
-  'Meyve Bahçeleri':   { emoji: '🍊', from: '#fff8e1', to: '#ffe082' },
+  'Meyve Bahçeleri':   { emoji: '🌿', from: '#fff8e1', to: '#ffe082' },
   'Tarla Bitkileri':   { emoji: '🌾', from: '#f1f8e9', to: '#aed581' },
   'Sistem Tasarımı':   { emoji: '📐', from: '#e0f2f1', to: '#80cbc4' },
   'Enerji':            { emoji: '⚡', from: '#fff9c4', to: '#fff176' },
   'Su Kalitesi':       { emoji: '🔬', from: '#e1f5fe', to: '#81d4fa' },
   'Sebze':             { emoji: '🥬', from: '#f1f8e9', to: '#aed581' },
   'Teknikler':         { emoji: '🔩', from: '#fafafa', to: '#e0e0e0' },
+  // İngilizce karşılıklar
+  'Guide':             { emoji: '📖', from: '#e7f5ec', to: '#c8e6d0' },
+  'Greenhouse':        { emoji: '🌿', from: '#e8f5e9', to: '#a5d6a7' },
+  'Fertigation':       { emoji: '🌱', from: '#f9fbe7', to: '#dcedc8' },
+  'Water Savings':     { emoji: '💦', from: '#e3f2fd', to: '#bbdefb' },
+  'Automation':        { emoji: '⚙️', from: '#ede7f6', to: '#b39ddb' },
+  'Maintenance':       { emoji: '🔧', from: '#fff3e0', to: '#ffcc80' },
+  'Government Grants': { emoji: '📋', from: '#fce4ec', to: '#f48fb1' },
+  'Comparison':        { emoji: '⚖️', from: '#f3e5f5', to: '#b39ddb' },
+  'Orchards':          { emoji: '🌿', from: '#fff8e1', to: '#ffe082' },
+  'Field Crops':       { emoji: '🌾', from: '#f1f8e9', to: '#aed581' },
+  'System Design':     { emoji: '📐', from: '#e0f2f1', to: '#80cbc4' },
+  'Energy':            { emoji: '⚡', from: '#fff9c4', to: '#fff176' },
+  'Water Quality':     { emoji: '🔬', from: '#e1f5fe', to: '#81d4fa' },
+  'Vegetables':        { emoji: '🥬', from: '#f1f8e9', to: '#aed581' },
+  'Techniques':        { emoji: '🔩', from: '#fafafa', to: '#e0e0e0' },
 };
 const DEFAULT_GORSEL = { emoji: '💧', from: '#e7f5ec', to: '#c8e6d0' };
 
@@ -134,6 +151,16 @@ blog = blog.replace(mk, `$1\n${kartlar}\n      $2`);
 writeFileSync(join(SITE, 'blog.html'), blog);
 console.log(`blog.html: ${posts.length} kart güncellendi.`);
 
+// TR→EN kategori çevirisi (EN blog kartlarında emoji eşlemesi için)
+const KAT_TR_TO_EN = {
+  'Rehber': 'Guide', 'Sera': 'Greenhouse', 'Fertigasyon': 'Fertigation',
+  'Su Tasarrufu': 'Water Savings', 'Otomasyon': 'Automation', 'Bakım': 'Maintenance',
+  'Devlet Destekleri': 'Government Grants', 'Karşılaştırma': 'Comparison',
+  'Meyve Bahçeleri': 'Orchards', 'Tarla Bitkileri': 'Field Crops',
+  'Sistem Tasarımı': 'System Design', 'Enerji': 'Energy',
+  'Su Kalitesi': 'Water Quality', 'Sebze': 'Vegetables', 'Teknikler': 'Techniques',
+};
+
 // ── EN blog grid ─────────────────────────────────────────────────────────
 const enBlogDir  = join(SITE, 'en', 'blog');
 const enBlogHtml = join(SITE, 'en', 'blog.html');
@@ -162,8 +189,9 @@ if (existsSync(enBlogDir) && existsSync(enBlogHtml)) {
     if (!baslik) continue;
 
     const ozet    = meta(h, ['description']);
-    // EN makalelerinin kategorisi TR ile aynı
-    const kategori = meta(h, ['article:section']) || slugToKat[slug] || '';
+    // article:section önce EN'den al, yoksa TR'den al ve EN'e çevir
+    const rawKat  = meta(h, ['article:section']) || slugToKat[slug] || '';
+    const kategori = KAT_TR_TO_EN[rawKat] || rawKat;
 
     let tarih_iso = meta(h, ['article:published_time']);
     if (!tarih_iso) {
