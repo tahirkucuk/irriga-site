@@ -76,12 +76,22 @@ def git_commit_push(title: str):
         if in_ci:
             logger.info("✅ Git commit tamamlandı (CI: push workflow tarafından yapılacak)")
             return True
-        subprocess.run(
-            ["git", "push", "origin", "main"],
-            cwd=REPO_ROOT, check=True,
-        )
-        logger.info("✅ Git commit + push tamamlandı — deploy.yml tetiklendi")
-        return True
+        # Push: remote öndeyse rebase yap, 3 deneme
+        for attempt in range(1, 4):
+            result = subprocess.run(
+                ["git", "push", "origin", "main"],
+                cwd=REPO_ROOT,
+            )
+            if result.returncode == 0:
+                logger.info("✅ Git commit + push tamamlandı")
+                return True
+            logger.warning(f"Push denemesi {attempt} başarısız — pull --rebase yapılıyor...")
+            subprocess.run(
+                ["git", "pull", "--rebase", "-X", "theirs", "origin", "main"],
+                cwd=REPO_ROOT, check=True,
+            )
+        logger.error("❌ Push 3 denemede başarısız oldu.")
+        return False
     except subprocess.CalledProcessError as e:
         logger.error(f"❌ Git işlemi başarısız: {e}")
         return False
