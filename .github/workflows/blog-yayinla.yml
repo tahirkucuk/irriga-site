@@ -61,7 +61,8 @@ jobs:
       - name: Tüm değişiklikleri push'la
         run: |
           git add blog/ posts.json blog.html scripts/topics.json \
-                  media/thumbnails feed.xml sitemap.xml
+                  media/thumbnails feed.xml sitemap.xml \
+                  en/ || true
           if git diff --cached --quiet; then
             echo "Değişiklik yok."
             exit 0

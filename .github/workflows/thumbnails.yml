@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.email "actions@irriga.com.tr"
           git config user.name "Irriga Ajan"
-          git add media/thumbnails posts.json blog.html feed.xml sitemap.xml
+          git add media/thumbnails posts.json blog.html feed.xml sitemap.xml en/ || true
           if git diff --cached --quiet; then
             echo "Değişiklik yok."
             exit 0

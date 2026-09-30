@@ -133,3 +133,84 @@ if (!mk.test(blog)) {
 blog = blog.replace(mk, `$1\n${kartlar}\n      $2`);
 writeFileSync(join(SITE, 'blog.html'), blog);
 console.log(`blog.html: ${posts.length} kart güncellendi.`);
+
+// ── EN blog grid ─────────────────────────────────────────────────────────
+const enBlogDir  = join(SITE, 'en', 'blog');
+const enBlogHtml = join(SITE, 'en', 'blog.html');
+const enPostsPath = join(SITE, 'en', 'posts.json');
+
+if (existsSync(enBlogDir) && existsSync(enBlogHtml)) {
+  const enDosyalar = readdirSync(enBlogDir)
+    .filter(f => f.endsWith('.html') && f !== '_sablon.html');
+
+  // en/posts.json'dan kapak tablosu
+  const enMevcutPosts = existsSync(enPostsPath)
+    ? JSON.parse(readFileSync(enPostsPath, 'utf8')) : [];
+  const enSlugToKapak = {};
+  for (const p of enMevcutPosts) {
+    const s = (p.url || '').replace('en/blog/', '').replace('.html', '');
+    if (p.kapak) enSlugToKapak[s] = p.kapak;
+  }
+
+  const enPosts = [];
+  for (const f of enDosyalar) {
+    const h = readFileSync(join(enBlogDir, f), 'utf8');
+    const slug = f.replace('.html', '');
+
+    const baslik = (meta(h, ['og:title']) ||
+      (h.match(/<title>([^<|]+)/) || [])[1] || '').replace(/\s*\|.*$/, '').trim();
+    if (!baslik) continue;
+
+    const ozet    = meta(h, ['description']);
+    // EN makalelerinin kategorisi TR ile aynı
+    const kategori = meta(h, ['article:section']) || slugToKat[slug] || '';
+
+    let tarih_iso = meta(h, ['article:published_time']);
+    if (!tarih_iso) {
+      const m = h.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})"/);
+      tarih_iso = m ? m[1] : BUGUN;
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(tarih_iso)) tarih_iso = BUGUN;
+
+    const [y, mo, d] = tarih_iso.split('-');
+    const tarih_full = `${+d} ${AYLAR_FULL[+mo - 1]} ${y}`;
+    const kapak = enSlugToKapak[slug] || slugToKapak[slug] || null;
+
+    enPosts.push({ url: `en/blog/${slug}.html`, baslik, ozet, kategori, tarih: tarih_full, tarih_iso, kapak, _tarih_full: tarih_full });
+  }
+
+  enPosts.sort((a, b) => b.tarih_iso.localeCompare(a.tarih_iso));
+
+  // en/posts.json güncelle
+  const enJsonPosts = enPosts.map(({ _tarih_full, ...rest }) => rest);
+  writeFileSync(enPostsPath, JSON.stringify(enJsonPosts, null, 2), 'utf8');
+  console.log(`en/posts.json güncellendi: ${enPosts.length} makale`);
+
+  // en/blog.html grid güncelle
+  const enKartlar = enPosts.map(p => {
+    const g    = gorsel(p.kategori);
+    return `      <div class="blog-card" data-url="${esc(p.url)}">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,${g.from},${g.to});font-size:44px;">${g.emoji}</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">${esc(p.kategori || 'Guide')}</span>
+            <span class="blog-date">${esc(p._tarih_full)}</span>
+          </div>
+          <h3>${esc(p.baslik)}</h3>
+          <p>${esc(p.ozet)}</p>
+          <a href="blog/${esc(p.url.replace('en/blog/', ''))}" class="blog-read">Read More →</a>
+        </div>
+      </div>`;
+  }).join('\n');
+
+  let enBlog = readFileSync(enBlogHtml, 'utf8');
+  if (mk.test(enBlog)) {
+    enBlog = enBlog.replace(mk, `$1\n${enKartlar}\n      $2`);
+    writeFileSync(enBlogHtml, enBlog);
+    console.log(`en/blog.html: ${enPosts.length} kart güncellendi.`);
+  } else {
+    console.warn('UYARI: en/blog.html içinde BLOG_ARTICLES_START/END marker yok — atlandı.');
+  }
+} else {
+  console.log('en/ klasörü henüz oluşturulmamış — EN grid atlandı.');
+}

@@ -7,12 +7,13 @@ Akış:
   3. Kategori belirle
   4. Araştırmaya dayalı HTML makale yaz
   5. Tekrar kontrolü yap
-  6. Statik siteye kaydet
+  6. Statik siteye kaydet (TR + EN)
   7. E-posta bildirimi gönder
 """
 import json
 import logging
 import re
+from pathlib import Path
 from typing import Optional
 
 import anthropic
@@ -70,11 +71,19 @@ class ContentAgent:
                 )
                 return None
 
-            # 7. Kaydet
+            # 7. Kaydet (TR)
             saved = self.site.save_article(article, topic)
             logger.info(f"💾 Kaydedildi: {saved['url']}")
 
-            # 8. Başarı bildirimi
+            # 8. İngilizce versiyonu kaydet
+            try:
+                en_saved = self._translate_and_save_en(topic["slug"], saved["tarih_iso"])
+                if en_saved:
+                    logger.info(f"🇬🇧 EN kaydedildi: en/blog/{topic['slug']}.html")
+            except Exception as e_en:
+                logger.warning(f"⚠️  EN çeviri başarısız (ana akış devam ediyor): {e_en}")
+
+            # 9. Başarı bildirimi
             self.email.send_success(
                 title=article["title"],
                 url=saved["url"],
@@ -276,6 +285,133 @@ MEVCUTLAR:
             }],
         )
         return "EVET" in response.content[0].text.strip().upper()
+
+    # ─── EN ÇEVİRİ ───────────────────────────────────────────────
+    _EN_SYSTEM = """You are translating a Turkish static HTML page to English for an irrigation engineering company.
+
+Rules:
+1. Translate ALL visible Turkish text (titles, descriptions, paragraphs, buttons, labels, alt text, meta content).
+2. Keep ALL HTML tags, attributes, class names, IDs, href/src values EXACTLY unchanged.
+3. Keep company name "Irriga" unchanged.
+4. Keep HTML comments EXACTLY unchanged.
+5. Use proper English irrigation/agriculture terminology:
+   sulama=irrigation, damla sulama=drip irrigation, yağmurlama=sprinkler,
+   fertigasyon=fertigation, sera=greenhouse, tarla=field, hibe=grant/subsidy,
+   proje=project, keşif=site survey, teklif=quote/proposal.
+6. Keep phone numbers, emails, addresses unchanged.
+7. "Ücretsiz keşif" → "Free site survey", "Projenizi konuşalım" → "Let's discuss your project".
+8. Return ONLY the translated HTML — no markdown, no explanations."""
+
+    def _translate_and_save_en(self, slug: str, tarih_iso: str) -> Optional[dict]:
+        repo_root = Path(self.site.repo_root)
+        tr_path = repo_root / "blog" / f"{slug}.html"
+        if not tr_path.exists():
+            return None
+
+        html = tr_path.read_text(encoding="utf-8")
+
+        # Yol düzeltmeleri: blog/slug.html → en/blog/slug.html seviyesine
+        html = re.sub(r'(href|src)="\.\./assets/', r'\1="../../assets/', html)
+        html = re.sub(r'(href|src)="assets/', r'\1="../../assets/', html)
+
+        # Canonical ve og:url → EN versiyonuna çevir
+        html = re.sub(
+            r'(href="https://irriga\.com\.tr/)(blog/)',
+            r'\1en/blog/', html
+        )
+        html = re.sub(
+            r'(content="https://irriga\.com\.tr/)(blog/)',
+            r'\1en/blog/', html
+        )
+
+        # og:locale TR → EN, html lang
+        html = html.replace('content="tr_TR"', 'content="en_US"')
+        html = html.replace('<html lang="tr">', '<html lang="en">')
+
+        # hreflang meta ekle
+        tr_url = f"https://irriga.com.tr/blog/{slug}.html"
+        en_url = f"https://irriga.com.tr/en/blog/{slug}.html"
+        hreflang = (
+            f'<link rel="alternate" hreflang="tr" href="{tr_url}">\n'
+            f'<link rel="alternate" hreflang="en" href="{en_url}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{tr_url}">\n'
+        )
+        html = html.replace('</head>', hreflang + '</head>', 1)
+
+        # Dil seçici ekle
+        switcher = (
+            f'<div class="lang-switch">'
+            f'<a href="../../blog/{slug}.html" class="lang-btn">TR</a>'
+            f'<a href="{slug}.html" class="lang-btn active">EN</a>'
+            f'</div>'
+        )
+        nav_match = re.search(r'(<a [^>]*class="nav-cta")', html)
+        if nav_match:
+            html = html[:nav_match.start()] + switcher + '\n    ' + html[nav_match.start():]
+        else:
+            html = html.replace('</nav>', f'{switcher}\n  </nav>', 1)
+
+        # TR sayfasına da dil seçici ekle (yoksa)
+        tr_html = tr_path.read_text(encoding="utf-8")
+        if 'lang-switch' not in tr_html:
+            tr_switcher = (
+                f'<div class="lang-switch">'
+                f'<a href="../blog/{slug}.html" class="lang-btn active">TR</a>'
+                f'<a href="../en/blog/{slug}.html" class="lang-btn">EN</a>'
+                f'</div>'
+            )
+            tr_nav = re.search(r'(<a [^>]*class="nav-cta")', tr_html)
+            if tr_nav:
+                tr_html = tr_html[:tr_nav.start()] + tr_switcher + '\n    ' + tr_html[tr_nav.start():]
+            else:
+                tr_html = tr_html.replace('</nav>', f'{tr_switcher}\n  </nav>', 1)
+            tr_path.write_text(tr_html, encoding="utf-8")
+
+        # Claude ile çevir
+        resp = self.claude.messages.create(
+            model="claude-opus-4-8",
+            max_tokens=16000,
+            system=self._EN_SYSTEM,
+            messages=[{"role": "user", "content": html}],
+        )
+        en_html = resp.content[0].text.strip()
+        en_html = re.sub(r'^```(?:html)?\s*', '', en_html)
+        en_html = re.sub(r'\s*```$', '', en_html)
+
+        # EN başlık ve özet çıkar
+        title_m = re.search(r'<title>([^<|]+)', en_html)
+        en_title = (title_m.group(1) if title_m else slug).strip()
+        desc_m = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', en_html)
+        en_ozet = (desc_m.group(1) if desc_m else "").strip()
+
+        # Kaydet
+        en_blog_dir = repo_root / "en" / "blog"
+        en_blog_dir.mkdir(parents=True, exist_ok=True)
+        (en_blog_dir / f"{slug}.html").write_text(en_html, encoding="utf-8")
+
+        # en/posts.json güncelle
+        en_posts_path = repo_root / "en" / "posts.json"
+        if en_posts_path.exists():
+            en_posts = json.loads(en_posts_path.read_text(encoding="utf-8"))
+        else:
+            en_posts = []
+
+        en_url_rel = f"en/blog/{slug}.html"
+        en_posts = [p for p in en_posts if p.get("url") != en_url_rel]
+        en_posts.insert(0, {
+            "url": en_url_rel,
+            "baslik": en_title,
+            "ozet": en_ozet,
+            "kategori": "",
+            "tarih": tarih_iso,
+            "tarih_iso": tarih_iso,
+            "kapak": None,
+        })
+        en_posts_path.write_text(
+            json.dumps(en_posts, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
+        return {"url": en_url_rel, "title": en_title}
 
     @staticmethod
     def _jaccard(a: str, b: str) -> float:

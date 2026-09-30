@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Irriga Irrigation Systems</title>
+<meta name="description" content="Learn about Irriga Irrigation Systems. Our expert team, mission and values in agricultural and greenhouse irrigation.">
+<link rel="canonical" href="https://irriga.com.tr/en/hakkimizda.html">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.disiplin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.disiplin-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;text-align:center;}
+.disiplin-icon{font-size:32px;margin-bottom:12px;}
+.disiplin-card h3{font-size:1rem;font-weight:700;color:var(--g900);margin-bottom:8px;}
+.disiplin-card p{font-size:.9rem;color:var(--muted);line-height:1.6;}
+.nasil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.nasil-item h3{color:var(--g700);font-size:.95rem;margin-bottom:10px;}
+.nasil-item p{color:var(--muted);font-size:.875rem;line-height:1.7;}
+.section-head{max-width:780px;margin:0 auto 52px;text-align:center;}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.ref-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.ref-img{height:200px;overflow:hidden;background:linear-gradient(135deg,var(--g100),var(--g50));display:flex;align-items:center;justify-content:center;font-size:48px;}
+.ref-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ref-body{padding:20px;}
+.ref-tag{display:inline-block;background:var(--g100);color:var(--g700);border-radius:6px;padding:3px 10px;font-size:.78rem;font-weight:600;margin-bottom:10px;}
+.ref-body h3{font-size:.9rem;font-weight:700;color:var(--g900);margin-bottom:6px;line-height:1.35;}
+.ref-body>p{font-size:.82rem;color:var(--muted);margin-bottom:4px;}
+.ref-detail{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:6px;}
+.ref-img{cursor:pointer;}
+.ref-thumbs{display:flex;gap:5px;padding:8px 10px;background:#f4f7f5;border-top:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.ref-thumbs::-webkit-scrollbar{display:none;}
+.ref-thumb{height:44px;width:58px;flex-shrink:0;object-fit:cover;border-radius:5px;cursor:pointer;opacity:.65;transition:opacity .15s,outline .15s;}
+.ref-thumb:hover,.ref-thumb.active{opacity:1;outline:2px solid var(--g500);}
+/* Lightbox */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;gap:16px;}
+#lb.open{display:flex;}
+#lb-img{max-height:88vh;max-width:82vw;border-radius:10px;object-fit:contain;display:block;}
+.lb-btn{background:rgba(255,255,255,.15);border:none;color:#fff;font-size:28px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+.lb-btn:hover{background:rgba(255,255,255,.3);}
+#lb-close{position:absolute;top:16px;right:20px;font-size:26px;line-height:1;}
+@media(max-width:900px){
+  .disiplin-grid,.nasil-grid{grid-template-columns:1fr 1fr;}
+  .ref-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .disiplin-grid,.nasil-grid,.ref-grid{grid-template-columns:1fr;}
+}
+</style>
+<!-- Google tag (gtag.js) — Measurement ID'yi Google Analytics'ten alıp girin -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+<link rel="alternate" hreflang="tr" href="https://irriga.com.tr/hakkimizda.html">
+<link rel="alternate" hreflang="en" href="https://irriga.com.tr/en/hakkimizda.html">
+<link rel="alternate" hreflang="x-default" href="https://irriga.com.tr/hakkimizda.html">
+</head>
+<body>
+
+<header id="site-header">
+  <nav class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="../assets/img/logo.png" alt="Irriga Engineering" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="hakkimizda.html" class="active">About Us</a></li>
+      <li><a href="yaklasimimiz.html">Our Approach</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Our Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="sulama-sistemleri.html">Irrigation Systems Engineering</a></li>
+          <li><a href="fertigasyon.html">Fertigation Systems</a></li>
+          <li><a href="otomasyon-ve-izleme.html">Irrigation Automation and Monitoring</a></li>
+          <li><a href="proje-ve-danismanlik.html">Project and Consultancy</a></li>
+        </ul>
+      </li>
+      <li><a href="teknoloji-ve-cozum-ortaklari.html">Technology</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="iletisim.html">Contact</a></li>
+    </ul>
+    <div class="lang-switch"><a href="../hakkimizda.html" class="lang-btn">TR</a><a href="hakkimizda.html" class="lang-btn active">EN</a></div>
+    <a href="iletisim.html" class="nav-cta">Let's discuss your project</a>
+    <button class="hamburger" aria-label="Open/close menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<nav class="mobile-nav" aria-label="Mobile menu">
+  <a href="hakkimizda.html">🏢 About Us</a>
+  <a href="yaklasimimiz.html">🔍 Our Approach</a>
+  <a href="sulama-sistemleri.html">💧 Irrigation Systems</a>
+  <a href="fertigasyon.html">🌱 Fertigation</a>
+  <a href="otomasyon-ve-izleme.html">📡 Automation</a>
+  <a href="proje-ve-danismanlik.html">📋 Project & Consultancy</a>
+  <a href="teknoloji-ve-cozum-ortaklari.html">⚙️ Technology</a>
+  <a href="blog.html">📰 Blog</a>
+  <a href="iletisim.html">📞 Contact</a>
+  <a href="kvkk.html">🔒 KVKK</a>
+  <a href="iletisim.html" class="btn btn-primary">Let's discuss your project</a>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> › <span>About Us</span></p>
+    <h1>The right project, the right material, the right installation.</h1>
+    <p>We bring irrigation, fertilization and automation together under a single engineering discipline.</p>
+  </div>
+</section>
+
+<!-- Giriş -->
+<section class="section section--light">
+  <div class="wrap" style="max-width:760px;">
+    <p style="font-size:1.1rem;color:var(--ink);line-height:1.85;margin-bottom:18px;">Most irrigation investments in Turkey start with the wrong question: <strong>"Which dripper should we buy?"</strong></p>
+    <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">The right question is this: On this land, with this water source, for this crop — how much water, when, by which method and with which fertilizer solution do I need to apply?</p>
+    <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">Every piece of equipment chosen before this question is answered is a guess. And the cost of guessing usually appears not in the first season but in the third year: clogged drippers, uneven pressure, salt accumulation in the root zone, yields below expectations.</p>
+    <p style="color:var(--ink);font-weight:600;line-height:1.8;">Irriga Engineering was founded to answer this question.</p>
+  </div>
+</section>
+
+<!-- Üç Disiplin -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Three disciplines under one roof</h2>
+      <p>Irrigation, fertilization and automation are not separate jobs, but three faces of the same system.</p>
+    </div>
+    <div class="disiplin-grid">
+      <div class="disiplin-card">
+        <div class="disiplin-icon">💧</div>
+        <h3>Irrigation</h3>
+        <p>Hydraulic calculation, system selection, pipe and pump design, pressure management, filtration.</p>
+      </div>
+      <div class="disiplin-card">
+        <div class="disiplin-icon">🌱</div>
+        <h3>Fertilization</h3>
+        <p>Fertigation architecture, dosing, EC/pH control, solution compatibility and mixing plan.</p>
+      </div>
+      <div class="disiplin-card">
+        <div class="disiplin-icon">📡</div>
+        <h3>Automation</h3>
+        <p>Field control, soil moisture and climate measurement, satellite imagery, data-driven irrigation decisions.</p>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:28px;font-size:.9rem;max-width:640px;margin-left:auto;margin-right:auto;">A filter is not selected without knowing the fertilization plan; valve zoning is not done without knowing the automation scenario. In the industry, these three are usually designed by different companies, unaware of each other. We see the results in the field.</p>
+  </div>
+</section>
+
+<!-- Nasıl Çalışıyoruz -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How We Work</div>
+      <h2>The three words in the title mean three separate jobs.</h2>
+    </div>
+    <div class="nasil-grid">
+      <div class="nasil-item">
+        <h3>The right project — calculation first, equipment later</h3>
+        <p>An irrigation project starts not with equipment selection but with measurement: water analysis, soil, topography, crop water requirement. We make the equipment selection at the end of the design, not at the beginning.</p>
+        <p style="margin-top:10px;">Every proposal includes a Design Basis Summary: the accepted water requirement, peak flow, number of zones, filtration selection rationale and fertilization approach.</p>
+      </div>
+      <div class="nasil-item">
+        <h3>The right material — the rationale for the choice is written down</h3>
+        <p>We know the product range of the solution providers we work with closely: which material is suitable for your land, which control unit gives the right answer at which scale.</p>
+        <p style="margin-top:10px;">This knowledge determines the choice, not what we happen to have on hand. If a more economical solution is sufficient for a project, we do not recommend the expensive one.</p>
+      </div>
+      <div class="nasil-item">
+        <h3>The right installation — delivered with measurement</h3>
+        <p>A system is considered delivered not the moment it delivers water but the moment it is verified: lines are flushed, pressure testing is performed, dripper flow is measured, the result is compared against the calculation.</p>
+        <p style="margin-top:10px;">Scope, duration, warranty and price are written down. After delivery, we leave a maintenance program in writing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mühendislik Kadrosu -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Engineering Team</div>
+      <h2>Research and field combined</h2>
+      <p>We have both conducted years of research on crop water consumption and sensor technology, and designed and installed hundreds of projects in the field. Few companies in Turkey do both together.</p>
+    </div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:36px;max-width:760px;margin:0 auto;">
+      <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g500),var(--b600));display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">👨‍🔬</div>
+        <div style="flex:1;min-width:240px;">
+          <h3 style="color:var(--g900);margin-bottom:4px;font-size:1.05rem;">Dr. Ulaş Tunalı</h3>
+          <p style="color:var(--g700);font-size:.875rem;font-weight:600;margin-bottom:14px;">Founder, Company Director — Agricultural Engineer, PhD</p>
+          <p style="color:var(--muted);font-size:.875rem;line-height:1.75;margin-bottom:10px;">Ege University Faculty of Agriculture, Department of Agricultural Structures and Irrigation (bachelor's, master's, doctorate). PhD: management of irrigation with root zone moisture sensors in soilless agriculture and prediction of crop water consumption with artificial neural networks. Master's: effect of salinity on plant response in open and closed feeding systems.</p>
+          <p style="color:var(--muted);font-size:.875rem;line-height:1.75;margin-bottom:10px;">Ege University Research Assistant (2009–2015) — FLOW-AID and AQUATAG international projects. Teknotar / Devint (2015–2022) — more than 200 projects, from design to commissioning. Agrodrip (2022–2026).</p>
+          <p style="color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);padding-top:10px;margin-top:4px;">More than 15 national and international scientific publications — greenhouse irrigation automation, soil moisture sensors, deficit irrigation, crop water consumption modeling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Saha Geçmişi -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Field History</div>
+      <h2>A selection from our founding team's recent field work.</h2>
+      <p style="font-size:.875rem;color:var(--muted);">Irriga was founded in August 2026. The works below were carried out before the founding. Post-founding projects will be published after delivery.</p>
+    </div>
+    <div class="ref-grid">
+      <!-- 01 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p01,0)"><img src="../assets/img/saha/proje-01-a.jpeg" alt="Olive grove irrigation and automation — Muğla" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-01-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p01,0)">
+          <img src="../assets/img/saha/proje-01-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p01,1)">
+          <img src="../assets/img/saha/proje-01-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p01,2)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Irrigation · Automation</span>
+          <h3>Olive grove irrigation and automation</h3>
+          <p>Muğla · 1,200 decares · 2025</p>
+          <p class="ref-detail">Water source: canal · System: drip irrigation<br>Scope: Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 02 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p02,0)"><img src="../assets/img/saha/proje-02-a.jpeg" alt="Cherry orchard drip irrigation and pumping — Manisa" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-02-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p02,0)">
+          <img src="../assets/img/saha/proje-02-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p02,1)">
+          <img src="../assets/img/saha/proje-02-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p02,2)">
+          <img src="../assets/img/saha/proje-02-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p02,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Irrigation · Pumping</span>
+          <h3>Cherry orchard drip irrigation and pumping</h3>
+          <p>Manisa · 150 decares · 2025</p>
+          <p class="ref-detail">Water source: deep well · System: drip irrigation, pumping<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 03 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p03,0)"><img src="../assets/img/saha/proje-03-a.jpeg" alt="Cherry orchard pumping facility — Çanakkale" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-03-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p03,0)">
+          <img src="../assets/img/saha/proje-03-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p03,1)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Pumping</span>
+          <h3>Cherry orchard pumping facility</h3>
+          <p>Çanakkale · 600 decares · 2024</p>
+          <p class="ref-detail">System: floating submersible pump<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 04 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p04,0)"><img src="../assets/img/saha/proje-04-a.jpeg" alt="Olive grove subsurface drip irrigation — Manisa" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-04-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p04,0)">
+          <img src="../assets/img/saha/proje-04-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p04,1)">
+          <img src="../assets/img/saha/proje-04-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p04,2)">
+          <img src="../assets/img/saha/proje-04-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p04,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">SDI · Automation</span>
+          <h3>Olive grove subsurface drip irrigation and automation</h3>
+          <p>Manisa · 150 decares · 2024</p>
+          <p class="ref-detail">Water source: deep well · System: subsurface drip irrigation (SDI)<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 05 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p05,0)"><img src="../assets/img/saha/proje-05-a.jpeg" alt="Mandarin orchard subsurface drip irrigation — İzmir" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-05-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p05,0)">
+          <img src="../assets/img/saha/proje-05-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p05,1)">
+          <img src="../assets/img/saha/proje-05-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p05,2)">
+          <img src="../assets/img/saha/proje-05-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p05,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">SDI · Automation</span>
+          <h3>Mandarin orchard subsurface drip irrigation and automation</h3>
+          <p>İzmir · 50 decares · 2024</p>
+          <p class="ref-detail">Water source: deep well · System: subsurface drip irrigation (SDI)<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 06 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p06,0)"><img src="../assets/img/saha/proje-06-a.jpeg" alt="Medicinal and aromatic plant greenhouse facility — Erzincan" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-06-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p06,0)">
+          <img src="../assets/img/saha/proje-06-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,1)">
+          <img src="../assets/img/saha/proje-06-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,2)">
+          <img src="../assets/img/saha/proje-06-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,3)">
+          <img src="../assets/img/saha/proje-06-e.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,4)">
+          <img src="../assets/img/saha/proje-06-f.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,5)">
+          <img src="../assets/img/saha/proje-06-g.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,6)">
+          <img src="../assets/img/saha/proje-06-h.jpg" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,7)">
+          <img src="../assets/img/saha/proje-06-i.png" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,8)">
+          <img src="../assets/img/saha/proje-06-j.png" class="ref-thumb" loading="lazy" onclick="lbOpen(p06,9)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Greenhouse · Automation</span>
+          <h3>Medicinal and aromatic plant greenhouse facility</h3>
+          <p>Erzincan · 45 decares · 2026</p>
+          <p class="ref-detail">Water source: deep well · System: 5 greenhouses, irrigation and automation<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 07 — fotoğraf yok -->
+      <div class="ref-card">
+        <div class="ref-img">🌿</div>
+        <div class="ref-body">
+          <span class="ref-tag">Soilless · Automation</span>
+          <h3>Artichoke production, pot cultivation</h3>
+          <p>İzmir · 40 decares · 2025</p>
+          <p class="ref-detail">Water source: deep well · System: pot cultivation, irrigation and automation<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 08 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p08,0)"><img src="../assets/img/saha/proje-08-a.jpeg" alt="Saffron production soilless agriculture — Manisa" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-08-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p08,0)">
+          <img src="../assets/img/saha/proje-08-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p08,1)">
+          <img src="../assets/img/saha/proje-08-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p08,2)">
+          <img src="../assets/img/saha/proje-08-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p08,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Soilless · Automation</span>
+          <h3>Saffron production, soilless agriculture</h3>
+          <p>Manisa · 7 decares · 2026</p>
+          <p class="ref-detail">Water source: deep well · System: soilless agriculture, irrigation and automation<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+      <!-- 09 -->
+      <div class="ref-card">
+        <div class="ref-img" onclick="lbOpen(p09,0)"><img src="../assets/img/saha/proje-09-a.jpeg" alt="Raw material yard dust suppression system — İzmir" loading="lazy"></div>
+        <div class="ref-thumbs">
+          <img src="../assets/img/saha/proje-09-a.jpeg" class="ref-thumb active" loading="lazy" onclick="lbOpen(p09,0)">
+          <img src="../assets/img/saha/proje-09-b.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p09,1)">
+          <img src="../assets/img/saha/proje-09-c.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p09,2)">
+          <img src="../assets/img/saha/proje-09-d.jpeg" class="ref-thumb" loading="lazy" onclick="lbOpen(p09,3)">
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Industrial</span>
+          <h3>Raw material yard dust suppression system</h3>
+          <p>İzmir · 200 decares · 2025</p>
+          <p class="ref-detail">Water source: deep well · System: industrial dust suppression<br>Scope: Design · Implementation · Commissioning</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--dark">
+  <div class="wrap text-center">
+    <h2 style="color:#fff;font-size:28px;margin-bottom:14px;">Let's evaluate your land together.</h2>
+    <p style="color:rgba(255,255,255,.8);margin-bottom:32px;font-size:15.5px;max-width:520px;margin-left:auto;margin-right:auto;">If you have an existing system, let's discuss what can be improved; if you are planning a new investment, let's discuss where you should start.</p>
+    <a href="iletisim.html" class="btn btn-primary btn-lg">Let's discuss your project</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Irriga Engineering</strong>
+      <p style="color:var(--muted);margin-top:6px;font-size:.9rem;">The right project, the right material, the right installation.</p>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:8px;">İrriga Mühendislik Sulama Sistemleri San. ve Tic. Ltd. Şti.<br>Mersinli Mah. Gaziler Cad. Batı İş Merkezi No: 369/Y, Konak / İZMİR</p>
+    </div>
+    <div>
+      <strong>Our Services</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;">
+        <li><a href="sulama-sistemleri.html">Irrigation Systems Engineering</a></li>
+        <li><a href="fertigasyon.html">Fertigation Systems</a></li>
+        <li><a href="otomasyon-ve-izleme.html">Irrigation Automation and Monitoring</a></li>
+        <li><a href="proje-ve-danismanlik.html">Project and Consultancy</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Corporate</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;">
+        <li><a href="hakkimizda.html">About Us</a></li>
+        <li><a href="yaklasimimiz.html">Our Approach</a></li>
+        <li><a href="teknoloji-ve-cozum-ortaklari.html">Technology and Solution Partners</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="kvkk.html">KVKK</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Contact</strong>
+      <ul style="list-style:none;padding:0;margin-top:8px;color:var(--muted);font-size:.9rem;">
+        <li>📞 <a href="tel:+905327059400">+90 532 705 94 00</a></li>
+        <li>✉️ <a href="mailto:info@irriga.com.tr">info@irriga.com.tr</a></li>
+        <li style="margin-top:12px;"><a href="iletisim.html" class="btn btn-primary" style="font-size:.9rem;padding:10px 18px;">Let's discuss your project</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:16px;border-top:1px solid var(--border);margin-top:32px;text-align:center;color:var(--muted);font-size:.85rem;">
+    © 2026 Irriga Engineering · irriga.tr
+  </div>
+</footer>
+
+<a href="https://wa.me/905327059400?text=Merhaba%2C+sulama+sistemi+hakk%C4%B1nda+bilgi+almak+istiyorum." class="whatsapp-float" target="_blank" aria-label="Reach us on WhatsApp">
+  <span class="whatsapp-tooltip">Message us now!</span>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<button id="back-top" aria-label="Back to top of page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="../assets/js/main.js"></script>
+
+<!-- Lightbox -->
+<div id="lb" onclick="lbBgClose(event)">
+  <button class="lb-btn" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-btn" id="lb-next" onclick="lbNav(1)">&#8250;</button>
+  <button class="lb-btn" id="lb-close" onclick="lbClose()">&#10005;</button>
+</div>
+
+<script>
+const p01=['assets/img/saha/proje-01-a.jpeg','assets/img/saha/proje-01-b.jpeg','assets/img/saha/proje-01-c.jpeg'];
+const p02=['assets/img/saha/proje-02-a.jpeg','assets/img/saha/proje-02-b.jpeg','assets/img/saha/proje-02-c.jpeg','assets/img/saha/proje-02-d.jpeg'];
+const p03=['assets/img/saha/proje-03-a.jpeg','assets/img/saha/proje-03-b.jpeg'];
+const p04=['assets/img/saha/proje-04-a.jpeg','assets/img/saha/proje-04-b.jpeg','assets/img/saha/proje-04-c.jpeg','assets/img/saha/proje-04-d.jpeg'];
+const p05=['assets/img/saha/proje-05-a.jpeg','assets/img/saha/proje-05-b.jpeg','assets/img/saha/proje-05-c.jpeg','assets/img/saha/proje-05-d.jpeg'];
+const p06=['assets/img/saha/proje-06-a.jpeg','assets/img/saha/proje-06-b.jpeg','assets/img/saha/proje-06-c.jpeg','assets/img/saha/proje-06-d.jpeg','assets/img/saha/proje-06-e.jpeg','assets/img/saha/proje-06-f.jpeg','assets/img/saha/proje-06-g.jpeg','assets/img/saha/proje-06-h.jpg','assets/img/saha/proje-06-i.png','assets/img/saha/proje-06-j.png'];
+const p08=['assets/img/saha/proje-08-a.jpeg','assets/img/saha/proje-08-b.jpeg','assets/img/saha/proje-08-c.jpeg','assets/img/saha/proje-08-d.jpeg'];
+const p09=['assets/img/saha/proje-09-a.jpeg','assets/img/saha/proje-09-b.jpeg','assets/img/saha/proje-09-c.jpeg','assets/img/saha/proje-09-d.jpeg'];
+
+let lbArr=[],lbIdx=0;
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+
+function lbOpen(arr,idx){
+  lbArr=arr; lbIdx=idx;
+  lbImg.src=arr[idx];
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function lbClose(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbBgClose(e){ if(e.target===lb) lbClose(); }
+function lbNav(dir){
+  lbIdx=(lbIdx+dir+lbArr.length)%lbArr.length;
+  lbImg.src=lbArr[lbIdx];
+}
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') lbClose();
+  if(e.key==='ArrowLeft') lbNav(-1);
+  if(e.key==='ArrowRight') lbNav(1);
+});
+</script>
+</body>
+</html>
