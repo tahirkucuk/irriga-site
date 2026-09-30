@@ -341,8 +341,8 @@ Rules:
         # Dil seçici ekle
         switcher = (
             f'<div class="lang-switch">'
-            f'<a href="../../blog/{slug}.html" class="lang-btn">TR</a>'
-            f'<a href="{slug}.html" class="lang-btn active">EN</a>'
+            f'<a href="../../blog/{slug}.html" class="lang-btn" title="Türkçe">🇹🇷</a>'
+            f'<a href="{slug}.html" class="lang-btn active" title="English">🇬🇧</a>'
             f'</div>'
         )
         nav_match = re.search(r'(<a [^>]*class="nav-cta")', html)
@@ -356,8 +356,8 @@ Rules:
         if 'lang-switch' not in tr_html:
             tr_switcher = (
                 f'<div class="lang-switch">'
-                f'<a href="../blog/{slug}.html" class="lang-btn active">TR</a>'
-                f'<a href="../en/blog/{slug}.html" class="lang-btn">EN</a>'
+                f'<a href="../blog/{slug}.html" class="lang-btn active" title="Türkçe">🇹🇷</a>'
+                f'<a href="../en/blog/{slug}.html" class="lang-btn" title="English">🇬🇧</a>'
                 f'</div>'
             )
             tr_nav = re.search(r'(<a [^>]*class="nav-cta")', tr_html)
