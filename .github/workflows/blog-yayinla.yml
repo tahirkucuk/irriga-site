@@ -56,6 +56,7 @@ jobs:
           GMAIL_USER: tahirkucuk@gmail.com
           NOTIFY_TO: tahirkucuk@gmail.com
           GITHUB_ACTIONS: "true"
+          IRRIGA_EMAIL_ENABLED: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
         run: cd scripts && python main.py batch
 
       - name: Thumbnail üret

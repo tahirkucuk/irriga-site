@@ -19,6 +19,10 @@ class EmailNotifier:
         self.to = NOTIFY_TO
 
     def send_message(self, subject: str, body_html: str) -> bool:
+        import os
+        if os.getenv("IRRIGA_EMAIL_ENABLED", "true").lower() == "false":
+            logger.info("📧 E-posta devre dışı (manuel çalışma) — atlandı")
+            return False
         if not self.smtp_pass:
             logger.warning("⚠️  GMAIL_APP_PASSWORD tanımlı değil — e-posta atlandı")
             return False
