@@ -25,7 +25,7 @@ def _ask_claude(prompt: str, system: str = None, model: str = CLAUDE_MODEL) -> s
     if system:
         full_prompt = f"<system>\n{system}\n</system>\n\n{prompt}"
 
-    cmd = ["claude", "--print", "--model", model]
+    cmd = ["claude", "--print", "--dangerously-skip-permissions", "--model", model]
     try:
         result = subprocess.run(
             cmd,
@@ -36,8 +36,9 @@ def _ask_claude(prompt: str, system: str = None, model: str = CLAUDE_MODEL) -> s
             timeout=180,
         )
         if result.returncode != 0:
+            out = result.stdout.strip()
             err = result.stderr.strip()
-            raise RuntimeError(f"claude CLI hatası (kod {result.returncode}): {err}")
+            raise RuntimeError(f"claude CLI hatası (kod {result.returncode}): {err or out}")
         return result.stdout.strip()
     except FileNotFoundError:
         raise RuntimeError(
