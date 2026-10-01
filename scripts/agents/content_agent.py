@@ -21,29 +21,48 @@ logger = logging.getLogger(__name__)
 
 def _ask_claude(prompt: str, system: str = None, model: str = CLAUDE_MODEL) -> str:
     """claude CLI subprocess ile metin üret. Pro abonelikten tüketir."""
+    import tempfile, os
     full_prompt = prompt
     if system:
         full_prompt = f"<system>\n{system}\n</system>\n\n{prompt}"
 
-    cmd = ["claude", "--print", "--dangerously-skip-permissions", "--model", model]
+    # Prompt'u geçici dosyaya yaz, stdin'den besle (arg uzunluk limiti yok)
+    tmp = None
     try:
-        result = subprocess.run(
-            cmd,
-            input=full_prompt,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            timeout=180,
-        )
-        if result.returncode != 0:
-            out = result.stdout.strip()
-            err = result.stderr.strip()
-            raise RuntimeError(f"claude CLI hatası (kod {result.returncode}): {err or out}")
-        return result.stdout.strip()
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".txt", delete=False, encoding="utf-8"
+        ) as f:
+            f.write(full_prompt)
+            tmp = f.name
+
+        cmd = ["claude", "--print", "--dangerously-skip-permissions", "--model", model]
+        with open(tmp, "r", encoding="utf-8") as stdin_f:
+            result = subprocess.run(
+                cmd,
+                stdin=stdin_f,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                timeout=600,
+            )
     except FileNotFoundError:
         raise RuntimeError(
             "claude CLI bulunamadı. Kurulum: npm install -g @anthropic-ai/claude-code"
         )
+    finally:
+        if tmp and os.path.exists(tmp):
+            os.unlink(tmp)
+
+    if result.returncode != 0:
+        out = result.stdout.strip()
+        err = result.stderr.strip()
+        raise RuntimeError(f"claude CLI hatası (kod {result.returncode}): {err or out}")
+
+    output = result.stdout.strip()
+    if not output:
+        err = result.stderr.strip()
+        raise RuntimeError(f"claude CLI boş yanıt döndürdü. stderr: {err}")
+    return output
 
 
 class ContentAgent:
