@@ -38,6 +38,13 @@ jobs:
       - name: Claude CLI kur
         run: npm install -g @anthropic-ai/claude-code
 
+      - name: Claude token temizle
+        run: |
+          CLEAN=$(echo "$RAW_TOKEN" | tr -d '\n\r ')
+          echo "CLAUDE_CODE_OAUTH_TOKEN=$CLEAN" >> "$GITHUB_ENV"
+        env:
+          RAW_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
       - name: Git kimliği ayarla
         run: |
           git config user.email "ajan@irriga.com.tr"
