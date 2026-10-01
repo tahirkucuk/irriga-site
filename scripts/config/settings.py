@@ -48,8 +48,7 @@ def get_site_config(site_key: str = None) -> dict:
         raise ValueError(f"Bilinmeyen site: {key}. Mevcut: {list(SITES.keys())}")
     return SITES[key]
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-CLAUDE_MODEL = "claude-opus-4-8"
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-8")
 
 GMAIL_USER = os.getenv("GMAIL_USER", "tahirkucuk@gmail.com")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "")

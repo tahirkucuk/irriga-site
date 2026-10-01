@@ -35,6 +35,9 @@ jobs:
       - name: Node bağımlılıkları (Puppeteer)
         run: npm install
 
+      - name: Claude CLI kur
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Git kimliği ayarla
         run: |
           git config user.email "ajan@irriga.com.tr"
@@ -42,7 +45,7 @@ jobs:
 
       - name: Makale üret
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           GMAIL_USER: tahirkucuk@gmail.com
           NOTIFY_TO: tahirkucuk@gmail.com
