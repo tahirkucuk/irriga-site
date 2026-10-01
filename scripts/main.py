@@ -106,29 +106,47 @@ def batch():
         EmailNotifier().send_no_topics()
         return
 
-    topic = pending[0]
     site = SiteClient()
     email = EmailNotifier()
     agent = ContentAgent(site, email)
 
-    result = agent.create_article(topic)
+    # Başarılı yayın veya gerçek hata bulana kadar konuları dene (max 5)
+    for attempt in range(min(5, len(pending))):
+        topic = pending[0]
+        logger.info(f"🎯 Konu ({attempt+1}. deneme): {topic['baslik']}")
 
-    if result:
+        result = agent.create_article(topic)
+
+        if result:
+            # Başarı: konuyu pending'den kaldır, published'e ekle
+            topics_data["pending"].pop(0)
+            topics_data.setdefault("published", []).append({
+                **topic,
+                "tarih_iso": result["tarih_iso"],
+            })
+            TOPICS_FILE.write_text(
+                json.dumps(topics_data, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            logger.info("✅ topics.json güncellendi")
+
+            if not git_commit_push(result["title"]):
+                email.send_failure("Git commit/push başarısız. Makale oluşturuldu ama deploy edilemedi.")
+                sys.exit(1)
+            return  # Başarıyla tamamlandı
+
+        # None döndü — duplicate mi hata mı? Her iki durumda da konuyu geç
+        logger.warning(f"⏭  Konu atlandı (duplicate veya hata): {topic['baslik']}")
         topics_data["pending"].pop(0)
-        topics_data.setdefault("published", []).append({
-            **topic,
-            "tarih_iso": result["tarih_iso"],
-        })
+        topics_data.setdefault("skipped", []).append(topic)
         TOPICS_FILE.write_text(
             json.dumps(topics_data, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        logger.info("✅ topics.json güncellendi")
+        pending = topics_data.get("pending", [])
+        if not pending:
+            break
 
-        if not git_commit_push(result["title"]):
-            email.send_failure("Git commit/push başarısız. Makale oluşturuldu ama deploy edilemedi.")
-            sys.exit(1)
-    else:
-        sys.exit(1)
+    logger.error("❌ 5 konuyu da üretemedi veya konu listesi bitti.")
+    sys.exit(1)
 
 
 def write_topic(topic_str: str):

@@ -138,7 +138,23 @@ KONU: {topic}
 - ANAHTAR BULGULAR: En önemli 5 nokta"""
 
         try:
-            return _ask_claude(prompt, model="claude-haiku-4-5-20251001")
+            # Kısa timeout: research opsiyonel, fallback var; ilk CLI çağrısı yavaş olabilir
+            import threading
+            result_box = [None]
+            err_box = [None]
+
+            def _run():
+                try:
+                    result_box[0] = _ask_claude(prompt, model="claude-haiku-4-5-20251001")
+                except Exception as exc:
+                    err_box[0] = exc
+
+            t = threading.Thread(target=_run, daemon=True)
+            t.start()
+            t.join(timeout=90)  # 90 saniye bekle, sonra fallback
+            if t.is_alive() or result_box[0] is None:
+                raise RuntimeError(err_box[0] or "90s timeout")
+            return result_box[0]
         except Exception as e:
             logger.warning(f"⚠️  Araştırma başarısız ({e}) — genel bilgiyle devam")
             return f"Konu: {topic}\n(Araştırma yapılamadı — genel bilgiye dayanılarak yazılacak)"
