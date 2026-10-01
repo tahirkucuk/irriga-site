@@ -1,22 +1,6 @@
 {
   "pending": [
     {
-      "slug": "bag-urum-sulama",
-      "baslik": "Bağ ve Üzüm Bahçelerinde Damla Sulama Rehberi",
-      "kategori": "Meyve Bahçeleri",
-      "emoji": "🍇",
-      "gradient_from": "#f0eafa",
-      "gradient_to": "#d8c8f5",
-      "anahtar_kelimeler": [
-        "bağ sulaması",
-        "üzüm sulama sistemi",
-        "asma damlama",
-        "vineyard irrigation",
-        "bağda sulama",
-        "şarap üzümü sulaması"
-      ]
-    },
-    {
       "slug": "narenciye-sulama",
       "baslik": "Narenciye Bahçelerinde Sulama: Portakal, Mandalina, Limon",
       "kategori": "Meyve Bahçeleri",
@@ -484,6 +468,23 @@
         "Ege tarımı"
       ],
       "tarih_iso": "2026-09-28"
+    },
+    {
+      "slug": "bag-urum-sulama",
+      "baslik": "Bağ ve Üzüm Bahçelerinde Damla Sulama Rehberi",
+      "kategori": "Meyve Bahçeleri",
+      "emoji": "🍇",
+      "gradient_from": "#f0eafa",
+      "gradient_to": "#d8c8f5",
+      "anahtar_kelimeler": [
+        "bağ sulaması",
+        "üzüm sulama sistemi",
+        "asma damlama",
+        "vineyard irrigation",
+        "bağda sulama",
+        "şarap üzümü sulaması"
+      ],
+      "tarih_iso": "2026-10-01"
     }
   ]
 }
