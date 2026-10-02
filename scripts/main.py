@@ -146,6 +146,7 @@ def batch():
             break
 
     logger.error("❌ 5 konuyu da üretemedi veya konu listesi bitti.")
+    email.send_failure("5 konu denemesinin tamamı başarısız oldu. topics.json ve Actions loglarını inceleyin.")
     sys.exit(1)
 
 

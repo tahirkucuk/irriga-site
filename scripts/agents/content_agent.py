@@ -65,6 +65,19 @@ def _ask_claude(prompt: str, system: str = None, model: str = CLAUDE_MODEL) -> s
     return output
 
 
+def _extract_json(raw: str) -> str:
+    """Claude preamble metin yazdığında bile JSON nesnesini bul ve döndür."""
+    # Markdown code fence'i sil
+    raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
+    raw = re.sub(r"\s*```$", "", raw).strip()
+    # JSON başlayana kadar öne gelen metni atla
+    if not raw.startswith("{"):
+        m = re.search(r"\{", raw)
+        if m:
+            raw = raw[m.start():]
+    return raw.strip()
+
+
 class ContentAgent:
     def __init__(self, site_client, email_notifier, site_key: str = None):
         self.site = site_client
@@ -95,9 +108,6 @@ class ContentAgent:
 
             if self._check_duplicate(article["title"]):
                 logger.warning("⚠️  Başlık mevcut içerikle çok benzer — atlandı")
-                self.email.send_failure(
-                    f"Tekrar yazı tespit edildi: '{article['title']}'"
-                )
                 return None
 
             saved = self.site.save_article(article, topic)
@@ -121,7 +131,6 @@ class ContentAgent:
 
         except Exception as e:
             logger.error(f"❌ İçerik üretim hatası: {e}", exc_info=True)
-            self.email.send_failure(str(e))
             return None
 
     # ─── ARAŞTIRMA ───────────────────────────────────────────────
@@ -175,7 +184,7 @@ SADECE geçerli JSON döndür:
 }}"""
 
         raw = _ask_claude(prompt, model="claude-haiku-4-5-20251001")
-        raw = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("`")
+        raw = _extract_json(raw)
         try:
             return json.loads(raw)
         except json.JSONDecodeError:
@@ -254,7 +263,7 @@ article_body_html kuralları:
 - Geçerli HTML, inline style yok"""
 
         raw = _ask_claude(prompt)
-        raw = re.sub(r"^```(?:json)?\s*", "", raw).strip().rstrip("`")
+        raw = _extract_json(raw)
 
         try:
             article = json.loads(raw)
